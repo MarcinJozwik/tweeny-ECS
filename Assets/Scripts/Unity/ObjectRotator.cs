@@ -1,21 +1,18 @@
-﻿using EaseMethods;
+﻿using TweenyPlugin;
 using UnityEngine;
 
 namespace Unity
 {
     public class ObjectRotator : MonoBehaviour
     {
-        public AGetValue EaseMethod;
+        public int Mode;
         public float Duration = 5f;
     
         private float timer = 0f;
         private float easeValue;
-        private float timeStep;
 
         private Vector3 startRotation;
-        private Vector3 endRotation;
         private Vector3 rotation;
-        private float direction;
         private float distance;
 
         private bool started = false;
@@ -23,8 +20,6 @@ namespace Unity
         private void Start()
         {
             startRotation = transform.rotation.eulerAngles;
-            endRotation = startRotation + new Vector3(0,360,0);
-            direction = 1f;
             distance = 360;
         }
         void Update()
@@ -38,8 +33,7 @@ namespace Unity
             if (started)
             {
                 timer = Mathf.MoveTowards(timer, Duration, Time.deltaTime);
-                timeStep = timer / Duration;
-                easeValue = EaseMethod.GetValue(timeStep);
+                easeValue = Tweeny.GetValue(timer, 0, Duration, TweenyTest.GetEase(Mode));
                 rotation = startRotation + new Vector3(0,distance * easeValue,0);
                 transform.rotation = Quaternion.Euler(rotation);
             }

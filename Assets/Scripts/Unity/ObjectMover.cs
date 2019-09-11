@@ -1,16 +1,15 @@
-﻿using EaseMethods;
+﻿using TweenyPlugin;
 using UnityEngine;
 
 namespace Unity
 {
     public class ObjectMover : MonoBehaviour
     {
-        public AGetValue EaseMethod;
+        public int Mode;
         public float Duration = 5f;
     
         private float timer = 0f;
         private float easeValue;
-        private float timeStep;
 
         private Vector3 startPosition;
         private Vector3 endPosition;
@@ -26,6 +25,7 @@ namespace Unity
             direction = (endPosition - startPosition).normalized;
             distance = Vector3.Distance(endPosition, startPosition);
         }
+        
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -37,8 +37,7 @@ namespace Unity
             if (started)
             {
                 timer = Mathf.MoveTowards(timer, Duration, Time.deltaTime);
-                timeStep = timer / Duration;
-                easeValue = EaseMethod.GetValue(timeStep);
+                easeValue = Tweeny.GetValue(timer, 0, Duration, TweenyTest.GetEase(Mode));
                 transform.position = startPosition + (easeValue * distance * direction);
             }
 

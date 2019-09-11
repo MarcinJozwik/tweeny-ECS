@@ -1,9 +1,8 @@
-﻿using TweenyPlugin;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Unity
 {
-    public class ObjectScaler : MonoBehaviour
+    public class ObjectFader : MonoBehaviour
     {
         public int Mode;
         public float Duration = 5f;
@@ -11,18 +10,21 @@ namespace Unity
         private float timer = 0f;
         private float easeValue;
 
-        private Vector3 startScale;
-        private Vector3 endScale;
-        private Vector3 distance;
-
+        private Material material;
+        private float startAlpha;
+        private float endAlpha;
+        private float alpha;
+        
         private bool started = false;
 
         private void Start()
         {
-            startScale = transform.localScale;
-            endScale = startScale * 2f;
-            distance = endScale - startScale;
+            material = GetComponent<Renderer>().material;
+            
+            startAlpha = 0;
+            endAlpha = material.color.a;
         }
+        
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -34,8 +36,9 @@ namespace Unity
             if (started)
             {
                 timer = Mathf.MoveTowards(timer, Duration, Time.deltaTime);
-                easeValue = Tweeny.GetValue(timer, 0, Duration, TweenyTest.GetEase(Mode));
-                transform.localScale = startScale + (distance * easeValue);
+                easeValue = TweenyPlugin.Tweeny.GetValue(timer, 0, Duration, TweenyTest.GetEase(Mode));
+                alpha = startAlpha + easeValue * (endAlpha - startAlpha);
+                material.color = new Color(material.color.r, material.color.g, material.color.b, alpha);
             }
 
             if (timer >= Duration)
