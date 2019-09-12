@@ -14,7 +14,7 @@ namespace TweenyPlugin.Editor
         private bool normalization = true;
         
         private AnimationCurve curve;
-        private AGetEase getEase;
+        private Ease ease;
         private List<KeyFrame> keyFrames = new List<KeyFrame>();
         
         private FieldInfo[] fields;
@@ -75,7 +75,7 @@ namespace TweenyPlugin.Editor
         {
             var field = fields[index];
             Ease ease = (Ease)(field.GetValue(null));
-            this.getEase = ease.EaseMethod;
+            this.ease = ease;
             Shape();
         }
 
@@ -103,7 +103,7 @@ namespace TweenyPlugin.Editor
             for (int i = 0; i <= count; i++)
             {
                 float time = i / (float) count;
-                float value = getEase.Get(time);
+                float value = ease.Get(time);
                 keyFrames.Add(new KeyFrame(time, value));
             }
         }

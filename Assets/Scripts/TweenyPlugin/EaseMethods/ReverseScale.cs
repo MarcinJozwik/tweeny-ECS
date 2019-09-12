@@ -1,22 +1,17 @@
 ﻿namespace TweenyPlugin.EaseMethods
 {
-    public class ReverseScale : AGetEase
+    public class ReverseScale : IEasing
     {
-        private readonly AGetEase getEase;
+        private readonly Ease ease;
 
         public ReverseScale(Ease ease)
         {
-            this.getEase = ease.EaseMethod;
-        }
-        
-        public ReverseScale(AGetEase getEase)
-        {
-            this.getEase = getEase;
+            this.ease = ease;
         }
 
-        public override float Get(float time)
+        public float Get(float time)
         {
-            return getEase.Get(time) * (1 - time);
+            return ease.Get(time) * (1 - time);
         }
 
     }

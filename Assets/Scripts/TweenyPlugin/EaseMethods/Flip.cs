@@ -1,10 +1,17 @@
 ﻿namespace TweenyPlugin
 {
-    public class Flip : AGetEase
+    public class Flip : IEasing
     {
-        public override float Get(float time)
+        private readonly Ease ease;
+
+        public Flip(Ease ease)
         {
-            return 1 - time;
+            this.ease = ease;
+        }
+
+        public float Get(float time)
+        {
+            return 1 - ease.Get(time);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace TweenyPlugin
 {
-    public class SmoothStop : AGetEase
+    public class SmoothStop : IEasing
     {
         private readonly Ease smoothStart;
         public SmoothStop(Ease smoothStart)
@@ -8,12 +8,12 @@
             this.smoothStart = smoothStart;
         }
 
-        public override float Get(float time)
+        public float Get(float time)
         {
             float value = time;
-            value = EaseMode.Flip.EaseMethod.Get(value);
-            value = smoothStart.EaseMethod.Get(value);
-            value = EaseMode.Flip.EaseMethod.Get(value);
+            value = EaseMode.Flip.Get(value);
+            value = smoothStart.Get(value);
+            value = EaseMode.Flip.Get(value);
             return value;
         }
     }

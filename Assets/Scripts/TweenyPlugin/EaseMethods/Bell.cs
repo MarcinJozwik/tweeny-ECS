@@ -1,6 +1,6 @@
 ﻿namespace TweenyPlugin.EaseMethods
 {
-    public class Bell : AGetEase
+    public class Bell : IEasing
     {
         private readonly uint power;
 
@@ -9,7 +9,7 @@
             this.power = power;
         }
 
-        public override float Get(float time)
+        public float Get(float time)
         {
             return new Pow(EaseMode.Arch2, power).Get(time);
         }

@@ -1,8 +1,8 @@
 ﻿namespace TweenyPlugin
 {
-    public class Linear : AGetEase
+    public class Linear : IEasing
     {
-        public override float Get(float time)
+        public float Get(float time)
         {
             return time;
         }

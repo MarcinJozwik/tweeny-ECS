@@ -1,6 +1,6 @@
 ﻿namespace TweenyPlugin.EaseMethods
 {
-    public class Bezier7 : AGetEase
+    public class Bezier7 : IEasing
     {
         private readonly float b, c, d, e, f, g;
 
@@ -14,7 +14,7 @@
             this.g = g;
         }
 
-        public override float Get(float time)
+        public float Get(float time)
         {
             float s = 1 - time;
             float t2 = time * time;

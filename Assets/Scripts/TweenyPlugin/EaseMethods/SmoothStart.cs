@@ -2,7 +2,7 @@
 
 namespace TweenyPlugin
 {
-    public class SmoothStart : AGetEase
+    public class SmoothStart : IEasing
     {
         private readonly uint power;
 
@@ -11,7 +11,7 @@ namespace TweenyPlugin
             this.power = power;
         }
 
-        public override float Get(float time)
+        public float Get(float time)
         {
             float value = time;
             

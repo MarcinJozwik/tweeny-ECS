@@ -2,26 +2,20 @@
 
 namespace TweenyPlugin
 {
-    public class Pow : AGetEase
+    public class Pow : IEasing
     {
         private readonly uint power;
-        private readonly AGetEase getEase;
+        private readonly Ease ease;
 
         public Pow(Ease ease, uint power)
         {
-            this.getEase = ease.EaseMethod;
+            this.ease = ease;
             this.power = power;
         }
         
-        public Pow(AGetEase getEase, uint power)
+        public float Get(float time)
         {
-            this.getEase = getEase;
-            this.power = power;
-        }
-
-        public override float Get(float time)
-        {
-            float baseValue = getEase.Get(time);
+            float baseValue = ease.Get(time);
             float value = baseValue;
             
             for (int i = 0; i < power; i++)
