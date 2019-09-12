@@ -5,8 +5,8 @@ namespace Unity
 {
     public class ObjectRotator : MonoBehaviour
     {
-        public int Mode;
-        public float Duration = 5f;
+        private int mode;
+        private float duration;
     
         private float timer = 0f;
         private float easeValue;
@@ -19,6 +19,8 @@ namespace Unity
 
         private void Start()
         {
+            duration = GetComponentInParent<Duration>().DurationTime;
+            mode = GetComponent<Mode>().EaseMode;
             startRotation = transform.rotation.eulerAngles;
             distance = 360;
         }
@@ -32,13 +34,13 @@ namespace Unity
 
             if (started)
             {
-                timer = Mathf.MoveTowards(timer, Duration, Time.deltaTime);
-                easeValue = Tweeny.GetValue(timer, 0, Duration, TweenyTest.GetEase(Mode));
+                timer = Mathf.MoveTowards(timer, duration, Time.deltaTime);
+                easeValue = Tweeny.GetValue(timer, 0, duration, TweenyTest.GetEase(mode));
                 rotation = startRotation + new Vector3(0,distance * easeValue,0);
                 transform.rotation = Quaternion.Euler(rotation);
             }
 
-            if (timer >= Duration)
+            if (timer >= duration)
             {
                 started = false;
             }

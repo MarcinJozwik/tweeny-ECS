@@ -1,19 +1,25 @@
 ﻿namespace TweenyPlugin
 {
-    public class CrossFade : AEase
+    public class CrossFade : AGetEase
     {
-        private readonly AEase easeA;
-        private readonly AEase easeB;
+        private readonly AGetEase getEaseA;
+        private readonly AGetEase getEaseB;
 
-        public CrossFade(AEase easeA, AEase easeB)
+        public CrossFade(Ease easeA, Ease easeB)
         {
-            this.easeA = easeA;
-            this.easeB = easeB;
+            this.getEaseA = easeA.EaseMethod;
+            this.getEaseB = easeB.EaseMethod;
+        }
+        
+        public CrossFade(AGetEase getEaseA, AGetEase getEaseB)
+        {
+            this.getEaseA = getEaseA;
+            this.getEaseB = getEaseB;
         }
         
         public override float Get(float time)
         {
-            return (easeA.Get(time) * (1 - time)) + (easeB.Get(time) * time);
+            return (getEaseA.Get(time) * (1 - time)) + (getEaseB.Get(time) * time);
         }
     }
 }

@@ -2,18 +2,23 @@
 
 namespace EaseMethods
 {
-    public class Scale : AEase
+    public class Scale : AGetEase
     {
-        private readonly AEase ease;
+        private readonly AGetEase getEase;
 
-        public Scale(AEase ease)
+        public Scale(Ease ease)
         {
-            this.ease = ease;
+            this.getEase = ease.EaseMethod;
+        }
+        
+        public Scale(AGetEase getEase)
+        {
+            this.getEase = getEase;
         }
 
         public override float Get(float time)
         {
-            return ease.Get(time) * time;
+            return getEase.Get(time) * time;
         }
 
     }

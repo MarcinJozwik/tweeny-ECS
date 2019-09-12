@@ -1,19 +1,25 @@
 ﻿namespace TweenyPlugin
 {
-    public class Multiply : AEase
+    public class Multiply : AGetEase
     {
-        private readonly AEase easeA;
-        private readonly AEase easeB;
+        private readonly AGetEase getEaseA;
+        private readonly AGetEase getEaseB;
 
-        public Multiply(AEase easeA, AEase easeB)
+        public Multiply(Ease easeA, Ease easeB)
         {
-            this.easeA = easeA;
-            this.easeB = easeB;
+            this.getEaseA = easeA.EaseMethod;
+            this.getEaseB = easeB.EaseMethod;
+        }
+        
+        public Multiply(AGetEase getEaseA, AGetEase getEaseB)
+        {
+            this.getEaseA = getEaseA;
+            this.getEaseB = getEaseB;
         }
         
         public override float Get(float time)
         {
-            return easeA.Get(time) * easeB.Get(time);
+            return getEaseA.Get(time) * getEaseB.Get(time);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace TweenyPlugin
 {
-    public abstract class AEase
+    public abstract class AGetEase
     {
         public abstract float Get(float time);
     }

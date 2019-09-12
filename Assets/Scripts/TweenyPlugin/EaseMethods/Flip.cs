@@ -1,6 +1,6 @@
 ﻿namespace TweenyPlugin
 {
-    public class Flip : AEase
+    public class Flip : AGetEase
     {
         public override float Get(float time)
         {

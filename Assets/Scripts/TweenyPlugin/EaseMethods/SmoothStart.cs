@@ -2,7 +2,7 @@
 
 namespace TweenyPlugin
 {
-    public class SmoothStart : AEase
+    public class SmoothStart : AGetEase
     {
         private readonly uint power;
 

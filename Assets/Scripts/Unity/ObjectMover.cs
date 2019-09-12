@@ -5,8 +5,8 @@ namespace Unity
 {
     public class ObjectMover : MonoBehaviour
     {
-        public int Mode;
-        public float Duration = 5f;
+        private int mode;
+        private float duration;
     
         private float timer = 0f;
         private float easeValue;
@@ -20,6 +20,8 @@ namespace Unity
 
         private void Start()
         {
+            duration = GetComponentInParent<Duration>().DurationTime;
+            mode = GetComponent<Mode>().EaseMode;
             startPosition = transform.position;
             endPosition = startPosition + transform.forward * 40f;
             direction = (endPosition - startPosition).normalized;
@@ -36,12 +38,12 @@ namespace Unity
 
             if (started)
             {
-                timer = Mathf.MoveTowards(timer, Duration, Time.deltaTime);
-                easeValue = Tweeny.GetValue(timer, 0, Duration, TweenyTest.GetEase(Mode));
+                timer = Mathf.MoveTowards(timer, duration, Time.deltaTime);
+                easeValue = Tweeny.GetValue(timer, 0, duration, TweenyTest.GetEase(mode));
                 transform.position = startPosition + (easeValue * distance * direction);
             }
 
-            if (timer >= Duration)
+            if (timer >= duration)
             {
                 started = false;
             }

@@ -17,7 +17,7 @@ namespace Unity
                 case 3:
                     return EaseMode.SmoothStart4;
                 case 4:
-                    return EaseMode.SmoothStart5;
+                    return EaseMode.BouncedBezier7;
                 case 5:
                     return EaseMode.SmoothStop2;
                 case 6:
@@ -29,7 +29,7 @@ namespace Unity
                 case 9:
                     return EaseMode.SmoothStep2;
                 case 10:
-                    return EaseMode.Arch;
+                    return EaseMode.Bezier;
                 default:
                     return EaseMode.Linear;
             }

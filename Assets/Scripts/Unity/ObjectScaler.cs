@@ -5,8 +5,8 @@ namespace Unity
 {
     public class ObjectScaler : MonoBehaviour
     {
-        public int Mode;
-        public float Duration = 5f;
+        private int mode;
+        private float duration;
     
         private float timer = 0f;
         private float easeValue;
@@ -19,6 +19,8 @@ namespace Unity
 
         private void Start()
         {
+            duration = GetComponentInParent<Duration>().DurationTime;
+            mode = GetComponent<Mode>().EaseMode;
             startScale = transform.localScale;
             endScale = startScale * 2f;
             distance = endScale - startScale;
@@ -33,12 +35,12 @@ namespace Unity
 
             if (started)
             {
-                timer = Mathf.MoveTowards(timer, Duration, Time.deltaTime);
-                easeValue = Tweeny.GetValue(timer, 0, Duration, TweenyTest.GetEase(Mode));
+                timer = Mathf.MoveTowards(timer, duration, Time.deltaTime);
+                easeValue = Tweeny.GetValue(timer, 0, duration, TweenyTest.GetEase(mode));
                 transform.localScale = startScale + (distance * easeValue);
             }
 
-            if (timer >= Duration)
+            if (timer >= duration)
             {
                 started = false;
             }

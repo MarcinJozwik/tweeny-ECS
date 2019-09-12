@@ -1,20 +1,34 @@
 ﻿namespace TweenyPlugin
 {
-    public class Bounce : AEase
+    public class Bounce : AGetEase
     {
+        private readonly AGetEase getEase;
+
+        public Bounce(Ease ease)
+        {
+            this.getEase = ease.EaseMethod;
+        }
+        
+        public Bounce(AGetEase getEase)
+        {
+            this.getEase = getEase;
+        }
+
         public override float Get(float time)
         {
-            if (time < 0f)
+            float value = getEase.Get(time);
+            
+            if (value < 0f)
             {
-                return -time;
+                return -value;
             }
 
-            if (time > 1f)
+            if (value > 1f)
             {
-                return 1f - (time - 1f);
+                return 1f - (value - 1f);
             }
 
-            return time;
+            return value;
         }
     }
 }

@@ -4,8 +4,8 @@ namespace Unity
 {
     public class ObjectFader : MonoBehaviour
     {
-        public int Mode;
-        public float Duration = 5f;
+        private int mode;
+        private float duration;
     
         private float timer = 0f;
         private float easeValue;
@@ -19,8 +19,9 @@ namespace Unity
 
         private void Start()
         {
+            duration = GetComponentInParent<Duration>().DurationTime;
+            mode = GetComponent<Mode>().EaseMode;
             material = GetComponent<Renderer>().material;
-            
             startAlpha = 0;
             endAlpha = material.color.a;
         }
@@ -35,13 +36,13 @@ namespace Unity
 
             if (started)
             {
-                timer = Mathf.MoveTowards(timer, Duration, Time.deltaTime);
-                easeValue = TweenyPlugin.Tweeny.GetValue(timer, 0, Duration, TweenyTest.GetEase(Mode));
+                timer = Mathf.MoveTowards(timer, duration, Time.deltaTime);
+                easeValue = TweenyPlugin.Tweeny.GetValue(timer, 0, duration, TweenyTest.GetEase(mode));
                 alpha = startAlpha + easeValue * (endAlpha - startAlpha);
                 material.color = new Color(material.color.r, material.color.g, material.color.b, alpha);
             }
 
-            if (timer >= Duration)
+            if (timer >= duration)
             {
                 started = false;
             }

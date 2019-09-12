@@ -6,15 +6,15 @@ using UnityEngine;
 
 namespace TweenyPlugin.Editor
 {
-    public class TweenyPreview : EditorWindow
+    public class TweenyPreviewWindow : EditorWindow
     {
         #region Fields
 
-        private int chunks = 100;
+        private int samples = 100;
         private bool normalization = true;
         
         private AnimationCurve curve;
-        private AEase ease;
+        private AGetEase getEase;
         private List<KeyFrame> keyFrames = new List<KeyFrame>();
         
         private FieldInfo[] fields;
@@ -28,14 +28,13 @@ namespace TweenyPlugin.Editor
         [MenuItem(itemName: "Tweeny Preview", menuItem = "Tools/Tweeny/Tweeny Preview")]
         public static void ShowWindow()
         {
-            var window = GetWindow<TweenyPreview>(typeof(SceneView));
+            var window = GetWindow<TweenyPreviewWindow>(typeof(SceneView));
             window.titleContent = new GUIContent("Tweeny Preview");
             window.Show();
         }
 
         private void OnEnable()
         {
-            //Curve = new AnimationCurve();
             UpdateFields();
         }
 
@@ -45,7 +44,7 @@ namespace TweenyPlugin.Editor
             
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("Settings", EditorStyles.boldLabel);
-            chunks = EditorGUILayout.IntField("Chunks", chunks);
+            samples = EditorGUILayout.IntField("Samples", samples);
             normalization = EditorGUILayout.Toggle("Normalization", normalization);
             EditorGUILayout.Space();
             
@@ -68,12 +67,6 @@ namespace TweenyPlugin.Editor
             }
         }
         
-//        public void Update()
-//        {
-//            // This is necessary to make the framerate normal for the editor window.
-//            Repaint();
-//        }
-
         #endregion
 
         #region Utilities
@@ -82,7 +75,7 @@ namespace TweenyPlugin.Editor
         {
             var field = fields[index];
             Ease ease = (Ease)(field.GetValue(null));
-            this.ease = ease.EaseMethod;
+            this.getEase = ease.EaseMethod;
             Shape();
         }
 
@@ -106,11 +99,11 @@ namespace TweenyPlugin.Editor
         public void Evaluate()
         {
             keyFrames = new List<KeyFrame>();
-            int count = chunks;
+            int count = samples;
             for (int i = 0; i <= count; i++)
             {
                 float time = i / (float) count;
-                float value = ease.Get(time);
+                float value = getEase.Get(time);
                 keyFrames.Add(new KeyFrame(time, value));
             }
         }

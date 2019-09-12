@@ -1,6 +1,6 @@
 ﻿namespace TweenyPlugin
 {
-    public class SmoothStop : AEase
+    public class SmoothStop : AGetEase
     {
         private readonly Ease smoothStart;
         public SmoothStop(Ease smoothStart)

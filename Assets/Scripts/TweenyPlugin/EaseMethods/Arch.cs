@@ -1,10 +1,12 @@
-﻿namespace TweenyPlugin
+﻿using EaseMethods;
+
+namespace TweenyPlugin
 {
-    public class Arch : AEase
+    public class Arch : AGetEase
     {
         public override float Get(float time)
         {
-            return time * (1 - time);
+            return new Scale(EaseMode.Flip).Get(time);
         }
     }
 }

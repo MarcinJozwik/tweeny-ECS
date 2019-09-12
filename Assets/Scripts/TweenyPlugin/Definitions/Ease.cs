@@ -2,9 +2,9 @@
 {
     public class Ease
     {
-        public AEase EaseMethod;
+        public AGetEase EaseMethod;
         
-        public Ease(AEase easeMethod)
+        public Ease(AGetEase easeMethod)
         {
             this.EaseMethod = easeMethod;
         }
