@@ -15,6 +15,9 @@ namespace Unity
         private float startAlpha;
         private float endAlpha;
 
+        private Vector3 startScale;
+        private Vector3 endScale;
+
         private void Start()
         {
             duration = GetComponentInParent<Duration>().DurationTime;
@@ -28,14 +31,23 @@ namespace Unity
             material = GetComponent<Renderer>().material;
             startAlpha = 0;
             endAlpha = material.color.a;
+            
+            //T Scale
+            startScale = transform.localScale;
+            endScale = startScale * 2f;
         }
         
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                TweenyCollector.Register(new TMove(transform, startPosition, endPosition, duration, TweenyTest.GetEase(mode)));
-                TweenyCollector.Register(new TFade(material, startAlpha, endAlpha, duration, TweenyTest.GetEase(mode)));
+//                Tweeny.Add(new TMove(transform, startPosition, endPosition, duration, TweenyTest.GetEase(mode)));
+//                Tweeny.Add(new TFade(material, startAlpha, endAlpha, duration, TweenyTest.GetEase(mode)));
+//                Tweeny.Add(new TScale(transform, startScale, endScale, duration, TweenyTest.GetEase(mode)));
+                
+                transform.TMove(startPosition, endPosition, duration, TweenyTest.GetEase(mode));
+                transform.TScale(startScale, endScale, duration, TweenyTest.GetEase(mode));
+                material.TFade(startAlpha, endAlpha, duration, TweenyTest.GetEase(mode));
             }
         }
     }

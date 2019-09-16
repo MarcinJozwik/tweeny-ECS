@@ -5,29 +5,31 @@ namespace TweenyPlugin
     public abstract class Tween
     {
         public bool Finished = false;
-        
-        protected readonly float Duration;
-        protected float Timer = 0f;
 
-        protected Tween(float duration)
+        protected float EaseValue = 0f;
+        
+        private readonly float duration;
+        private readonly Ease ease;
+
+        private float timer = 0f;
+        
+        protected Tween(float duration, Ease ease)
         {
-            this.Duration = duration;
+            this.duration = duration;
+            this.ease = ease;
         }
 
         public virtual void Update(float deltaTime)
         {
             OnComplete();
-            TickTimer(deltaTime);
+            
+            timer = Mathf.MoveTowards(timer, duration, deltaTime);
+            EaseValue = Tweeny.GetValue(timer, 0, duration, ease);
         }
 
-        protected virtual void TickTimer(float step)
-        {
-            Timer = Mathf.MoveTowards(Timer, Duration, step);
-        }
-        
         protected virtual void OnComplete()
         {
-            if (Timer >= Duration)
+            if (timer >= duration)
             {
                 Finished = true;
                 TweenyCollector.Unregister(this);

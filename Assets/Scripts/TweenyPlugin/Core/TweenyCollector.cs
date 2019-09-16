@@ -19,7 +19,7 @@ namespace TweenyPlugin
 
         public static void Update(float deltaTime)
         {
-            Debug.Log("Tweens: " + tweens.Count);
+            //Debug.Log("Tweens: " + tweens.Count);
             
             for (var i = 0; i < tweens.Count; i++)
             {

@@ -13,5 +13,11 @@
             float value =  ease.Get(UnityEngine.Random.value);
             return min + (value * (max - min));
         }
+
+        public static Tween Add(Tween tween)
+        {
+            TweenyCollector.Register(tween);
+            return tween;
+        }
     }
 }
