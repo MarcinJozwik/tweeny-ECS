@@ -1,4 +1,6 @@
-﻿namespace TweenyPlugin
+﻿using UnityEngine;
+
+namespace TweenyPlugin
 {
     public static class Tweeny
     {
@@ -18,6 +20,18 @@
         {
             TweenyCollector.Register(tween);
             return tween;
+        }
+
+        public static void TMove(Transform transform, Vector3 startPosition,
+            Vector3 endPosition, float duration, Ease ease)
+        {
+            TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
+            entity.AddTransform(transform);
+            entity.AddTimer(0f, duration);
+            entity.AddEase(ease, 0f);
+            entity.AddMove(startPosition, (endPosition - startPosition).normalized,
+                Vector3.Distance(endPosition, startPosition));
+            entity.isTweening = true;
         }
     }
 }
