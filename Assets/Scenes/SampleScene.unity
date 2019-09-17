@@ -1967,7 +1967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee63954531b4553bbd0b472022e9ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DurationTime: 4
+  DurationTime: 8
 --- !u!4 &785708856
 Transform:
   m_ObjectHideFlags: 0
@@ -2464,7 +2464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee63954531b4553bbd0b472022e9ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DurationTime: 4
+  DurationTime: 8
 --- !u!4 &944635711
 Transform:
   m_ObjectHideFlags: 0

@@ -9,16 +9,22 @@
 public static class TweenyComponentsLookup {
 
     public const int Ease = 0;
-    public const int Move = 1;
-    public const int Timer = 2;
-    public const int Transform = 3;
-    public const int Tweening = 4;
+    public const int Fade = 1;
+    public const int Material = 2;
+    public const int Move = 3;
+    public const int Scale = 4;
+    public const int Timer = 5;
+    public const int Transform = 6;
+    public const int Tweening = 7;
 
-    public const int TotalComponents = 5;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "Ease",
+        "Fade",
+        "Material",
         "Move",
+        "Scale",
         "Timer",
         "Transform",
         "Tweening"
@@ -26,7 +32,10 @@ public static class TweenyComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(EaseComponent),
+        typeof(FadeComponent),
+        typeof(MaterialComponent),
         typeof(MoveComponent),
+        typeof(ScaleComponent),
         typeof(TimerComponent),
         typeof(TransformComponent),
         typeof(TweeningComponent)

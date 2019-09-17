@@ -9,8 +9,8 @@ public class EndTweenSystem : IExecuteSystem
     {
         this.contexts = contexts;
         this.tweenGroup =
-            this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Timer,
-                TweenyMatcher.Tweening));
+            this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening,
+                TweenyMatcher.Timer));
     }
 
     public void Execute()

@@ -9,7 +9,7 @@ public class GetEaseSystem : IExecuteSystem
     public GetEaseSystem(Contexts contexts) 
     {
         this.contexts = contexts;
-        this.easeGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Ease, TweenyMatcher.Timer, TweenyMatcher.Tweening));
+        this.easeGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Ease, TweenyMatcher.Timer));
     }
 
     public void Execute()

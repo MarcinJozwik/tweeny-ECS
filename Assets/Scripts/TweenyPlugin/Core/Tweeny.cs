@@ -33,5 +33,26 @@ namespace TweenyPlugin
                 Vector3.Distance(endPosition, startPosition));
             entity.isTweening = true;
         }
+        
+        public static void TScale(Transform transform, Vector3 startScale, Vector3 endScale,
+            float duration, Ease ease)
+        {
+            TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
+            entity.AddTransform(transform);
+            entity.AddTimer(0f, duration);
+            entity.AddEase(ease, 0f);
+            entity.AddScale(startScale, (endScale - startScale));
+            entity.isTweening = true;
+        }
+
+        public static void TFade(Material material, float startAlpha, float endAlpha, float duration, Ease ease)
+        {
+            TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
+            entity.AddTimer(0f, duration);
+            entity.AddEase(ease, 0f);
+            entity.AddMaterial(material);
+            entity.AddFade(startAlpha, endAlpha);
+            entity.isTweening = true;
+        }
     }
 }
