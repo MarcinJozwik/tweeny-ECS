@@ -8,6 +8,8 @@ namespace Unity
         public int Count = 5000;
         public List<GameObject> Cubes = new List<GameObject>();
         public EntitasObject[] EntitasObjects;
+
+        private bool isPlaying;
         void Start()
         {
             EntitasObjects = new EntitasObject[Count * Cubes.Count];
@@ -31,13 +33,35 @@ namespace Unity
             
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
                 int count = EntitasObjects.Length;
                 for (var i = 0; i < count; i++)
                 {
-                    EntitasObjects[i].Tween();
+                    EntitasObjects[i].Reset();
                 }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                int count = EntitasObjects.Length;
+
+                if (!isPlaying)
+                {
+                    for (var i = 0; i < count; i++)
+                    {
+                        EntitasObjects[i].Tween();
+                    }
+                }
+                else
+                {
+                    for (var i = 0; i < count; i++)
+                    {
+                        EntitasObjects[i].Stop();
+                    }
+                }
+                
+                isPlaying = !isPlaying;
             }
         }
     }

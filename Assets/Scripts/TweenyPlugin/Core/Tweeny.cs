@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TweenyPlugin.TweenSystems;
+using UnityEngine;
 
 namespace TweenyPlugin
 {
@@ -22,7 +23,7 @@ namespace TweenyPlugin
             return tween;
         }
 
-        public static void TMove(Transform transform, Vector3 startPosition,
+        public static TweenLink TMove(Transform transform, Vector3 startPosition,
             Vector3 endPosition, float duration, Ease ease)
         {
             TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
@@ -31,28 +32,31 @@ namespace TweenyPlugin
             entity.AddEase(ease, 0f);
             entity.AddMove(startPosition, (endPosition - startPosition).normalized,
                 Vector3.Distance(endPosition, startPosition));
-            entity.isTweening = true;
+//            entity.isTweening = true;
+            
+            var link = new TweenLink(entity);
+            return link;
         }
         
         public static void TScale(Transform transform, Vector3 startScale, Vector3 endScale,
             float duration, Ease ease)
         {
-            TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
-            entity.AddTransform(transform);
-            entity.AddTimer(0f, duration);
-            entity.AddEase(ease, 0f);
-            entity.AddScale(startScale, (endScale - startScale));
-            entity.isTweening = true;
+//            TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
+//            entity.AddTransform(transform);
+//            entity.AddTimer(0f, duration);
+//            entity.AddEase(ease, 0f);
+//            entity.AddScale(startScale, (endScale - startScale));
+//            entity.isTweening = true;
         }
 
         public static void TFade(Material material, float startAlpha, float endAlpha, float duration, Ease ease)
         {
-            TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
-            entity.AddTimer(0f, duration);
-            entity.AddEase(ease, 0f);
-            entity.AddMaterial(material);
-            entity.AddFade(startAlpha, endAlpha);
-            entity.isTweening = true;
+//            TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
+//            entity.AddTimer(0f, duration);
+//            entity.AddEase(ease, 0f);
+//            entity.AddMaterial(material);
+//            entity.AddFade(startAlpha, endAlpha);
+//            entity.isTweening = true;
         }
     }
 }

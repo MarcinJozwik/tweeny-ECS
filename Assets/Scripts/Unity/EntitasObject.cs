@@ -1,4 +1,5 @@
 using TweenyPlugin;
+using TweenyPlugin.TweenSystems;
 using UnityEngine;
 
 namespace Unity
@@ -18,6 +19,8 @@ namespace Unity
         private Vector3 startScale;
         private Vector3 endScale;
 
+        private TweenLink link;
+        
         private void Start()
         {
             duration = GetComponentInParent<Duration>().DurationTime;
@@ -35,13 +38,33 @@ namespace Unity
             //T Scale
             startScale = transform.localScale;
             endScale = startScale * 2f;
+            
+            PrepareTween();
         }
 
+        private void PrepareTween()
+        {
+            link = Tweeny.TMove(transform, startPosition, endPosition, duration, TweenyTest.GetEase(mode));
+//            Tweeny.TMove(transform, startPosition, endPosition, duration, TweenyTest.GetEase(mode));
+//            Tweeny.TScale(transform, startScale, endScale, duration, TweenyTest.GetEase(mode));
+//            Tweeny.TFade(material, startAlpha, endAlpha, duration, TweenyTest.GetEase(mode));
+        }
+
+        public void Reset()
+        {
+            link.Destroy();
+            transform.position = startPosition;
+            PrepareTween();
+        }
+        
         public void Tween()
         {
-            Tweeny.TMove(transform, startPosition, endPosition, duration, TweenyTest.GetEase(mode));
-            Tweeny.TScale(transform, startScale, endScale, duration, TweenyTest.GetEase(mode));
-            Tweeny.TFade(material, startAlpha, endAlpha, duration, TweenyTest.GetEase(mode));
+            link.Play();     
+        }
+
+        public void Stop()
+        {
+            link.Stop();
         }
     }
 }
