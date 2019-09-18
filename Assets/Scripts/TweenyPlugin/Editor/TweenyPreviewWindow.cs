@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.XR;
 
 namespace TweenyPlugin.Editor
 {
@@ -40,6 +42,8 @@ namespace TweenyPlugin.Editor
 
         private void OnGUI()
         {
+            HandleInput();
+            
             EditorGUI.BeginChangeCheck();
             
             EditorGUILayout.Space();
@@ -71,6 +75,32 @@ namespace TweenyPlugin.Editor
 
         #region Utilities
 
+        private void HandleInput()
+        {
+            Event e = Event.current;
+            if (e.type == EventType.KeyDown)
+            {
+                if (e.keyCode == KeyCode.DownArrow)
+                {
+                    if (index + 1 < fields.Length)
+                    {
+                        index++;
+                        Preview();
+                        Repaint();
+                    }
+                }
+
+                if (e.keyCode == KeyCode.UpArrow)
+                {
+                    if (index - 1 >= 0)
+                    {
+                        index--;
+                        Preview();
+                        Repaint();
+                    }
+                }
+            }
+        }
         private void Preview()
         {
             var field = fields[index];
