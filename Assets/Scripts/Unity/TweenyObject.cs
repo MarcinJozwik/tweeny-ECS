@@ -37,18 +37,23 @@ namespace Unity
             endScale = startScale * 2f;
         }
         
-        void Update()
+//        void Update()
+//        {
+//            if (Input.GetKeyDown(KeyCode.Space))
+//            {
+//
+//            }
+//        }
+
+        public void Tween()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
 //                Tweeny.Add(new TMove(transform, startPosition, endPosition, duration, TweenyTest.GetEase(mode)));
 //                Tweeny.Add(new TFade(material, startAlpha, endAlpha, duration, TweenyTest.GetEase(mode)));
 //                Tweeny.Add(new TScale(transform, startScale, endScale, duration, TweenyTest.GetEase(mode)));
                 
-                transform.TMove(startPosition, endPosition, duration, TweenyTest.GetEase(mode));
-                transform.TScale(startScale, endScale, duration, TweenyTest.GetEase(mode));
-                material.TFade(startAlpha, endAlpha, duration, TweenyTest.GetEase(mode));
-            }
+            transform.TMove(startPosition, endPosition, duration, TweenyTest.GetEase(mode));
+            transform.TScale(startScale, endScale, duration, TweenyTest.GetEase(mode));
+            material.TFade(startAlpha, endAlpha, duration, TweenyTest.GetEase(mode));
         }
     }
 }

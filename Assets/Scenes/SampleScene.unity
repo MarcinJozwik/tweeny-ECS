@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 115847232}
   - component: {fileID: 115847237}
   - component: {fileID: 115847236}
-  - component: {fileID: 115847235}
   - component: {fileID: 115847234}
   - component: {fileID: 115847233}
   m_Layer: 0
@@ -298,19 +297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 1
---- !u!65 &115847235
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115847231}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &115847236
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -318,7 +304,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115847231}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -758,7 +744,6 @@ GameObject:
   - component: {fileID: 403613958}
   - component: {fileID: 403613963}
   - component: {fileID: 403613962}
-  - component: {fileID: 403613961}
   - component: {fileID: 403613960}
   - component: {fileID: 403613959}
   m_Layer: 0
@@ -807,19 +792,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 7
---- !u!65 &403613961
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403613957}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &403613962
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -827,7 +799,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403613957}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -876,7 +848,6 @@ GameObject:
   - component: {fileID: 418753072}
   - component: {fileID: 418753077}
   - component: {fileID: 418753076}
-  - component: {fileID: 418753075}
   - component: {fileID: 418753074}
   - component: {fileID: 418753073}
   m_Layer: 0
@@ -925,19 +896,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 4
---- !u!65 &418753075
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418753071}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &418753076
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1126,7 +1084,6 @@ GameObject:
   - component: {fileID: 512292973}
   - component: {fileID: 512292978}
   - component: {fileID: 512292977}
-  - component: {fileID: 512292976}
   - component: {fileID: 512292975}
   - component: {fileID: 512292974}
   m_Layer: 0
@@ -1175,19 +1132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 0
---- !u!65 &512292976
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512292972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &512292977
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1244,7 +1188,6 @@ GameObject:
   - component: {fileID: 538305671}
   - component: {fileID: 538305676}
   - component: {fileID: 538305675}
-  - component: {fileID: 538305674}
   - component: {fileID: 538305673}
   - component: {fileID: 538305672}
   m_Layer: 0
@@ -1293,19 +1236,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 1
---- !u!65 &538305674
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538305670}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &538305675
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1936,6 +1866,7 @@ GameObject:
   - component: {fileID: 785708856}
   - component: {fileID: 785708855}
   - component: {fileID: 785708854}
+  - component: {fileID: 785708857}
   m_Layer: 0
   m_Name: Cubes3
   m_TagString: Untagged
@@ -1993,6 +1924,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &785708857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785708853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662bcda265db402f8dfdb14e1c4b6d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Count: 100
+  Cubes:
+  - {fileID: 512292972}
+  - {fileID: 538305670}
+  - {fileID: 809033437}
+  - {fileID: 1337301152}
+  - {fileID: 418753071}
+  - {fileID: 1325367258}
+  - {fileID: 1236040597}
+  - {fileID: 1438137986}
+  - {fileID: 2100175144}
+  - {fileID: 1085233745}
+  - {fileID: 1110008414}
+  EntitasObjects: []
 --- !u!1 &787352080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2081,7 +2038,6 @@ GameObject:
   - component: {fileID: 809033438}
   - component: {fileID: 809033443}
   - component: {fileID: 809033442}
-  - component: {fileID: 809033441}
   - component: {fileID: 809033440}
   - component: {fileID: 809033439}
   m_Layer: 0
@@ -2130,19 +2086,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 2
---- !u!65 &809033441
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809033437}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &809033442
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2433,6 +2376,7 @@ GameObject:
   - component: {fileID: 944635711}
   - component: {fileID: 944635710}
   - component: {fileID: 944635709}
+  - component: {fileID: 944635712}
   m_Layer: 0
   m_Name: Cubes2
   m_TagString: Untagged
@@ -2490,6 +2434,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &944635712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944635708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b47d4c6738ffa4fb3521a3312a67fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Count: 100
+  Cubes:
+  - {fileID: 2024613255}
+  - {fileID: 115847231}
+  - {fileID: 953944690}
+  - {fileID: 1145155660}
+  - {fileID: 2010905891}
+  - {fileID: 1394630540}
+  - {fileID: 1504317872}
+  - {fileID: 403613957}
+  - {fileID: 1380113224}
+  - {fileID: 1798088263}
+  - {fileID: 1308288363}
+  TweenyObjects: []
 --- !u!1 &953944690
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,7 +2471,6 @@ GameObject:
   - component: {fileID: 953944691}
   - component: {fileID: 953944696}
   - component: {fileID: 953944695}
-  - component: {fileID: 953944694}
   - component: {fileID: 953944693}
   - component: {fileID: 953944692}
   m_Layer: 0
@@ -2550,19 +2519,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 2
---- !u!65 &953944694
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 953944690}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &953944695
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2570,7 +2526,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953944690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3016,7 +2972,6 @@ GameObject:
   - component: {fileID: 1085233746}
   - component: {fileID: 1085233751}
   - component: {fileID: 1085233750}
-  - component: {fileID: 1085233749}
   - component: {fileID: 1085233748}
   - component: {fileID: 1085233747}
   m_Layer: 0
@@ -3065,19 +3020,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 9
---- !u!65 &1085233749
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1085233745}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1085233750
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3134,7 +3076,6 @@ GameObject:
   - component: {fileID: 1110008415}
   - component: {fileID: 1110008420}
   - component: {fileID: 1110008419}
-  - component: {fileID: 1110008418}
   - component: {fileID: 1110008417}
   - component: {fileID: 1110008416}
   m_Layer: 0
@@ -3183,19 +3124,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 10
---- !u!65 &1110008418
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110008414}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1110008419
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3252,7 +3180,6 @@ GameObject:
   - component: {fileID: 1145155661}
   - component: {fileID: 1145155666}
   - component: {fileID: 1145155665}
-  - component: {fileID: 1145155664}
   - component: {fileID: 1145155663}
   - component: {fileID: 1145155662}
   m_Layer: 0
@@ -3301,19 +3228,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 3
---- !u!65 &1145155664
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145155660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1145155665
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3321,7 +3235,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1145155660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3370,7 +3284,6 @@ GameObject:
   - component: {fileID: 1236040598}
   - component: {fileID: 1236040603}
   - component: {fileID: 1236040602}
-  - component: {fileID: 1236040601}
   - component: {fileID: 1236040600}
   - component: {fileID: 1236040599}
   m_Layer: 0
@@ -3419,19 +3332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 6
---- !u!65 &1236040601
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1236040597}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1236040602
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3534,7 +3434,6 @@ GameObject:
   - component: {fileID: 1308288364}
   - component: {fileID: 1308288369}
   - component: {fileID: 1308288368}
-  - component: {fileID: 1308288367}
   - component: {fileID: 1308288366}
   - component: {fileID: 1308288365}
   m_Layer: 0
@@ -3583,19 +3482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 10
---- !u!65 &1308288367
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308288363}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1308288368
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3603,7 +3489,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308288363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3652,7 +3538,6 @@ GameObject:
   - component: {fileID: 1325367259}
   - component: {fileID: 1325367264}
   - component: {fileID: 1325367263}
-  - component: {fileID: 1325367262}
   - component: {fileID: 1325367261}
   - component: {fileID: 1325367260}
   m_Layer: 0
@@ -3701,19 +3586,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 5
---- !u!65 &1325367262
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325367258}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1325367263
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3770,7 +3642,6 @@ GameObject:
   - component: {fileID: 1337301153}
   - component: {fileID: 1337301158}
   - component: {fileID: 1337301157}
-  - component: {fileID: 1337301156}
   - component: {fileID: 1337301155}
   - component: {fileID: 1337301154}
   m_Layer: 0
@@ -3819,19 +3690,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 3
---- !u!65 &1337301156
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1337301152}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1337301157
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4045,7 +3903,6 @@ GameObject:
   - component: {fileID: 1380113225}
   - component: {fileID: 1380113230}
   - component: {fileID: 1380113229}
-  - component: {fileID: 1380113228}
   - component: {fileID: 1380113227}
   - component: {fileID: 1380113226}
   m_Layer: 0
@@ -4094,19 +3951,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 8
---- !u!65 &1380113228
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1380113224}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1380113229
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4114,7 +3958,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380113224}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4163,7 +4007,6 @@ GameObject:
   - component: {fileID: 1394630541}
   - component: {fileID: 1394630546}
   - component: {fileID: 1394630545}
-  - component: {fileID: 1394630544}
   - component: {fileID: 1394630543}
   - component: {fileID: 1394630542}
   m_Layer: 0
@@ -4212,19 +4055,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 5
---- !u!65 &1394630544
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1394630540}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1394630545
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4232,7 +4062,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394630540}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4438,7 +4268,6 @@ GameObject:
   - component: {fileID: 1438137987}
   - component: {fileID: 1438137992}
   - component: {fileID: 1438137991}
-  - component: {fileID: 1438137990}
   - component: {fileID: 1438137989}
   - component: {fileID: 1438137988}
   m_Layer: 0
@@ -4487,19 +4316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 7
---- !u!65 &1438137990
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1438137986}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1438137991
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4633,7 +4449,6 @@ GameObject:
   - component: {fileID: 1504317873}
   - component: {fileID: 1504317878}
   - component: {fileID: 1504317877}
-  - component: {fileID: 1504317876}
   - component: {fileID: 1504317875}
   - component: {fileID: 1504317874}
   m_Layer: 0
@@ -4682,19 +4497,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 6
---- !u!65 &1504317876
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1504317872}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1504317877
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4702,7 +4504,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504317872}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5142,7 +4944,6 @@ GameObject:
   - component: {fileID: 1798088264}
   - component: {fileID: 1798088269}
   - component: {fileID: 1798088268}
-  - component: {fileID: 1798088267}
   - component: {fileID: 1798088266}
   - component: {fileID: 1798088265}
   m_Layer: 0
@@ -5191,19 +4992,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 9
---- !u!65 &1798088267
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1798088263}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1798088268
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5211,7 +4999,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798088263}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5414,7 +5202,6 @@ GameObject:
   - component: {fileID: 2010905892}
   - component: {fileID: 2010905897}
   - component: {fileID: 2010905896}
-  - component: {fileID: 2010905895}
   - component: {fileID: 2010905894}
   - component: {fileID: 2010905893}
   m_Layer: 0
@@ -5463,19 +5250,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 4
---- !u!65 &2010905895
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010905891}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2010905896
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5483,7 +5257,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010905891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5532,7 +5306,6 @@ GameObject:
   - component: {fileID: 2024613256}
   - component: {fileID: 2024613261}
   - component: {fileID: 2024613260}
-  - component: {fileID: 2024613259}
   - component: {fileID: 2024613258}
   - component: {fileID: 2024613257}
   m_Layer: 0
@@ -5581,19 +5354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 0
---- !u!65 &2024613259
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024613255}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2024613260
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5601,7 +5361,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024613255}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5727,7 +5487,6 @@ GameObject:
   - component: {fileID: 2100175145}
   - component: {fileID: 2100175150}
   - component: {fileID: 2100175149}
-  - component: {fileID: 2100175148}
   - component: {fileID: 2100175147}
   - component: {fileID: 2100175146}
   m_Layer: 0
@@ -5776,19 +5535,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EaseMode: 8
---- !u!65 &2100175148
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100175144}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2100175149
 MeshRenderer:
   m_ObjectHideFlags: 0

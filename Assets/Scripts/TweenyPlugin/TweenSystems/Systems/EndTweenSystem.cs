@@ -24,6 +24,7 @@ public class EndTweenSystem : IExecuteSystem
             if (entity.timer.Timer >= entity.timer.Duration)
             {
                 entity.isTweening = false;
+                entity.Destroy();
             }
         }
     }
