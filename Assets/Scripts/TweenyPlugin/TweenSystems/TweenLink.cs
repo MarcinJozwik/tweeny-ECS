@@ -1,29 +1,58 @@
-﻿using Entitas;
+﻿using System;
+using Entitas;
 
 namespace TweenyPlugin.TweenSystems
 {
     public class TweenLink
     {
-        private TweenyEntity entity;
-
-        public TweenLink(TweenyEntity entity)
+        private TweenyContext context;
+        private int id;
+        
+        public TweenLink(int id)
         {
-            this.entity = entity;
+            this.context = Contexts.sharedInstance.tweeny;
+            this.id = id;
         }
 
         public void Play()
         {
-            entity.isTweening = true;
+            var entity = context.GetEntityWithId(id);
+            if (entity != null)
+            {
+                entity.isTweening = true;
+            }
         }
         
         public void Stop()
         {
-            entity.isTweening = false;
+            var entity = context.GetEntityWithId(id);
+            if (entity != null)
+            {
+                entity.isTweening = false;
+            }
+        }
+
+        public TweenLink OnComplete(Action action)
+        {
+            var entity = context.GetEntityWithId(id);
+            if (entity != null)
+            {
+                if (!entity.hasCompleteAction)
+                {
+                    entity.AddCompleteAction(action);
+                }
+            }
+
+            return this;
         }
 
         public void Destroy()
         {
-            entity.Destroy();
+            var entity = context.GetEntityWithId(id);
+            if (entity != null)
+            {
+                entity.Destroy();
+            }
         }
     }
 }

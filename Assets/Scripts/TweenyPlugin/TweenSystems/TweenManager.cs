@@ -1,4 +1,5 @@
 using Entitas;
+using TweenyPlugin.TweenSystems.Index;
 using UnityEngine;
 
 namespace TweenyPlugin.TweenSystems
@@ -11,6 +12,7 @@ namespace TweenyPlugin.TweenSystems
         private void Start()
         {
             this.contexts = Contexts.sharedInstance;
+            this.contexts.SubscribeId();
             this.systems = new TweenSystems(contexts);
         }
         

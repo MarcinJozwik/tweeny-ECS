@@ -45,6 +45,7 @@ namespace Unity
         private void PrepareTween()
         {
             link = Tweeny.TMove(transform, startPosition, endPosition, duration, TweenyTest.GetEase(mode));
+            link.OnComplete((() => { Debug.Log("Tween completed"); }));
 //            Tweeny.TMove(transform, startPosition, endPosition, duration, TweenyTest.GetEase(mode));
 //            Tweeny.TScale(transform, startScale, endScale, duration, TweenyTest.GetEase(mode));
 //            Tweeny.TFade(material, startAlpha, endAlpha, duration, TweenyTest.GetEase(mode));

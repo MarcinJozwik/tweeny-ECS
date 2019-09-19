@@ -8,15 +8,15 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
+    public const int Id = 0;
 
-
-    public const int TotalComponents = 0;
+    public const int TotalComponents = 1;
 
     public static readonly string[] componentNames = {
-
+        "Id"
     };
 
     public static readonly System.Type[] componentTypes = {
-
+        typeof(TweenyPlugin.TweenSystems.Index.Components.IdComponent)
     };
 }

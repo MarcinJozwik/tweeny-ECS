@@ -34,7 +34,7 @@ namespace TweenyPlugin
                 Vector3.Distance(endPosition, startPosition));
 //            entity.isTweening = true;
             
-            var link = new TweenLink(entity);
+            var link = new TweenLink(entity.id.Value);
             return link;
         }
         

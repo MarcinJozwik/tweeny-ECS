@@ -1,11 +1,11 @@
 using Entitas;
 
-public class EndTweenSystem : IExecuteSystem
+public class CountTimeSystem : IExecuteSystem
 {
     private readonly Contexts contexts;
     private readonly IGroup<TweenyEntity> tweenGroup;
 
-    public EndTweenSystem(Contexts contexts)
+    public CountTimeSystem(Contexts contexts)
     {
         this.contexts = contexts;
         this.tweenGroup =
@@ -23,8 +23,7 @@ public class EndTweenSystem : IExecuteSystem
             TweenyEntity entity = entities[i];
             if (entity.timer.Timer >= entity.timer.Duration)
             {
-                entity.isTweening = false;
-                entity.Destroy();
+                entity.isFinish = true;
             }
         }
     }
