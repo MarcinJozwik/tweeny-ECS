@@ -1,5 +1,7 @@
 using Entitas;
+using TweenyPlugin.Tweening.ECS.Core;
 using TweenyPlugin.Tweening.ECS.Index;
+using TweenyPlugin.Tweening.ECS.Messages;
 using TweenyPlugin.Tweening.ECS.Tweens;
 using UnityEngine;
 
@@ -14,7 +16,10 @@ namespace TweenyPlugin.Tweening.Link
         {
             this.contexts = Contexts.sharedInstance;
             this.contexts.SubscribeId();
-            this.systems = new TweenSystems(contexts);
+            this.systems = new Feature("Systems")
+                .Add(new MessageSystems(contexts))
+                .Add(new CoreSystems(contexts))
+                .Add(new TweenSystems(contexts));
         }
         
         private void Update()

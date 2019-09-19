@@ -24,7 +24,9 @@ namespace Unity
         private Vector3 startScale;
         private Vector3 endScale;
 
-        private TweenLink link;
+        private Tween move;
+        private Tween scale;
+        private Tween fade;
         
         private void Start()
         {
@@ -49,28 +51,28 @@ namespace Unity
 
         private void PrepareTween()
         {
-            link = Tweeny.TMove(transform, startPosition, endPosition, duration, ease);
-            link.OnComplete((() => { Debug.Log("Tween completed"); }));
-//            Tweeny.TMove(transform, startPosition, endPosition, duration, TweenyTest.GetEase(mode));
-//            Tweeny.TScale(transform, startScale, endScale, duration, TweenyTest.GetEase(mode));
-//            Tweeny.TFade(material, startAlpha, endAlpha, duration, TweenyTest.GetEase(mode));
+            move = transform.TMove(startPosition, endPosition, duration, ease).OnComplete(PrintMessage);
+            scale = transform.TScale(startScale, endScale, duration, ease);
+            fade = material.TFade(startAlpha, endAlpha, duration, ease);
         }
 
-        public void Reset()
+        private void PrintMessage()
         {
-            link.Destroy();
-            transform.position = startPosition;
-            PrepareTween();
+            Debug.Log("Tween completed");
         }
-        
+
         public void Tween()
         {
-            link.Play();     
+            move.Play();     
+            scale.Play();     
+            fade.Play();     
         }
 
         public void Stop()
         {
-            link.Stop();
+            move.Stop();     
+            scale.Stop();     
+            fade.Stop();   
         }
     }
 }

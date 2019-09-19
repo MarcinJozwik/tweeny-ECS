@@ -8,21 +8,29 @@
 //------------------------------------------------------------------------------
 public static class TweenyComponentsLookup {
 
-    public const int CompleteAction = 0;
-    public const int Ease = 1;
-    public const int Finish = 2;
-    public const int Timer = 3;
-    public const int Tweening = 4;
-    public const int Id = 5;
-    public const int Fade = 6;
-    public const int Material = 7;
-    public const int Move = 8;
-    public const int Scale = 9;
-    public const int Transform = 10;
+    public const int Message = 0;
+    public const int PlayMessage = 1;
+    public const int ReceiverId = 2;
+    public const int StopMessage = 3;
+    public const int CompleteAction = 4;
+    public const int Ease = 5;
+    public const int Finish = 6;
+    public const int Timer = 7;
+    public const int Tweening = 8;
+    public const int Id = 9;
+    public const int Fade = 10;
+    public const int Material = 11;
+    public const int Move = 12;
+    public const int Scale = 13;
+    public const int Transform = 14;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 15;
 
     public static readonly string[] componentNames = {
+        "Message",
+        "PlayMessage",
+        "ReceiverId",
+        "StopMessage",
         "CompleteAction",
         "Ease",
         "Finish",
@@ -37,6 +45,10 @@ public static class TweenyComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(MessageComponent),
+        typeof(PlayMessageComponent),
+        typeof(ReceiverIdComponent),
+        typeof(StopMessageComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.EaseComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.FinishComponent),

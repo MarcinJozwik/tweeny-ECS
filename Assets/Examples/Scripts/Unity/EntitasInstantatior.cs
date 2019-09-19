@@ -5,7 +5,7 @@ namespace Unity
 {
     public class EntitasInstantatior : MonoBehaviour
     {
-        public int Count = 5000;
+        public int Count = 100;
         public List<GameObject> Cubes = new List<GameObject>();
         public EntitasObject[] EntitasObjects;
 
@@ -13,6 +13,7 @@ namespace Unity
         void Start()
         {
             EntitasObjects = new EntitasObject[Count * Cubes.Count];
+            
             for (int i = 0; i < Count; i++)
             {
                 int cubesCount = Cubes.Count;
@@ -28,20 +29,12 @@ namespace Unity
             {
                 Destroy(Cubes[j]);
             }
+            
             Cubes.Clear();
         }
             
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                int count = EntitasObjects.Length;
-                for (var i = 0; i < count; i++)
-                {
-                    EntitasObjects[i].Reset();
-                }
-            }
-
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 int count = EntitasObjects.Length;
