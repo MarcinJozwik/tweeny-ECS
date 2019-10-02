@@ -38,6 +38,15 @@ namespace TweenyPlugin.Tweening.Link
             return this;
         }
 
+        public Tween Reverse()
+        {
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.isReverse = true;
+            message.isMessage = true;
+            return this;
+        }
+
         public void Destroy()
         {
             var entity = context.GetEntityWithId(id);

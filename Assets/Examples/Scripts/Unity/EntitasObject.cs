@@ -52,7 +52,7 @@ namespace Unity
         private void PrepareTween()
         {
             move = transform.TMove(startPosition, endPosition, duration, ease).OnComplete(PrintMessage);
-            scale = transform.TScale(startScale, endScale, duration, ease);
+            scale = transform.TScale(startScale, endScale, duration, ease).Reverse();
             fade = material.TFade(startAlpha, endAlpha, duration, ease);
         }
 

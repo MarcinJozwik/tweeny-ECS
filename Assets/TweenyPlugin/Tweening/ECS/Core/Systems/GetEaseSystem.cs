@@ -25,17 +25,5 @@ namespace TweenyPlugin.Tweening.ECS.Core.Systems
 				entity.ease.Value = Tweeny.GetValue(entity.timer.Timer, 0, entity.timer.Duration, entity.ease.Type);
 			}
 		}
-
-//	public GetEaseSystem(TweenyContext context, int threads) : base(
-//		context.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Ease,
-//			TweenyMatcher.Timer)), threads)
-//	{
-//	}
-//
-//    protected override void Execute(TweenyEntity entity)
-//    {
-//	    entity.ease.Value = Tweeny.GetValue(entity.timer.Timer, 0, entity.timer.Duration, entity.ease.Type);
-//    }
-
 	}
 }

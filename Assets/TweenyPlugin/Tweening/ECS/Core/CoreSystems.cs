@@ -12,6 +12,7 @@ namespace TweenyPlugin.Tweening.ECS.Core
             this.Add(new FinishTweenSystem(contexts));
             this.Add(new TickTimerSystem(contexts));
             this.Add(new GetEaseSystem(contexts));
+            this.Add(new ReverseEaseSystem(contexts));
         }
     }
 }
