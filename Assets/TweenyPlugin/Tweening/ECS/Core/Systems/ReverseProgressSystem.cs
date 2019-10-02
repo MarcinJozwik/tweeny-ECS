@@ -8,7 +8,7 @@ public class ReverseProgressSystem : IExecuteSystem
     public ReverseProgressSystem(Contexts contexts) 
     {
         this.contexts = contexts;
-        this.reverseGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Reverse, TweenyMatcher.Progress));
+        this.reverseGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Reverse, TweenyMatcher.Progress));
     }
 
     public void Execute()

@@ -5,13 +5,18 @@ namespace TweenyPlugin.Tweening.Link
 {
     public class Tween
     {
-        private TweenyContext context;
-        private int id;
+        private readonly TweenyContext context;
+        private readonly int id;
         
         public Tween(int id)
         {
             this.context = Contexts.sharedInstance.tweeny;
             this.id = id;
+        }
+
+        public int GetId()
+        {
+            return id;
         }
 
         public void Play()
@@ -75,13 +80,12 @@ namespace TweenyPlugin.Tweening.Link
             return this;
         }
 
-        public void Destroy()
+        public void Next(Tween tween)
         {
-            var entity = context.GetEntityWithId(id);
-            if (entity != null)
-            {
-                entity.Destroy();
-            }
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.AddChainedTween(tween.GetId());
+            message.isMessage = true;
         }
     }
 }

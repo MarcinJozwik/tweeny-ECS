@@ -62,6 +62,11 @@ public class DeliverMessageSystem : IExecuteSystem
 		    {
 			    receiver.isMirror = true;
 		    }
+		    
+		    if (message.hasChainedTween)
+		    {
+			    receiver.AddChainedTween(message.chainedTween.Id);
+		    }
 		}
 	}
 }

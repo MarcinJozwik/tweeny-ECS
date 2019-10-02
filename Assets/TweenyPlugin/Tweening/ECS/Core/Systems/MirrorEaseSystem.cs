@@ -8,7 +8,7 @@ public class MirrorEaseSystem : IExecuteSystem
     public MirrorEaseSystem(Contexts contexts) 
     {
         this.contexts = contexts;
-        this.mirrorGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Ease, TweenyMatcher.Mirror));
+        this.mirrorGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Ease, TweenyMatcher.Mirror));
     }
 
 	public void Execute()

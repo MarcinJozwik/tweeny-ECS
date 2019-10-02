@@ -8,30 +8,32 @@
 //------------------------------------------------------------------------------
 public static class TweenyComponentsLookup {
 
-    public const int Loop = 0;
-    public const int Message = 1;
-    public const int Mirror = 2;
-    public const int PlayMessage = 3;
-    public const int Progress = 4;
-    public const int ReceiverId = 5;
-    public const int Reverse = 6;
-    public const int StopMessage = 7;
-    public const int CompleteAction = 8;
-    public const int CompleteLoopAction = 9;
-    public const int Ease = 10;
-    public const int Finish = 11;
-    public const int Timer = 12;
-    public const int Tweening = 13;
-    public const int Id = 14;
-    public const int Fade = 15;
-    public const int Material = 16;
-    public const int Move = 17;
-    public const int Scale = 18;
-    public const int Transform = 19;
+    public const int ChainedTween = 0;
+    public const int Loop = 1;
+    public const int Message = 2;
+    public const int Mirror = 3;
+    public const int PlayMessage = 4;
+    public const int Progress = 5;
+    public const int ReceiverId = 6;
+    public const int Reverse = 7;
+    public const int StopMessage = 8;
+    public const int CompleteAction = 9;
+    public const int CompleteLoopAction = 10;
+    public const int Ease = 11;
+    public const int Finish = 12;
+    public const int Timer = 13;
+    public const int Tweening = 14;
+    public const int Id = 15;
+    public const int Fade = 16;
+    public const int Material = 17;
+    public const int Move = 18;
+    public const int Scale = 19;
+    public const int Transform = 20;
 
-    public const int TotalComponents = 20;
+    public const int TotalComponents = 21;
 
     public static readonly string[] componentNames = {
+        "ChainedTween",
         "Loop",
         "Message",
         "Mirror",
@@ -55,6 +57,7 @@ public static class TweenyComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(ChainedTweenComponent),
         typeof(LoopComponent),
         typeof(MessageComponent),
         typeof(MirrorComponent),

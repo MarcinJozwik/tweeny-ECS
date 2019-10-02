@@ -8,7 +8,7 @@ public class GetProgressSystem : IExecuteSystem
     public GetProgressSystem(Contexts contexts) 
     {
         this.contexts = contexts;
-        this.progressGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Progress, TweenyMatcher.Timer));
+        this.progressGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Progress, TweenyMatcher.Timer));
     }
 
 	public void Execute()
