@@ -38,6 +38,15 @@ namespace TweenyPlugin.Tweening.Link
             message.isMessage = true;
             return this;
         }
+        
+        public Tween OnLoopComplete(Action action)
+        {
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.AddCompleteLoopAction(action);
+            message.isMessage = true;
+            return this;
+        }
 
         public Tween SetLoops(int loops, LoopType type = LoopType.Restart)
         {

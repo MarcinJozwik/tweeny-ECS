@@ -52,11 +52,16 @@ namespace Unity
 
         private void PrepareTween()
         {
-            move = transform.TMove(startPosition, endPosition, duration, ease).OnComplete(PrintMessage).SetLoops(-1, LoopType.Reverse);
+            move = transform.TMove(startPosition, endPosition, duration, ease).OnComplete(PrintMessage).SetLoops(2, LoopType.Reverse);
             scale = transform.TScale(startScale, endScale, duration, ease).Reverse();
-            fade = material.TFade(startAlpha, endAlpha, duration, ease).SetLoops(3);
+            fade = material.TFade(startAlpha, endAlpha, duration, ease).SetLoops(3).OnLoopComplete(PrintLoopMessage);
         }
 
+        private void PrintLoopMessage()
+        {
+            Debug.Log("Tween loop completed");
+        }
+        
         private void PrintMessage()
         {
             Debug.Log("Tween completed");

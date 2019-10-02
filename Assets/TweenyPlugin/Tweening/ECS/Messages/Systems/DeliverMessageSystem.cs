@@ -42,6 +42,11 @@ public class DeliverMessageSystem : IExecuteSystem
 		    {
 			    receiver.AddCompleteAction(message.completeAction.OnComplete);
 		    }
+		    
+		    if (message.hasCompleteLoopAction)
+		    {
+			    receiver.AddCompleteLoopAction(message.completeLoopAction.OnLoopComplete);
+		    }
 
 		    if (message.hasLoop)
 		    {

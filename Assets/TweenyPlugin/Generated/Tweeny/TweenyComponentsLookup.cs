@@ -17,18 +17,19 @@ public static class TweenyComponentsLookup {
     public const int Reverse = 6;
     public const int StopMessage = 7;
     public const int CompleteAction = 8;
-    public const int Ease = 9;
-    public const int Finish = 10;
-    public const int Timer = 11;
-    public const int Tweening = 12;
-    public const int Id = 13;
-    public const int Fade = 14;
-    public const int Material = 15;
-    public const int Move = 16;
-    public const int Scale = 17;
-    public const int Transform = 18;
+    public const int CompleteLoopAction = 9;
+    public const int Ease = 10;
+    public const int Finish = 11;
+    public const int Timer = 12;
+    public const int Tweening = 13;
+    public const int Id = 14;
+    public const int Fade = 15;
+    public const int Material = 16;
+    public const int Move = 17;
+    public const int Scale = 18;
+    public const int Transform = 19;
 
-    public const int TotalComponents = 19;
+    public const int TotalComponents = 20;
 
     public static readonly string[] componentNames = {
         "Loop",
@@ -40,6 +41,7 @@ public static class TweenyComponentsLookup {
         "Reverse",
         "StopMessage",
         "CompleteAction",
+        "CompleteLoopAction",
         "Ease",
         "Finish",
         "Timer",
@@ -62,6 +64,7 @@ public static class TweenyComponentsLookup {
         typeof(ReverseComponent),
         typeof(StopMessageComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteLoopActionComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.EaseComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.FinishComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.TimerComponent),
