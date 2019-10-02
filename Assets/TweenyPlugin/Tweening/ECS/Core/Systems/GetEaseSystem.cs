@@ -11,7 +11,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Systems
 		public GetEaseSystem(Contexts contexts) 
 		{
 			this.contexts = contexts;
-			this.easeGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Ease, TweenyMatcher.Timer));
+			this.easeGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Ease, TweenyMatcher.Progress));
 		}
     
 		public void Execute()
@@ -22,7 +22,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Systems
 			for (int i = 0; i < count; i++)
 			{
 				TweenyEntity entity = entities[i];
-				entity.ease.Value = Tweeny.GetValue(entity.timer.Timer, 0, entity.timer.Duration, entity.ease.Type);
+				entity.ease.Value = Tweeny.GetValue(entity.progress.Value, 0, 1, entity.ease.Type);
 			}
 		}
 	}

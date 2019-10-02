@@ -43,9 +43,19 @@ public class DeliverMessageSystem : IExecuteSystem
 			    receiver.AddCompleteAction(message.completeAction.OnComplete);
 		    }
 
+		    if (message.hasLoop)
+		    {
+			    receiver.AddLoop(message.loop.Count, message.loop.Type);
+		    }
+
 		    if (message.isReverse)
 		    {
 			    receiver.isReverse = true;
+		    }
+		    
+		    if (message.isMirror)
+		    {
+			    receiver.isMirror = true;
 		    }
 		}
 	}

@@ -11,7 +11,7 @@ namespace TweenyPlugin.Core
             time = time / (max - min);
             return ease.Get(time);
         }
-        
+
         public static float Random(float min, float max, Ease ease)
         {
             float value =  ease.Get(UnityEngine.Random.value);
@@ -24,6 +24,7 @@ namespace TweenyPlugin.Core
             TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
             entity.AddTransform(transform);
             entity.AddTimer(0f, duration);
+            entity.AddProgress(0f);
             entity.AddEase(ease, 0f);
             entity.AddMove(startPosition, (endPosition - startPosition).normalized,
                 Vector3.Distance(endPosition, startPosition));
@@ -36,6 +37,7 @@ namespace TweenyPlugin.Core
             TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
             entity.AddTransform(transform);
             entity.AddTimer(0f, duration);
+            entity.AddProgress(0f);
             entity.AddEase(ease, 0f);
             entity.AddScale(startScale, (endScale - startScale));
             return new Tween(entity.id.Value);
@@ -45,6 +47,7 @@ namespace TweenyPlugin.Core
         {
             TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
             entity.AddTimer(0f, duration);
+            entity.AddProgress(0f);
             entity.AddEase(ease, 0f);
             entity.AddMaterial(material);
             entity.AddFade(startAlpha, endAlpha);

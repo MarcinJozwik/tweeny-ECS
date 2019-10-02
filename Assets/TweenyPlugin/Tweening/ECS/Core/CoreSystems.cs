@@ -8,11 +8,14 @@ namespace TweenyPlugin.Tweening.ECS.Core
             : base("Core Systems")
         {
             this.Add(new CountTimeSystem(contexts));
+            this.Add(new SetLoopSystem(contexts));
             this.Add(new DoCompleteActionSystem(contexts));
             this.Add(new FinishTweenSystem(contexts));
             this.Add(new TickTimerSystem(contexts));
+            this.Add(new GetProgressSystem(contexts));
+            this.Add(new ReverseProgressSystem(contexts));
             this.Add(new GetEaseSystem(contexts));
-            this.Add(new ReverseEaseSystem(contexts));
+            this.Add(new MirrorEaseSystem(contexts));
         }
     }
 }

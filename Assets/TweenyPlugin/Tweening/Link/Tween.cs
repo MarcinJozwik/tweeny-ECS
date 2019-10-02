@@ -1,4 +1,5 @@
 ﻿using System;
+using TweenyPlugin.Tweening.ECS.Utilities;
 
 namespace TweenyPlugin.Tweening.Link
 {
@@ -38,11 +39,29 @@ namespace TweenyPlugin.Tweening.Link
             return this;
         }
 
+        public Tween SetLoops(int loops, LoopType type = LoopType.Restart)
+        {
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.AddLoop(loops, type);
+            message.isMessage = true;
+            return this;
+        }
+        
         public Tween Reverse()
         {
             TweenyEntity message = context.CreateEntity();
             message.AddReceiverId(id);
             message.isReverse = true;
+            message.isMessage = true;
+            return this;
+        }
+        
+        public Tween Mirror()
+        {
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.isMirror = true;
             message.isMessage = true;
             return this;
         }

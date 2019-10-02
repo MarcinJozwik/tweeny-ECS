@@ -1,6 +1,7 @@
 using TweenyPlugin;
 using TweenyPlugin.Core;
 using TweenyPlugin.Easing.Definitions;
+using TweenyPlugin.Tweening.ECS.Utilities;
 using TweenyPlugin.Tweening.Link;
 using UnityEngine;
 
@@ -51,9 +52,9 @@ namespace Unity
 
         private void PrepareTween()
         {
-            move = transform.TMove(startPosition, endPosition, duration, ease).OnComplete(PrintMessage);
+            move = transform.TMove(startPosition, endPosition, duration, ease).OnComplete(PrintMessage).SetLoops(-1, LoopType.Reverse);
             scale = transform.TScale(startScale, endScale, duration, ease).Reverse();
-            fade = material.TFade(startAlpha, endAlpha, duration, ease);
+            fade = material.TFade(startAlpha, endAlpha, duration, ease).SetLoops(3);
         }
 
         private void PrintMessage()

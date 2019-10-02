@@ -23,7 +23,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Systems
             for (int i = 0; i < count; i++)
             {
                 TweenyEntity entity = entities[i];
-                entity.timer.Timer = Mathf.MoveTowards(entity.timer.Timer, entity.timer.Duration, Time.deltaTime);
+                entity.timer.Current = Mathf.MoveTowards(entity.timer.Current, entity.timer.Duration, Time.deltaTime);
             }
         }
     }

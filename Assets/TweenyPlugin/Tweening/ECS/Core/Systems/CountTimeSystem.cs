@@ -23,7 +23,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Systems
             for (int i = 0; i < count; i++)
             {
                 TweenyEntity entity = entities[i];
-                if (entity.timer.Timer >= entity.timer.Duration)
+                if (entity.timer.Current >= entity.timer.Duration)
                 {
                     entity.isFinish = true;
                 }

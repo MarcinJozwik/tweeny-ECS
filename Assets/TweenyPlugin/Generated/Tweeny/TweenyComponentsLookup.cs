@@ -8,28 +8,34 @@
 //------------------------------------------------------------------------------
 public static class TweenyComponentsLookup {
 
-    public const int Message = 0;
-    public const int PlayMessage = 1;
-    public const int ReceiverId = 2;
-    public const int Reverse = 3;
-    public const int StopMessage = 4;
-    public const int CompleteAction = 5;
-    public const int Ease = 6;
-    public const int Finish = 7;
-    public const int Timer = 8;
-    public const int Tweening = 9;
-    public const int Id = 10;
-    public const int Fade = 11;
-    public const int Material = 12;
-    public const int Move = 13;
-    public const int Scale = 14;
-    public const int Transform = 15;
+    public const int Loop = 0;
+    public const int Message = 1;
+    public const int Mirror = 2;
+    public const int PlayMessage = 3;
+    public const int Progress = 4;
+    public const int ReceiverId = 5;
+    public const int Reverse = 6;
+    public const int StopMessage = 7;
+    public const int CompleteAction = 8;
+    public const int Ease = 9;
+    public const int Finish = 10;
+    public const int Timer = 11;
+    public const int Tweening = 12;
+    public const int Id = 13;
+    public const int Fade = 14;
+    public const int Material = 15;
+    public const int Move = 16;
+    public const int Scale = 17;
+    public const int Transform = 18;
 
-    public const int TotalComponents = 16;
+    public const int TotalComponents = 19;
 
     public static readonly string[] componentNames = {
+        "Loop",
         "Message",
+        "Mirror",
         "PlayMessage",
+        "Progress",
         "ReceiverId",
         "Reverse",
         "StopMessage",
@@ -47,8 +53,11 @@ public static class TweenyComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(LoopComponent),
         typeof(MessageComponent),
+        typeof(MirrorComponent),
         typeof(PlayMessageComponent),
+        typeof(ProgressComponent),
         typeof(ReceiverIdComponent),
         typeof(ReverseComponent),
         typeof(StopMessageComponent),
