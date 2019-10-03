@@ -22,12 +22,6 @@ public class DeliverMessageSystem : IExecuteSystem
 		    TweenyEntity message = entities[i];
 		    TweenyEntity receiver = this.contexts.tweeny.GetEntityWithId(message.receiverId.Id);
 
-		    if (receiver == null)
-		    {
-			    Debug.Log($"Receiver of a message doesn't exist anymore: ID: {message.receiverId.Id}");
-			    continue;
-		    }
-
 		    if (message.isPlayMessage)
 		    {
 			    receiver.isTweening = true;
