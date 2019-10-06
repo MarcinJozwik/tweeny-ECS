@@ -52,8 +52,8 @@ namespace Unity
 
         private void PrepareTween()
         {
-            move = transform.TMove(startPosition, endPosition, duration, ease).OnComplete(PrintMessage).OnLoopComplete(PrintLoopMessage).SetLoops(2, LoopType.Reverse);
-            scale = transform.TScale(startScale, endScale, duration, ease);
+            move = transform.TMove(startPosition, endPosition, duration, ease).OnComplete(PrintMessage).OnLoopComplete(PrintLoopMessage).SetLoops(2, LoopType.Reverse,2f);
+            scale = transform.TScale(startScale, endScale, duration, ease).SetDelay(5f);
             fade = material.TFade(startAlpha, endAlpha, duration, ease).Reverse();
             
             move.Next(scale);

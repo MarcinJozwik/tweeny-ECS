@@ -22,7 +22,7 @@ public class SetLoopSystem : IExecuteSystem
 			TweenyEntity entity = entities[i];
 			int loopsLeft = entity.loop.Count;
 			
-			if (loopsLeft > 0 || loopsLeft == -1)
+			if (loopsLeft > 1 || loopsLeft == -1)
 			{
 				entity.timer.Current = 0;
 				entity.isFinish = false;
@@ -35,9 +35,14 @@ public class SetLoopSystem : IExecuteSystem
 				{
 					entity.isReverse = !entity.isReverse;
 				}
+
+				if (entity.loop.DelayBetweenLoops != 0f)
+				{
+					entity.AddDelay(entity.loop.DelayBetweenLoops, 0f);
+				}
 			}
 
-			if (loopsLeft > 0)
+			if (loopsLeft > 1)
 			{
 				entity.loop.Count--;
 			}

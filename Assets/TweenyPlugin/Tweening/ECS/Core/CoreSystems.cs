@@ -12,6 +12,8 @@ namespace TweenyPlugin.Tweening.ECS.Core
             this.Add(new DoCompleteActionSystem(contexts));
             this.Add(new ActivateChainedTweenSystem(contexts));
             this.Add(new FinishTweenSystem(contexts));
+            
+            this.Add(new HandleDelaySystem(contexts));
             this.Add(new TickTimerSystem(contexts));
             this.Add(new GetProgressSystem(contexts));
             this.Add(new ReverseProgressSystem(contexts));

@@ -11,19 +11,21 @@ public partial class TweenyEntity {
     public LoopComponent loop { get { return (LoopComponent)GetComponent(TweenyComponentsLookup.Loop); } }
     public bool hasLoop { get { return HasComponent(TweenyComponentsLookup.Loop); } }
 
-    public void AddLoop(int newCount, TweenyPlugin.Tweening.ECS.Utilities.LoopType newType) {
+    public void AddLoop(int newCount, TweenyPlugin.Tweening.ECS.Utilities.LoopType newType, float newDelayBetweenLoops) {
         var index = TweenyComponentsLookup.Loop;
         var component = (LoopComponent)CreateComponent(index, typeof(LoopComponent));
         component.Count = newCount;
         component.Type = newType;
+        component.DelayBetweenLoops = newDelayBetweenLoops;
         AddComponent(index, component);
     }
 
-    public void ReplaceLoop(int newCount, TweenyPlugin.Tweening.ECS.Utilities.LoopType newType) {
+    public void ReplaceLoop(int newCount, TweenyPlugin.Tweening.ECS.Utilities.LoopType newType, float newDelayBetweenLoops) {
         var index = TweenyComponentsLookup.Loop;
         var component = (LoopComponent)CreateComponent(index, typeof(LoopComponent));
         component.Count = newCount;
         component.Type = newType;
+        component.DelayBetweenLoops = newDelayBetweenLoops;
         ReplaceComponent(index, component);
     }
 

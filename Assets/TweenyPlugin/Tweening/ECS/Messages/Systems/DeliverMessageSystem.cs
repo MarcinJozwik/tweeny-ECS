@@ -26,6 +26,7 @@ public class DeliverMessageSystem : IExecuteSystem
 
 		    if (message.isPlayMessage)
 		    {
+			    receiver.isStarted = true;
 			    receiver.isTweening = true;
 		    }
 
@@ -84,12 +85,13 @@ public class DeliverMessageSystem : IExecuteSystem
 			    {
 				    receiver.loop.Count = message.loop.Count;
 				    receiver.loop.Type = message.loop.Type;
+				    receiver.loop.DelayBetweenLoops = message.loop.DelayBetweenLoops;
 				    Debug.LogWarning(
 					    $"Overwriting SetLoop method for tween: {message.receiverId.Id}. Have you used the same method twice on purpose?");
 			    }
 			    else
 			    {
-				    receiver.AddLoop(message.loop.Count, message.loop.Type);
+				    receiver.AddLoop(message.loop.Count, message.loop.Type, message.loop.DelayBetweenLoops);
 			    }
 		    }
 
@@ -129,6 +131,26 @@ public class DeliverMessageSystem : IExecuteSystem
 			    }
 		    }
 		    
+		    #endregion
+
+		    #region Delay
+
+		    if (message.hasDelay)
+		    {
+			    if (receiver.hasDelay)
+			    {
+				    receiver.delay.Delay = message.delay.Delay;
+				    receiver.delay.Timer = message.delay.Timer;
+				    
+				    Debug.LogWarning(
+					    $"Overwriting SetDelay method for tween: {message.receiverId.Id}. Have you used the same method twice on purpose?");
+			    }
+			    else
+			    {
+				    receiver.AddDelay( message.delay.Delay,  message.delay.Timer);
+			    }
+		    }
+
 		    #endregion
 		}
 	}

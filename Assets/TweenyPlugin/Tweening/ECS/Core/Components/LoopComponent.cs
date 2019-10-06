@@ -6,4 +6,5 @@ public class LoopComponent : IComponent
 {
     public int Count;
     public LoopType Type;
+    public float DelayBetweenLoops;
 }

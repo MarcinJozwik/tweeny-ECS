@@ -53,11 +53,11 @@ namespace TweenyPlugin.Tweening.Link
             return this;
         }
 
-        public Tween SetLoops(int loops, LoopType type = LoopType.Restart)
+        public Tween SetLoops(int loops, LoopType type = LoopType.Restart, float delayBetweenLoops = 0f)
         {
             TweenyEntity message = context.CreateEntity();
             message.AddReceiverId(id);
-            message.AddLoop(loops, type);
+            message.AddLoop(loops, type, delayBetweenLoops);
             message.isMessage = true;
             return this;
         }
@@ -76,6 +76,15 @@ namespace TweenyPlugin.Tweening.Link
             TweenyEntity message = context.CreateEntity();
             message.AddReceiverId(id);
             message.isMirror = true;
+            message.isMessage = true;
+            return this;
+        }
+
+        public Tween SetDelay(float delay)
+        {
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.AddDelay(delay, 0f);
             message.isMessage = true;
             return this;
         }

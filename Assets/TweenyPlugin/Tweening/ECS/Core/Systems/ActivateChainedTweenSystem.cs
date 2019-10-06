@@ -21,6 +21,7 @@ public class ActivateChainedTweenSystem : IExecuteSystem
         for (int i = 0; i < count; i++)
         {
             TweenyEntity chainedEntity = this.contexts.tweeny.GetEntityWithId(entities[i].chainedTween.Id);
+            chainedEntity.isStarted = true;
             chainedEntity.isTweening = true;
         }
     }

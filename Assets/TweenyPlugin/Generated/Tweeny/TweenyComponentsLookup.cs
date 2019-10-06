@@ -9,31 +9,34 @@
 public static class TweenyComponentsLookup {
 
     public const int ChainedTween = 0;
-    public const int Loop = 1;
-    public const int Message = 2;
-    public const int Mirror = 3;
-    public const int PlayMessage = 4;
-    public const int Progress = 5;
-    public const int ReceiverId = 6;
-    public const int Reverse = 7;
-    public const int StopMessage = 8;
-    public const int CompleteAction = 9;
-    public const int CompleteLoopAction = 10;
-    public const int Ease = 11;
-    public const int Finish = 12;
-    public const int Timer = 13;
-    public const int Tweening = 14;
-    public const int Id = 15;
-    public const int Fade = 16;
-    public const int Material = 17;
-    public const int Move = 18;
-    public const int Scale = 19;
-    public const int Transform = 20;
+    public const int Delay = 1;
+    public const int Loop = 2;
+    public const int Message = 3;
+    public const int Mirror = 4;
+    public const int PlayMessage = 5;
+    public const int Progress = 6;
+    public const int ReceiverId = 7;
+    public const int Reverse = 8;
+    public const int Started = 9;
+    public const int StopMessage = 10;
+    public const int CompleteAction = 11;
+    public const int CompleteLoopAction = 12;
+    public const int Ease = 13;
+    public const int Finish = 14;
+    public const int Timer = 15;
+    public const int Tweening = 16;
+    public const int Id = 17;
+    public const int Fade = 18;
+    public const int Material = 19;
+    public const int Move = 20;
+    public const int Scale = 21;
+    public const int Transform = 22;
 
-    public const int TotalComponents = 21;
+    public const int TotalComponents = 23;
 
     public static readonly string[] componentNames = {
         "ChainedTween",
+        "Delay",
         "Loop",
         "Message",
         "Mirror",
@@ -41,6 +44,7 @@ public static class TweenyComponentsLookup {
         "Progress",
         "ReceiverId",
         "Reverse",
+        "Started",
         "StopMessage",
         "CompleteAction",
         "CompleteLoopAction",
@@ -58,6 +62,7 @@ public static class TweenyComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(ChainedTweenComponent),
+        typeof(DelayComponent),
         typeof(LoopComponent),
         typeof(MessageComponent),
         typeof(MirrorComponent),
@@ -65,6 +70,7 @@ public static class TweenyComponentsLookup {
         typeof(ProgressComponent),
         typeof(ReceiverIdComponent),
         typeof(ReverseComponent),
+        typeof(StartedComponent),
         typeof(StopMessageComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteLoopActionComponent),
