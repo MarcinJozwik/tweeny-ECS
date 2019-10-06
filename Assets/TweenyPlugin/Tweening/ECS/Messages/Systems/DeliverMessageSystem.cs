@@ -22,45 +22,114 @@ public class DeliverMessageSystem : IExecuteSystem
 		    TweenyEntity message = entities[i];
 		    TweenyEntity receiver = this.contexts.tweeny.GetEntityWithId(message.receiverId.Id);
 
+		    #region Play
+
 		    if (message.isPlayMessage)
 		    {
 			    receiver.isTweening = true;
 		    }
-		    
+
+		    #endregion
+
+		    #region Stop
+
 		    if (message.isStopMessage)
 		    {
 			    receiver.isTweening = false;
 		    }
 
+		    #endregion
+
+		    #region OnComplete
+
 		    if (message.hasCompleteAction)
 		    {
-			    receiver.AddCompleteAction(message.completeAction.OnComplete);
+			    if (receiver.hasCompleteAction)
+			    {
+				    receiver.completeAction.OnComplete = message.completeAction.OnComplete;
+				    Debug.LogWarning(
+					    $"Overwriting OnComplete callback for tween: {message.receiverId.Id}. Have you used the same method twice on purpose?");
+			    }
+			    else
+			    {
+				    receiver.AddCompleteAction(message.completeAction.OnComplete);
+			    }
 		    }
-		    
+
+		    #endregion
+
+		    #region OnCompleteLoop
+
 		    if (message.hasCompleteLoopAction)
 		    {
-			    receiver.AddCompleteLoopAction(message.completeLoopAction.OnLoopComplete);
+			    if (receiver.hasCompleteLoopAction)
+			    {
+				    receiver.completeLoopAction.OnLoopComplete = message.completeLoopAction.OnLoopComplete;
+				    Debug.LogWarning(
+					    $"Overwriting OnCompleteLoop callback for tween: {message.receiverId.Id}. Have you used the same method twice on purpose?");
+			    }
+			    else
+			    {
+				    receiver.AddCompleteLoopAction(message.completeLoopAction.OnLoopComplete);
+			    }
 		    }
+
+		    #endregion
+
+		    #region SetLoop
 
 		    if (message.hasLoop)
 		    {
-			    receiver.AddLoop(message.loop.Count, message.loop.Type);
+			    if (receiver.hasLoop)
+			    {
+				    receiver.loop.Count = message.loop.Count;
+				    receiver.loop.Type = message.loop.Type;
+				    Debug.LogWarning(
+					    $"Overwriting SetLoop method for tween: {message.receiverId.Id}. Have you used the same method twice on purpose?");
+			    }
+			    else
+			    {
+				    receiver.AddLoop(message.loop.Count, message.loop.Type);
+			    }
 		    }
+
+		    #endregion
+
+		    #region Reverse
 
 		    if (message.isReverse)
 		    {
 			    receiver.isReverse = true;
 		    }
-		    
+
+		    #endregion
+
+		    #region Mirror
+
 		    if (message.isMirror)
 		    {
 			    receiver.isMirror = true;
 		    }
+
+		    #endregion
+
+		    #region Chained Tween
 		    
 		    if (message.hasChainedTween)
 		    {
-			    receiver.AddChainedTween(message.chainedTween.Id);
+			    if (receiver.hasChainedTween)
+			    {
+				    receiver.chainedTween.Id = message.chainedTween.Id;
+				    Debug.LogWarning(
+					    $"Overwriting ChainTween method for tween: {message.receiverId.Id}. Have you used the same method twice on purpose?");
+			    }
+			    else
+			    {
+				    receiver.AddChainedTween(message.chainedTween.Id);
+			    }
 		    }
+		    
+		    #endregion
 		}
 	}
 }
