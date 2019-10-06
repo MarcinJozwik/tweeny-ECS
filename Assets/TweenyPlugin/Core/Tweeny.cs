@@ -28,7 +28,7 @@ namespace TweenyPlugin.Core
             entity.AddEase(ease, 0f);
             entity.AddMove(startPosition, (endPosition - startPosition).normalized,
                 Vector3.Distance(endPosition, startPosition));
-            return new Tween(entity.id.Value);
+            return new Tween(entity.id.Value, duration);
         }
         
         public static Tween TScale(Transform transform, Vector3 startScale, Vector3 endScale,
@@ -40,7 +40,7 @@ namespace TweenyPlugin.Core
             entity.AddProgress(0f);
             entity.AddEase(ease, 0f);
             entity.AddScale(startScale, (endScale - startScale));
-            return new Tween(entity.id.Value);
+            return new Tween(entity.id.Value, duration);
         }
 
         public static Tween TFade(Material material, float startAlpha, float endAlpha, float duration, Ease ease)
@@ -51,7 +51,7 @@ namespace TweenyPlugin.Core
             entity.AddEase(ease, 0f);
             entity.AddMaterial(material);
             entity.AddFade(startAlpha, endAlpha);
-            return new Tween(entity.id.Value);
+            return new Tween(entity.id.Value, duration);
         }
     }
 }

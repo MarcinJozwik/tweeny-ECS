@@ -1,7 +1,8 @@
-﻿using Entitas;
+﻿using System.Collections.Generic;
+using Entitas;
 
 [Tweeny]
 public class ChainedTweenComponent : IComponent
 {
-    public int Id;
+    public List<int> Ids = new List<int>();
 }
