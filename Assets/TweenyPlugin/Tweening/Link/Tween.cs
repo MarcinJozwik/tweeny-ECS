@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using TweenyPlugin.Tweening.ECS.Utilities;
 
 namespace TweenyPlugin.Tweening.Link
@@ -8,7 +7,9 @@ namespace TweenyPlugin.Tweening.Link
     {
         private readonly TweenyContext context;
         private readonly int id;
-        
+
+        private bool playing = false;
+
         private float duration = 0f;
         private float initialDelay = 0f;
         private float delayBetweenLoops = 0f;
@@ -31,20 +32,44 @@ namespace TweenyPlugin.Tweening.Link
             return initialDelay + (duration * loops) + (delayBetweenLoops * (loops - 1));
         }
 
+        public bool IsFinished()
+        {
+            return !context.HasEntity(context.GetEntityWithId(id));
+        }
+
+        public bool IsPlaying()
+        {
+            return playing && !IsFinished();
+        }
+
         public void Play()
         {
+            if (IsFinished())
+            {
+                return;
+            }
+            
             TweenyEntity message = context.CreateEntity();
             message.AddReceiverId(id);
             message.isPlayMessage = true;
             message.isMessage = true;
+
+            playing = true;
         }
         
         public void Stop()
         {
+            if (IsFinished())
+            {
+                return;
+            }
+            
             TweenyEntity message = context.CreateEntity();
             message.AddReceiverId(id);
             message.isStopMessage = true;
             message.isMessage = true;
+
+            playing = false;
         }
 
         public Tween OnComplete(Action action)
