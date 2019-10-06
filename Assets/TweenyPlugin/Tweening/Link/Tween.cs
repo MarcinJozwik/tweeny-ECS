@@ -44,6 +44,15 @@ namespace TweenyPlugin.Tweening.Link
             return this;
         }
         
+        public Tween OnStart(Action action)
+        {
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.AddStartAction(action);
+            message.isMessage = true;
+            return this;
+        }
+        
         public Tween OnLoopComplete(Action action)
         {
             TweenyEntity message = context.CreateEntity();

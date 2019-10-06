@@ -17,22 +17,23 @@ public static class TweenyComponentsLookup {
     public const int Progress = 6;
     public const int ReceiverId = 7;
     public const int Reverse = 8;
-    public const int Started = 9;
-    public const int StopMessage = 10;
-    public const int CompleteAction = 11;
-    public const int CompleteLoopAction = 12;
-    public const int Ease = 13;
-    public const int Finish = 14;
-    public const int Timer = 15;
-    public const int Tweening = 16;
-    public const int Id = 17;
-    public const int Fade = 18;
-    public const int Material = 19;
-    public const int Move = 20;
-    public const int Scale = 21;
-    public const int Transform = 22;
+    public const int StartAction = 9;
+    public const int Started = 10;
+    public const int StopMessage = 11;
+    public const int CompleteAction = 12;
+    public const int CompleteLoopAction = 13;
+    public const int Ease = 14;
+    public const int Finish = 15;
+    public const int Timer = 16;
+    public const int Tweening = 17;
+    public const int Id = 18;
+    public const int Fade = 19;
+    public const int Material = 20;
+    public const int Move = 21;
+    public const int Scale = 22;
+    public const int Transform = 23;
 
-    public const int TotalComponents = 23;
+    public const int TotalComponents = 24;
 
     public static readonly string[] componentNames = {
         "ChainedTween",
@@ -44,6 +45,7 @@ public static class TweenyComponentsLookup {
         "Progress",
         "ReceiverId",
         "Reverse",
+        "StartAction",
         "Started",
         "StopMessage",
         "CompleteAction",
@@ -70,6 +72,7 @@ public static class TweenyComponentsLookup {
         typeof(ProgressComponent),
         typeof(ReceiverIdComponent),
         typeof(ReverseComponent),
+        typeof(StartActionComponent),
         typeof(StartedComponent),
         typeof(StopMessageComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent),

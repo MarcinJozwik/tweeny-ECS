@@ -41,6 +41,24 @@ public class DeliverMessageSystem : IExecuteSystem
 
 		    #endregion
 
+		    #region OnStart
+
+		    if (message.hasStartAction)
+		    {
+			    if (receiver.hasStartAction)
+			    {
+				    receiver.startAction.OnStart = message.startAction.OnStart;
+				    Debug.LogWarning(
+					    $"Overwriting OnStart callback for tween: {message.receiverId.Id}. Have you used the same method twice on purpose?");
+			    }
+			    else
+			    {
+				    receiver.AddStartAction(message.startAction.OnStart);
+			    }
+		    }
+
+		    #endregion
+		    
 		    #region OnComplete
 
 		    if (message.hasCompleteAction)
