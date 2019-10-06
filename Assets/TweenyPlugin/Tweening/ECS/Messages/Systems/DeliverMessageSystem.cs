@@ -140,12 +140,13 @@ public class DeliverMessageSystem : IExecuteSystem
 			    if (receiver.hasChainedTween)
 			    {
 				    receiver.chainedTween.Ids = message.chainedTween.Ids;
+				    receiver.chainedTween.OnChained = message.chainedTween.OnChained;
 				    Debug.LogWarning(
 					    $"Overwriting ChainTween method for tween: {message.receiverId.Id}. Have you used the same method twice on purpose?");
 			    }
 			    else
 			    {
-				    receiver.AddChainedTween(message.chainedTween.Ids);
+				    receiver.AddChainedTween(message.chainedTween.Ids, message.chainedTween.OnChained);
 			    }
 		    }
 		    

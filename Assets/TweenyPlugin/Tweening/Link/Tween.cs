@@ -114,21 +114,5 @@ namespace TweenyPlugin.Tweening.Link
             message.isMessage = true;
             return this;
         }
-
-        public void Next(Tween[] tweens)
-        {
-            List<int> ids = new List<int>();
-
-            for (var i = 0; i < tweens.Length; i++)
-            {
-                var tween = tweens[i];
-                ids.Add(tween.GetId());
-            }
-
-            TweenyEntity message = context.CreateEntity();
-            message.AddReceiverId(id);
-            message.AddChainedTween(ids);
-            message.isMessage = true;
-        }
     }
 }

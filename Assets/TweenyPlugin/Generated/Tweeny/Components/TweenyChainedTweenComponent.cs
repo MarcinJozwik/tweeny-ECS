@@ -11,17 +11,19 @@ public partial class TweenyEntity {
     public ChainedTweenComponent chainedTween { get { return (ChainedTweenComponent)GetComponent(TweenyComponentsLookup.ChainedTween); } }
     public bool hasChainedTween { get { return HasComponent(TweenyComponentsLookup.ChainedTween); } }
 
-    public void AddChainedTween(System.Collections.Generic.List<int> newIds) {
+    public void AddChainedTween(System.Collections.Generic.List<int> newIds, System.Action newOnChained) {
         var index = TweenyComponentsLookup.ChainedTween;
         var component = (ChainedTweenComponent)CreateComponent(index, typeof(ChainedTweenComponent));
         component.Ids = newIds;
+        component.OnChained = newOnChained;
         AddComponent(index, component);
     }
 
-    public void ReplaceChainedTween(System.Collections.Generic.List<int> newIds) {
+    public void ReplaceChainedTween(System.Collections.Generic.List<int> newIds, System.Action newOnChained) {
         var index = TweenyComponentsLookup.ChainedTween;
         var component = (ChainedTweenComponent)CreateComponent(index, typeof(ChainedTweenComponent));
         component.Ids = newIds;
+        component.OnChained = newOnChained;
         ReplaceComponent(index, component);
     }
 

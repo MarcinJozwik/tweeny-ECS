@@ -89,6 +89,7 @@ namespace Unity
 
         public void Stop()
         {
+            timeline.Stop();
 //            move.Stop();     
 //            scale.Stop();     
 //            fade.Stop();   
