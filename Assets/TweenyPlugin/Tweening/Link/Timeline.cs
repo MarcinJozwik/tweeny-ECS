@@ -5,27 +5,21 @@ namespace TweenyPlugin.Tweening.Link
     public class Timeline
     {
         private readonly List<Tween[]> groups = new List<Tween[]>();
-        private int activeGroupIndex;
+        private int activeGroupIndex = 0;
 
         public void AddGroup(params Tween[] tweens)
         {
             groups.Add(tweens);
-
-            if (groups.Count > 1)
-            {
-                ConnectGroups();
-            }
+            SetGroupCallback(GetLongestTween(tweens));
         }
         
         public void AddDelay(float delay)
         {
             TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
             entity.AddTimer(0f, delay);
-            groups.Add(new[] { new Tween(entity.id.Value, delay)});
-            if (groups.Count > 1)
-            {
-                ConnectGroups();
-            }
+            Tween delayTween = new Tween(entity.id.Value, delay);
+            groups.Add(new[] {delayTween});
+            SetGroupCallback(delayTween);
         }
 
         public void Play()
@@ -35,11 +29,11 @@ namespace TweenyPlugin.Tweening.Link
                 return;
             }
 
-            int count = groups[activeGroupIndex].Length;
+            int count = GetGroup().Length;
             
             for (var i = 0; i < count; i++)
             {
-                Tween tween = groups[activeGroupIndex][i];
+                Tween tween = GetGroup()[i];
                 tween.Play();
             }
         }
@@ -51,30 +45,28 @@ namespace TweenyPlugin.Tweening.Link
                 return;
             }
 
-            int count = groups[activeGroupIndex].Length;
+            int count = GetGroup().Length;
             
             for (var i = 0; i < count; i++)
             {
-                Tween tween = groups[activeGroupIndex][i];
+                Tween tween = GetGroup()[i];
                 tween.Stop();
             }
         }
 
         public bool IsFinished()
         {
-            return false;//activeGroupIndex >= groups.Count;
+            return activeGroupIndex >= groups.Count;
         }
 
-        private void ConnectGroups()
+        private Tween GetLongestTween(Tween[] tweens)
         {
-            Tween[] previousGroup = groups[groups.Count - 2];
-            Tween[] latestGroup = groups[groups.Count - 1];
-            
             Tween longestTween = null;
             float longestDuration = -1;
-            
-            foreach (Tween tween in previousGroup)
+
+            for (var i = 0; i < tweens.Length; i++)
             {
+                Tween tween = tweens[i];
                 float duration = tween.GetTotalDuration();
                 if (duration >= longestDuration)
                 {
@@ -82,29 +74,27 @@ namespace TweenyPlugin.Tweening.Link
                     longestTween = tween;
                 }
             }
-            
-            ChainTweens(longestTween, latestGroup);
+
+            return longestTween;
         }
         
-        private void ChainTweens(Tween rootTween, Tween[] tweens)
+        private void SetGroupCallback(Tween tween)
         {
-            List<int> ids = new List<int>();
-
-            for (var i = 0; i < tweens.Length; i++)
-            {
-                var tween = tweens[i];
-                ids.Add(tween.GetId());
-            }
-
             TweenyEntity message = Contexts.sharedInstance.tweeny.CreateEntity();
-            message.AddReceiverId(rootTween.GetId());
-            message.AddChainedTween(ids, OnGroupComplete);
+            message.AddReceiverId(tween.GetId());
+            message.AddChainedTween(null, OnGroupComplete);
             message.isMessage = true;
+        }
+
+        private Tween[] GetGroup()
+        {
+            return groups[activeGroupIndex];
         }
 
         private void OnGroupComplete()
         {
             activeGroupIndex++;
+            Play();
         }
     }
 }

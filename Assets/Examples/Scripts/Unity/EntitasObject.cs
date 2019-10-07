@@ -54,9 +54,16 @@ namespace Unity
 
         private void PrepareTween()
         {
-            move = transform.TMove(startPosition, endPosition, duration, ease).OnComplete(PrintMessage).OnLoopComplete(PrintLoopMessage).SetLoops(2, LoopType.Reverse,2f);
-            scale = transform.TScale(startScale, endScale, duration, ease).OnStart(PrintStartMessage);
-            fade = material.TFade(startAlpha, endAlpha, duration, ease).Reverse();
+            move = transform.TMove(startPosition, endPosition, duration, ease)
+                .OnComplete(PrintMessage)
+                .OnLoopComplete(PrintLoopMessage)
+                .SetLoops(2, LoopType.Reverse,2f);
+            
+            scale = transform.TScale(startScale, endScale, duration, ease)
+                .OnStart(PrintStartMessage);
+            
+            fade = material.TFade(startAlpha, endAlpha, duration, ease)
+                .Reverse();
             
             timeline = new Timeline();
             timeline.AddGroup(move, scale);
@@ -82,17 +89,11 @@ namespace Unity
         public void Tween()
         {
             timeline.Play();
-//            move.Play();     
-//            scale.Play();     
-//            fade.Play();     
         }
 
         public void Stop()
         {
             timeline.Stop();
-//            move.Stop();     
-//            scale.Stop();     
-//            fade.Stop();   
         }
     }
 }

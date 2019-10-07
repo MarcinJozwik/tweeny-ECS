@@ -20,17 +20,18 @@ public class ActivateChainedTweenSystem : IExecuteSystem
         
         for (int i = 0; i < count; i++)
         {
-            int idCount = entities[i].chainedTween.Ids.Count;
-            for (int j = 0; j < idCount; j++)
-            {
-                TweenyEntity entity = entities[i];
-                
-                TweenyEntity chainedEntity = this.contexts.tweeny.GetEntityWithId(entity.chainedTween.Ids[j]);
-                chainedEntity.isStarted = true;
-                chainedEntity.isTweening = true;
-                
-                entity.chainedTween.OnChained();
-            }
+            entities[i].chainedTween.OnChained();
+//            int idCount = entities[i].chainedTween.Ids.Count;
+//            for (int j = 0; j < idCount; j++)
+//            {
+//                TweenyEntity entity = entities[i];
+//                
+//                TweenyEntity chainedEntity = this.contexts.tweeny.GetEntityWithId(entity.chainedTween.Ids[j]);
+//                chainedEntity.isStarted = true;
+//                chainedEntity.isTweening = true;
+//                
+//                
+//            }
         }
     }
 }
