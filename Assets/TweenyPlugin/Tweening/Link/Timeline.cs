@@ -6,6 +6,7 @@ namespace TweenyPlugin.Tweening.Link
     {
         private readonly List<Tween[]> groups = new List<Tween[]>();
         private int activeGroupIndex = 0;
+        private bool reversed = false;
 
         public void AddGroup(params Tween[] tweens)
         {
@@ -54,11 +55,6 @@ namespace TweenyPlugin.Tweening.Link
             }
         }
 
-        public bool IsFinished()
-        {
-            return activeGroupIndex >= groups.Count;
-        }
-
         private Tween GetLongestTween(Tween[] tweens)
         {
             Tween longestTween = null;
@@ -86,11 +82,27 @@ namespace TweenyPlugin.Tweening.Link
             message.isMessage = true;
         }
 
+        public Timeline Backwards()
+        {
+            reversed = true;
+            return this;
+        }
+        
+        public bool IsFinished()
+        {
+            return activeGroupIndex >= groups.Count;
+        }
+        
         private Tween[] GetGroup()
         {
-            return groups[activeGroupIndex];
+            return groups[GetIndex()];
         }
 
+        private int GetIndex()
+        {
+            return reversed ? (groups.Count - 1 - activeGroupIndex) : activeGroupIndex;
+        }
+        
         private void OnGroupComplete()
         {
             activeGroupIndex++;

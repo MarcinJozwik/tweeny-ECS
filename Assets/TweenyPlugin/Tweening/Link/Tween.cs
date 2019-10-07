@@ -3,7 +3,7 @@ using TweenyPlugin.Tweening.ECS.Utilities;
 
 namespace TweenyPlugin.Tweening.Link
 {
-    public class Tween
+    public class Tween : ITweenable<Tween>
     {
         private readonly TweenyContext context;
         private readonly int id;
