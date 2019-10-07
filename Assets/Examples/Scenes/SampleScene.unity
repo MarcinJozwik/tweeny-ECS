@@ -814,7 +814,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: NaN, z: 7.51e-43, w: -1.5932069e-13}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 1.51e-43, w: 0.02734375}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -967,7 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee63954531b4553bbd0b472022e9ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DurationTime: 5
+  DurationTime: 3
 --- !u!4 &785708856
 Transform:
   m_ObjectHideFlags: 0
@@ -1004,19 +1004,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662bcda265db402f8dfdb14e1c4b6d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Count: 1
-  Cubes:
-  - {fileID: 512292972}
-  - {fileID: 538305670}
-  - {fileID: 809033437}
-  - {fileID: 1337301152}
-  - {fileID: 418753071}
-  - {fileID: 1325367258}
-  - {fileID: 1236040597}
-  - {fileID: 1438137986}
-  - {fileID: 2100175144}
-  - {fileID: 1085233745}
-  EntitasObjects: []
+  EntitasObjects:
+  - {fileID: 512292974}
+  - {fileID: 538305672}
+  - {fileID: 809033439}
+  - {fileID: 1337301154}
+  - {fileID: 418753073}
+  - {fileID: 1325367260}
+  - {fileID: 1236040599}
+  - {fileID: 1438137988}
+  - {fileID: 2100175146}
+  - {fileID: 1085233747}
 --- !u!1 &787352080
 GameObject:
   m_ObjectHideFlags: 0

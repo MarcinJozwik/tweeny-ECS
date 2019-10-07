@@ -2,7 +2,7 @@
 
 namespace TweenyPlugin.Tweening.ECS.Messages.Systems
 {
-    public class CleanupMessagesSystem : ICleanupSystem
+    public class CleanupMessagesSystem : IExecuteSystem
     {
         private readonly Contexts contexts;
         private readonly IGroup<TweenyEntity> messageGroup;
@@ -13,7 +13,7 @@ namespace TweenyPlugin.Tweening.ECS.Messages.Systems
             this.messageGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Message, TweenyMatcher.Id));
         }
         
-        public void Cleanup()
+        public void Execute()
         {
             TweenyEntity[] entities = this.messageGroup.GetEntities();
             int count = entities.Length;
