@@ -1,26 +1,11 @@
-﻿using System;
-using TweenyPlugin.Tweening.ECS.Utilities;
-
-namespace TweenyPlugin.Tweening.Link
+﻿namespace TweenyPlugin.Tweening.Link
 {
-    public interface ITweenable <out T> where T : class
+    public interface ITweenable
     {
         void Play();
         void Stop();
-
         bool IsFinished();
         bool IsPlaying();
-
         float GetTotalDuration();
-
-        T Reverse();
-        T Mirror();
-
-        T SetLoops(int loops, LoopType type = LoopType.Restart, float delayBetweenLoops = 0f);
-        T SetDelay(float delay);
-
-        T OnStart(Action action);
-        T OnLoopComplete(Action action);
-        T OnComplete(Action action);
     }
 }

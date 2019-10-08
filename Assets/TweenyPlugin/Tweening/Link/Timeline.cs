@@ -1,12 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TweenyPlugin.Tweening.Link
 {
-    public class Timeline
+    public class Timeline : ITweenable
     {
         private readonly List<Tween[]> groups = new List<Tween[]>();
         private int activeGroupIndex = 0;
         private bool reversed = false;
+        private bool playing = false;
 
         public void AddGroup(params Tween[] tweens)
         {
@@ -37,6 +39,8 @@ namespace TweenyPlugin.Tweening.Link
                 Tween tween = GetGroup()[i];
                 tween.Play();
             }
+
+            playing = true;
         }
 
         public void Stop()
@@ -53,6 +57,8 @@ namespace TweenyPlugin.Tweening.Link
                 Tween tween = GetGroup()[i];
                 tween.Stop();
             }
+            
+            playing = false;
         }
 
         private Tween GetLongestTween(Tween[] tweens)
@@ -92,7 +98,24 @@ namespace TweenyPlugin.Tweening.Link
         {
             return activeGroupIndex >= groups.Count;
         }
-        
+
+        public bool IsPlaying()
+        {
+            return playing && !IsFinished();
+        }
+
+        public float GetTotalDuration()
+        {
+            float duration = 0;
+
+            for (var i = 0; i < groups.Count; i++)
+            {
+                duration += GetLongestTween(groups[i]).GetTotalDuration();
+            }
+
+            return duration;
+        }
+
         private Tween[] GetGroup()
         {
             return groups[GetIndex()];
