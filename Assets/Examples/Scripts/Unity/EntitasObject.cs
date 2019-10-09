@@ -1,4 +1,3 @@
-using TweenyPlugin;
 using TweenyPlugin.Core;
 using TweenyPlugin.Easing.Definitions;
 using TweenyPlugin.Tweening.ECS.Utilities;
@@ -54,21 +53,23 @@ namespace Unity
 
         private void PrepareTween()
         {
-            move = transform.TMove(startPosition, endPosition, duration, ease)
+            move = transform.TMove(startPosition, endPosition, duration, ease, new TweenSet()
                 .OnComplete(PrintMessage)
-                .OnLoopComplete(PrintLoopMessage)
-                .SetLoops(2, LoopType.Reverse,2f);
+                .SetLoops(2, LoopType.PingPong, .5f)
+                .Reverse());
             
-            scale = transform.TScale(startScale, endScale, duration, ease)
-                .OnStart(PrintStartMessage);
+            scale = transform.TScale(startScale, endScale, duration, ease, new TweenSet()
+                .OnStart(PrintStartMessage));
             
-            fade = material.TFade(startAlpha, endAlpha, duration, ease)
-                .Reverse();
+            fade = material.TFade(startAlpha, endAlpha, duration, ease, new TweenSet()
+                .Reverse());
             
             timeline = new Timeline();
             timeline.AddGroup(move, scale);
             timeline.AddDelay(2f);
             timeline.AddGroup(fade);
+            
+            Debug.Log($"Timeline duration:{timeline.GetTotalDuration()}s");
         }
 
         private void PrintStartMessage()
@@ -94,6 +95,11 @@ namespace Unity
         public void Stop()
         {
             timeline.Stop();
+        }
+
+        public void Reset()
+        {
+            move.Reset();
         }
     }
 }

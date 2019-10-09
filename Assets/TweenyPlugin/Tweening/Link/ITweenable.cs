@@ -4,6 +4,7 @@
     {
         void Play();
         void Stop();
+        void Reset();
         bool IsFinished();
         bool IsPlaying();
         float GetTotalDuration();

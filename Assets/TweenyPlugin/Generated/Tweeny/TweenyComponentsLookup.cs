@@ -16,24 +16,25 @@ public static class TweenyComponentsLookup {
     public const int PlayMessage = 5;
     public const int Progress = 6;
     public const int ReceiverId = 7;
-    public const int Reverse = 8;
-    public const int StartAction = 9;
-    public const int Started = 10;
-    public const int StopMessage = 11;
-    public const int CompleteAction = 12;
-    public const int CompleteLoopAction = 13;
-    public const int Ease = 14;
-    public const int Finish = 15;
-    public const int Timer = 16;
-    public const int Tweening = 17;
-    public const int Id = 18;
-    public const int Fade = 19;
-    public const int Material = 20;
-    public const int Move = 21;
-    public const int Scale = 22;
-    public const int Transform = 23;
+    public const int ResetMessage = 8;
+    public const int Reverse = 9;
+    public const int StartAction = 10;
+    public const int Started = 11;
+    public const int StopMessage = 12;
+    public const int CompleteAction = 13;
+    public const int CompleteLoopAction = 14;
+    public const int Ease = 15;
+    public const int Finish = 16;
+    public const int Timer = 17;
+    public const int Tweening = 18;
+    public const int Id = 19;
+    public const int Fade = 20;
+    public const int Material = 21;
+    public const int Move = 22;
+    public const int Scale = 23;
+    public const int Transform = 24;
 
-    public const int TotalComponents = 24;
+    public const int TotalComponents = 25;
 
     public static readonly string[] componentNames = {
         "ChainedTween",
@@ -44,6 +45,7 @@ public static class TweenyComponentsLookup {
         "PlayMessage",
         "Progress",
         "ReceiverId",
+        "ResetMessage",
         "Reverse",
         "StartAction",
         "Started",
@@ -71,6 +73,7 @@ public static class TweenyComponentsLookup {
         typeof(PlayMessageComponent),
         typeof(ProgressComponent),
         typeof(ReceiverIdComponent),
+        typeof(ResetMessageComponent),
         typeof(ReverseComponent),
         typeof(StartActionComponent),
         typeof(StartedComponent),

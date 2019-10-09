@@ -30,6 +30,16 @@ namespace Unity
                 
                 isPlaying = !isPlaying;
             }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                int count = EntitasObjects.Length;
+                for (var i = 0; i < count; i++)
+                {
+                    EntitasObjects[i].Reset();
+                    EntitasObjects[i].Stop();
+                }
+            }
         }
     }
 }

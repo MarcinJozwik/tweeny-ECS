@@ -61,6 +61,11 @@ namespace TweenyPlugin.Tweening.Link
             playing = false;
         }
 
+        public void Reset()
+        {
+            throw new NotImplementedException();
+        }
+
         private Tween GetLongestTween(Tween[] tweens)
         {
             Tween longestTween = null;
