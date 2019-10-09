@@ -45,6 +45,12 @@ namespace TweenyPlugin.Core
             return GetTween(entity);
         }
 
+        public static Tween TBase(float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            return GetTween(entity);
+        }
+
         private static TweenyEntity CreateBase(float duration, Ease ease, TweenSet set)
         {
             TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();

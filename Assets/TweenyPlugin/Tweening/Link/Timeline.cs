@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using TweenyPlugin.Core;
+using TweenyPlugin.Easing.Definitions;
 
 namespace TweenyPlugin.Tweening.Link
 {
@@ -18,9 +20,7 @@ namespace TweenyPlugin.Tweening.Link
         
         public void AddDelay(float delay)
         {
-            TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
-            entity.AddTimer(0f, delay);
-            Tween delayTween = new Tween(entity.id.Value, delay);
+            Tween delayTween = Tweeny.TBase(delay, EaseMode.Linear);
             groups.Add(new[] {delayTween});
             SetGroupCallback(delayTween);
         }
