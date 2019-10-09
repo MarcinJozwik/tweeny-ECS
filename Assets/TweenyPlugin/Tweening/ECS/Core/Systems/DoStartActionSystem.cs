@@ -8,7 +8,7 @@ public class DoStartActionSystem : IExecuteSystem
     public DoStartActionSystem(Contexts contexts) 
     {
         this.contexts = contexts;
-        this.startedGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Started, TweenyMatcher.Tweening, TweenyMatcher.StartAction));
+        this.startedGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Starting, TweenyMatcher.Tweening, TweenyMatcher.StartAction));
     }
 
 	public void Execute()
@@ -20,7 +20,6 @@ public class DoStartActionSystem : IExecuteSystem
 		{
 		    TweenyEntity entity = entities[i];
 		    entity.startAction.OnStart();
-		    entity.RemoveStartAction();
 		}
 	}
 }

@@ -10,7 +10,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Systems
 		public FinishTweenSystem(Contexts contexts) 
 		{
 			this.contexts = contexts;
-			this.finishGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Finish, TweenyMatcher.Tweening));
+			this.finishGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Finishing, TweenyMatcher.Tweening));
 		}
 
 		public void Execute()
@@ -21,9 +21,9 @@ namespace TweenyPlugin.Tweening.ECS.Core.Systems
 			for (int i = 0; i < count; i++)
 			{
 				TweenyEntity entity = entities[i];
-				entity.isFinish = false;
+				entity.isFinishing = false;
+				entity.isFinished = true;
 				entity.isTweening = false;
-				entity.Destroy();
 			}
 		}
 	}

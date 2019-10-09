@@ -3,10 +3,10 @@ using TweenyPlugin.Tweening.ECS.Tweens.Systems;
 
 namespace TweenyPlugin.Tweening.ECS.Tweens
 {
-    public class TweenSystems : Feature
+    public class TweeningSystems : Feature
     {
-        public TweenSystems(Contexts contexts)
-            : base("Tween Systems")
+        public TweeningSystems(Contexts contexts)
+            : base("Tweening Systems")
         {
             this.Add(new MoveSystem(contexts));
             this.Add(new ScaleSystem(contexts));

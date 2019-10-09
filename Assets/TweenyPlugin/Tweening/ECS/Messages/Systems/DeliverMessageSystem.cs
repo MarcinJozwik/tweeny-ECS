@@ -26,7 +26,7 @@ public class DeliverMessageSystem : IExecuteSystem
 
 		    if (message.isPlayMessage)
 		    {
-			    receiver.isStarted = true;
+			    receiver.isStarting = true;
 			    receiver.isTweening = true;
 		    }
 
@@ -53,23 +53,13 @@ public class DeliverMessageSystem : IExecuteSystem
 
 		    #endregion
 
-		    #region Chained Tween
-		    
-		    if (message.hasChainedTween)
+		    #region Timeline
+
+		    if (message.isGroupFinish)
 		    {
-			    if (receiver.hasChainedTween)
-			    {
-				    receiver.chainedTween.Ids = message.chainedTween.Ids;
-				    receiver.chainedTween.OnChained = message.chainedTween.OnChained;
-				    Debug.LogWarning(
-					    $"Overwriting ChainTween method for tween: {message.receiverId.Id}. Have you used the same method twice on purpose?");
-			    }
-			    else
-			    {
-				    receiver.AddChainedTween(message.chainedTween.Ids, message.chainedTween.OnChained);
-			    }
+			    receiver.isGroupFinish = true;
 		    }
-		    
+
 		    #endregion
 		}
 	}

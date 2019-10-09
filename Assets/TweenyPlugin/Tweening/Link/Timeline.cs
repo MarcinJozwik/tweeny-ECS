@@ -1,64 +1,109 @@
 ﻿using System;
 using System.Collections.Generic;
+using Entitas;
 using TweenyPlugin.Core;
 using TweenyPlugin.Easing.Definitions;
+using UnityEngine;
 
 namespace TweenyPlugin.Tweening.Link
 {
     public class Timeline : ITweenable
     {
-        private readonly List<Tween[]> groups = new List<Tween[]>();
-        private int activeGroupIndex = 0;
-        private bool reversed = false;
-        private bool playing = false;
+        #region Fields
+
+        private readonly List<int[]> groups = new List<int[]>();
+        private readonly Context<TweenyEntity> context;
+
+        private int id;
+        private bool built = false;
+
+        #endregion
+
+        #region Contructor
+
+        public Timeline()
+        {
+            context = Contexts.sharedInstance.tweeny;
+        }
+
+        #endregion
+        #region Build
 
         public void AddGroup(params Tween[] tweens)
         {
-            groups.Add(tweens);
-            SetGroupCallback(GetLongestTween(tweens));
+            if (Validate())
+            {
+                groups.Add(GetIds(tweens));
+            }
         }
         
-        public void AddDelay(float delay)
+        public void InsertGroup(int index, params Tween[] tweens)
         {
-            Tween delayTween = Tweeny.TBase(delay, EaseMode.Linear);
-            groups.Add(new[] {delayTween});
-            SetGroupCallback(delayTween);
+            if (Validate())
+            {
+                groups.Insert(index, GetIds(tweens));
+            }
         }
+        
+        public void AddDelay(float delay, TweenSet set = null)
+        {
+            if (Validate())
+            {
+                Tween delayTween = Tweeny.TBase(delay, EaseMode.Linear, set);
+                groups.Add(new[] {delayTween.GetId()});
+            }
+        }
+
+        public void Build()
+        {
+            TweenyEntity entity = context.CreateEntity();
+            entity.AddTimeline(-1, groups);
+            id = entity.id.Value;
+            built = true;
+        }
+
+        private bool Validate()
+        {
+            if (built)
+            {
+                Debug.LogError("Trying to change timeline elements after build. This not allowed.");
+            }
+            
+            return !built;
+        }
+
+        private int[] GetIds(Tween[] tweens)
+        {
+            int [] ids = new int[tweens.Length];
+            for (var i = 0; i < tweens.Length; i++)
+            {
+                ids[i] = tweens[i].GetId();
+            }
+            return ids;
+        }
+
+        #endregion
+
+        #region Run-time control
 
         public void Play()
         {
-            if (IsFinished())
+            if (!built)
             {
+                Debug.LogError("Trying to play not built timeline. Use Build() method to end the creation process first.");
                 return;
             }
-
-            int count = GetGroup().Length;
             
-            for (var i = 0; i < count; i++)
-            {
-                Tween tween = GetGroup()[i];
-                tween.Play();
-            }
-
-            playing = true;
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.isPlayMessage = true;
+            message.isGroupFinish = true;
+            message.isMessage = true;
         }
 
         public void Stop()
         {
-            if (IsFinished())
-            {
-                return;
-            }
-
-            int count = GetGroup().Length;
-            
-            for (var i = 0; i < count; i++)
-            {
-                Tween tween = GetGroup()[i];
-                tween.Stop();
-            }
-            
-            playing = false;
+            throw new NotImplementedException();
         }
 
         public void Reset()
@@ -66,75 +111,21 @@ namespace TweenyPlugin.Tweening.Link
             throw new NotImplementedException();
         }
 
-        private Tween GetLongestTween(Tween[] tweens)
-        {
-            Tween longestTween = null;
-            float longestDuration = -1;
-
-            for (var i = 0; i < tweens.Length; i++)
-            {
-                Tween tween = tweens[i];
-                float duration = tween.GetTotalDuration();
-                if (duration >= longestDuration)
-                {
-                    longestDuration = duration;
-                    longestTween = tween;
-                }
-            }
-
-            return longestTween;
-        }
-        
-        private void SetGroupCallback(Tween tween)
-        {
-            TweenyEntity message = Contexts.sharedInstance.tweeny.CreateEntity();
-            message.AddReceiverId(tween.GetId());
-            message.AddChainedTween(null, OnGroupComplete);
-            message.isMessage = true;
-        }
-
-        public Timeline Backwards()
-        {
-            reversed = true;
-            return this;
-        }
-        
         public bool IsFinished()
         {
-            return activeGroupIndex >= groups.Count;
+            throw new NotImplementedException();
         }
 
         public bool IsPlaying()
         {
-            return playing && !IsFinished();
+            throw new NotImplementedException();
         }
 
         public float GetTotalDuration()
         {
-            float duration = 0;
-
-            for (var i = 0; i < groups.Count; i++)
-            {
-                duration += GetLongestTween(groups[i]).GetTotalDuration();
-            }
-
-            return duration;
+            throw new NotImplementedException();
         }
 
-        private Tween[] GetGroup()
-        {
-            return groups[GetIndex()];
-        }
-
-        private int GetIndex()
-        {
-            return reversed ? (groups.Count - 1 - activeGroupIndex) : activeGroupIndex;
-        }
-        
-        private void OnGroupComplete()
-        {
-            activeGroupIndex++;
-            Play();
-        }
+        #endregion
     }
 }

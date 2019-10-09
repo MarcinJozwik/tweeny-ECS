@@ -8,37 +8,41 @@
 //------------------------------------------------------------------------------
 public static class TweenyComponentsLookup {
 
-    public const int ChainedTween = 0;
-    public const int Delay = 1;
-    public const int Loop = 2;
-    public const int Message = 3;
-    public const int Mirror = 4;
-    public const int PlayMessage = 5;
-    public const int Progress = 6;
-    public const int ReceiverId = 7;
-    public const int ResetMessage = 8;
-    public const int Reverse = 9;
-    public const int StartAction = 10;
-    public const int Started = 11;
-    public const int StopMessage = 12;
-    public const int CompleteAction = 13;
-    public const int CompleteLoopAction = 14;
-    public const int Ease = 15;
-    public const int Finish = 16;
-    public const int Timer = 17;
-    public const int Tweening = 18;
-    public const int Id = 19;
-    public const int Fade = 20;
-    public const int Material = 21;
-    public const int Move = 22;
-    public const int Scale = 23;
-    public const int Transform = 24;
+    public const int Delay = 0;
+    public const int Finishing = 1;
+    public const int GroupFinish = 2;
+    public const int Loop = 3;
+    public const int Message = 4;
+    public const int Mirror = 5;
+    public const int PlayMessage = 6;
+    public const int Progress = 7;
+    public const int ReceiverId = 8;
+    public const int ResetMessage = 9;
+    public const int Reverse = 10;
+    public const int StartAction = 11;
+    public const int Started = 12;
+    public const int Starting = 13;
+    public const int StopMessage = 14;
+    public const int Timeline = 15;
+    public const int CompleteAction = 16;
+    public const int CompleteLoopAction = 17;
+    public const int Ease = 18;
+    public const int Finished = 19;
+    public const int Timer = 20;
+    public const int Tweening = 21;
+    public const int Id = 22;
+    public const int Fade = 23;
+    public const int Material = 24;
+    public const int Move = 25;
+    public const int Scale = 26;
+    public const int Transform = 27;
 
-    public const int TotalComponents = 25;
+    public const int TotalComponents = 28;
 
     public static readonly string[] componentNames = {
-        "ChainedTween",
         "Delay",
+        "Finishing",
+        "GroupFinish",
         "Loop",
         "Message",
         "Mirror",
@@ -49,11 +53,13 @@ public static class TweenyComponentsLookup {
         "Reverse",
         "StartAction",
         "Started",
+        "Starting",
         "StopMessage",
+        "Timeline",
         "CompleteAction",
         "CompleteLoopAction",
         "Ease",
-        "Finish",
+        "Finished",
         "Timer",
         "Tweening",
         "Id",
@@ -65,8 +71,9 @@ public static class TweenyComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(ChainedTweenComponent),
         typeof(DelayComponent),
+        typeof(FinishingComponent),
+        typeof(GroupFinishComponent),
         typeof(LoopComponent),
         typeof(MessageComponent),
         typeof(MirrorComponent),
@@ -77,11 +84,13 @@ public static class TweenyComponentsLookup {
         typeof(ReverseComponent),
         typeof(StartActionComponent),
         typeof(StartedComponent),
+        typeof(StartingComponent),
         typeof(StopMessageComponent),
+        typeof(TimelineComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteLoopActionComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.EaseComponent),
-        typeof(TweenyPlugin.Tweening.ECS.Core.Components.FinishComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Components.FinishedComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.TimerComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Components.TweeningComponent),
         typeof(TweenyPlugin.Tweening.ECS.Index.Components.IdComponent),

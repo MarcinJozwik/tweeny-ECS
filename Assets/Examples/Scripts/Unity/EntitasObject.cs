@@ -54,24 +54,41 @@ namespace Unity
         private void PrepareTween()
         {
             move = transform.TMove(startPosition, endPosition, duration, ease, new TweenSet()
-                .OnComplete(PrintMessage)
-                .SetLoops(2, LoopType.PingPong, .5f)
-                .Reverse());
-            
+                .OnStart((() => Print("Start Move")))
+                .OnComplete((() => Print("Complete Move")))
+                .OnLoopComplete((() => Print("Complete Loop Move")))
+                .SetLoops(2, LoopType.PingPong, .5f));
+//                .Reverse());
+
             scale = transform.TScale(startScale, endScale, duration, ease, new TweenSet()
-                .OnStart(PrintStartMessage));
+                .OnStart((() => Print("Start scale")))
+                .OnComplete((() => Print("Complete scale")))
+                .OnLoopComplete((() => Print("Complete Loop scale"))));
             
-            fade = material.TFade(startAlpha, endAlpha, duration, ease, new TweenSet()
+            fade = material.TFade(startAlpha, endAlpha, duration, ease,
+            new TweenSet()
+                .OnStart((() => Print("Start fade")))
+                .OnComplete((() => Print("Complete fade")))
+                .OnLoopComplete((() => Print("Complete Loop fade")))
                 .Reverse());
             
             timeline = new Timeline();
-            timeline.AddGroup(move, scale);
-            timeline.AddDelay(2f);
+            timeline.AddGroup(scale, move);
+            timeline.AddDelay(2f,new TweenSet()
+                .OnStart((() => Print("Start Delay")))
+                .OnComplete((() => Print("Complete Delay")))
+                .OnLoopComplete((() => Print("Complete Loop Delay"))));
             timeline.AddGroup(fade);
+            timeline.Build();
             
-            Debug.Log($"Timeline duration:{timeline.GetTotalDuration()}s");
+//            Debug.Log($"Timeline duration:{timeline.GetTotalDuration()}s");
         }
 
+        private void Print(string message)
+        {
+            Debug.Log(message);
+        }
+        
         private void PrintStartMessage()
         {
             Debug.Log("Tween started");

@@ -25,7 +25,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Systems
                 TweenyEntity entity = entities[i];
                 if (entity.timer.Current >= entity.timer.Duration)
                 {
-                    entity.isFinish = true;
+                    entity.isFinishing = true;
                 }
             }
         }

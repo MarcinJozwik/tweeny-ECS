@@ -12,7 +12,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Systems
 			this.contexts = contexts;
 			this.completeActionGroup = this.contexts.tweeny.GetGroup(
 				TweenyMatcher.AllOf(TweenyMatcher.CompleteLoopAction, TweenyMatcher.Tweening,
-					TweenyMatcher.Loop, TweenyMatcher.Finish));
+					TweenyMatcher.Loop, TweenyMatcher.Finishing));
 		}
 
 		public void Execute()

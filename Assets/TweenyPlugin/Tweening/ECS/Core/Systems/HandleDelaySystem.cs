@@ -9,7 +9,7 @@ public class HandleDelaySystem : IExecuteSystem
     public HandleDelaySystem(Contexts contexts) 
     {
         this.contexts = contexts;
-        this.delayGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Delay, TweenyMatcher.Started));
+        this.delayGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Delay, TweenyMatcher.Starting));
     }
 
 	public void Execute()

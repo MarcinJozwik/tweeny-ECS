@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly TweenyPlugin.Tweening.ECS.Core.Components.FinishComponent finishComponent = new TweenyPlugin.Tweening.ECS.Core.Components.FinishComponent();
+    static readonly StartingComponent startingComponent = new StartingComponent();
 
-    public bool isFinish {
-        get { return HasComponent(TweenyComponentsLookup.Finish); }
+    public bool isStarting {
+        get { return HasComponent(TweenyComponentsLookup.Starting); }
         set {
-            if (value != isFinish) {
-                var index = TweenyComponentsLookup.Finish;
+            if (value != isStarting) {
+                var index = TweenyComponentsLookup.Starting;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : finishComponent;
+                            : startingComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class TweenyEntity {
 //------------------------------------------------------------------------------
 public sealed partial class TweenyMatcher {
 
-    static Entitas.IMatcher<TweenyEntity> _matcherFinish;
+    static Entitas.IMatcher<TweenyEntity> _matcherStarting;
 
-    public static Entitas.IMatcher<TweenyEntity> Finish {
+    public static Entitas.IMatcher<TweenyEntity> Starting {
         get {
-            if (_matcherFinish == null) {
-                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.Finish);
+            if (_matcherStarting == null) {
+                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.Starting);
                 matcher.componentNames = TweenyComponentsLookup.componentNames;
-                _matcherFinish = matcher;
+                _matcherStarting = matcher;
             }
 
-            return _matcherFinish;
+            return _matcherStarting;
         }
     }
 }

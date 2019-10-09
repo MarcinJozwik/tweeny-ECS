@@ -9,7 +9,7 @@ public class SetLoopSystem : IExecuteSystem
     public SetLoopSystem(Contexts contexts) 
     {
         this.contexts = contexts;
-        this.loopGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Loop, TweenyMatcher.Finish, TweenyMatcher.Timer));
+        this.loopGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Loop, TweenyMatcher.Finishing, TweenyMatcher.Timer));
     }
 
 	public void Execute()
@@ -25,7 +25,7 @@ public class SetLoopSystem : IExecuteSystem
 			if (loopsLeft > 1 || loopsLeft == -1)
 			{
 				entity.timer.Current = 0;
-				entity.isFinish = false;
+				entity.isFinishing = false;
 
 				if (entity.loop.Type == LoopType.PingPong)
 				{
