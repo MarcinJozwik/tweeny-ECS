@@ -86,7 +86,7 @@ namespace TweenyPlugin.Core
 
             if (set.Loops != 0)
             {
-                entity.AddLoop(set.Loops, set.LoopType, set.DelayBetweenLoops);
+                entity.AddLoop(set.Loops,set.Loops, set.LoopType, set.DelayBetweenLoops);
             }
             
             if (set.InitialDelay > 0)
@@ -102,7 +102,7 @@ namespace TweenyPlugin.Core
         {
             float duration = entity.timer.Duration;
             float initialDelay = entity.hasDelay ? entity.delay.Delay : 0f;
-            int loops = entity.hasLoop ? entity.loop.Count : 0;
+            int loops = entity.hasLoop ? entity.loop.BaseAmount : 0;
             float delayBetweenLoops = entity.hasLoop ? entity.loop.DelayBetweenLoops : 0f;
             
             return initialDelay + (duration * loops) + (delayBetweenLoops * (loops - 1));

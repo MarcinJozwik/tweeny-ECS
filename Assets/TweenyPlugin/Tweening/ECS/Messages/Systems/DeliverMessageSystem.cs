@@ -26,8 +26,7 @@ public class DeliverMessageSystem : IExecuteSystem
 
 		    if (message.isPlayMessage)
 		    {
-			    receiver.isStarting = true;
-			    receiver.isTweening = true;
+			    receiver.isPlayMessage = true;
 		    }
 
 		    #endregion
@@ -36,7 +35,7 @@ public class DeliverMessageSystem : IExecuteSystem
 
 		    if (message.isStopMessage)
 		    {
-			    receiver.isTweening = false;
+			    receiver.isStopMessage = true;
 		    }
 
 		    #endregion
@@ -45,19 +44,7 @@ public class DeliverMessageSystem : IExecuteSystem
 
 		    if (message.isResetMessage)
 		    {
-			    if (receiver.hasTimer)
-			    {
-				    receiver.timer.Current = 0;
-			    }
-		    }
-
-		    #endregion
-
-		    #region Timeline
-
-		    if (message.isGroupFinish)
-		    {
-			    receiver.isGroupFinish = true;
+			    receiver.isResetMessage = true;
 		    }
 
 		    #endregion

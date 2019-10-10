@@ -1,7 +1,4 @@
-﻿using System;
-using TweenyPlugin.Tweening.ECS.Utilities;
-
-namespace TweenyPlugin.Tweening.Link
+﻿namespace TweenyPlugin.Tweening.Link
 {
     public class Tween : ITweenable
     {

@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace TweenyPlugin.Tweening.ECS.Core.Start.Systems
 {
-	public class HandleDelaySystem : IExecuteSystem  
+	public class HandleBetweenLoopDelaySystem : IExecuteSystem  
 	{
 		private readonly Contexts contexts;
 		private readonly IGroup<TweenyEntity> delayGroup;
 
-		public HandleDelaySystem(Contexts contexts) 
+		public HandleBetweenLoopDelaySystem(Contexts contexts) 
 		{
 			this.contexts = contexts;
-			this.delayGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Delay, TweenyMatcher.Starting));
+			this.delayGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Loop, TweenyMatcher.BetweenLoops));
 		}
 
 		public void Execute()
@@ -22,11 +22,12 @@ namespace TweenyPlugin.Tweening.ECS.Core.Start.Systems
 			for (int i = 0; i < count; i++)
 			{
 				TweenyEntity entity = entities[i];
-				entity.delay.Timer = Mathf.MoveTowards(entity.delay.Timer, entity.delay.Delay, Time.deltaTime);
+				entity.betweenLoops.Timer = Mathf.MoveTowards(entity.betweenLoops.Timer, entity.loop.DelayBetweenLoops, Time.deltaTime);
 
-				if (entity.delay.Timer >= entity.delay.Delay)
+				if (entity.betweenLoops.Timer >= entity.loop.DelayBetweenLoops)
 				{
 					entity.isTweening = true;
+					entity.RemoveBetweenLoops();
 				}
 				else
 				{

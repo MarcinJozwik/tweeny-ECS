@@ -40,7 +40,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Finish.Systems
 
 					if (entity.loop.DelayBetweenLoops != 0f)
 					{
-						entity.AddDelay(entity.loop.DelayBetweenLoops, 0f);
+						entity.AddBetweenLoops(0f);
 					}
 				}
 

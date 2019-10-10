@@ -11,19 +11,21 @@ public partial class TweenyEntity {
     public TweenyPlugin.Tweening.ECS.Core.Finish.Components.LoopComponent loop { get { return (TweenyPlugin.Tweening.ECS.Core.Finish.Components.LoopComponent)GetComponent(TweenyComponentsLookup.Loop); } }
     public bool hasLoop { get { return HasComponent(TweenyComponentsLookup.Loop); } }
 
-    public void AddLoop(int newCount, TweenyPlugin.Tweening.ECS.Utilities.LoopType newType, float newDelayBetweenLoops) {
+    public void AddLoop(int newCount, int newBaseAmount, TweenyPlugin.Tweening.ECS.Utilities.LoopType newType, float newDelayBetweenLoops) {
         var index = TweenyComponentsLookup.Loop;
         var component = (TweenyPlugin.Tweening.ECS.Core.Finish.Components.LoopComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.LoopComponent));
         component.Count = newCount;
+        component.BaseAmount = newBaseAmount;
         component.Type = newType;
         component.DelayBetweenLoops = newDelayBetweenLoops;
         AddComponent(index, component);
     }
 
-    public void ReplaceLoop(int newCount, TweenyPlugin.Tweening.ECS.Utilities.LoopType newType, float newDelayBetweenLoops) {
+    public void ReplaceLoop(int newCount, int newBaseAmount, TweenyPlugin.Tweening.ECS.Utilities.LoopType newType, float newDelayBetweenLoops) {
         var index = TweenyComponentsLookup.Loop;
         var component = (TweenyPlugin.Tweening.ECS.Core.Finish.Components.LoopComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.LoopComponent));
         component.Count = newCount;
+        component.BaseAmount = newBaseAmount;
         component.Type = newType;
         component.DelayBetweenLoops = newDelayBetweenLoops;
         ReplaceComponent(index, component);

@@ -116,7 +116,7 @@ namespace Unity
 
         public void Reset()
         {
-            move.Reset();
+            timeline.Reset();
         }
     }
 }

@@ -37,7 +37,6 @@ namespace Unity
                 for (var i = 0; i < count; i++)
                 {
                     EntitasObjects[i].Reset();
-                    EntitasObjects[i].Stop();
                 }
             }
         }

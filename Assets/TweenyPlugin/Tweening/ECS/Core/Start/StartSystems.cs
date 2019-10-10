@@ -7,6 +7,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Start
         public OpeningSystems(Contexts contexts) : base("Opening Systems")
         {
             this.Add(new HandleDelaySystem(contexts));
+            this.Add(new HandleBetweenLoopDelaySystem(contexts));
             this.Add(new DoStartActionSystem(contexts));
             this.Add(new StartTweenSystem(contexts));
             this.Add(new TickTimerSystem(contexts));

@@ -57,7 +57,7 @@ namespace TweenyPlugin.Tweening.Link
         public void Build()
         {
             TweenyEntity entity = context.CreateEntity();
-            entity.AddTimeline(-1, groups);
+            entity.AddTimeline(0, groups);
             id = entity.id.Value;
             built = true;
         }
@@ -97,18 +97,35 @@ namespace TweenyPlugin.Tweening.Link
             TweenyEntity message = context.CreateEntity();
             message.AddReceiverId(id);
             message.isPlayMessage = true;
-            message.isGroupFinish = true;
             message.isMessage = true;
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            if (!built)
+            {
+                Debug.LogError("Trying to stop not built timeline. Use Build() method to end the creation process first.");
+                return;
+            }
+            
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.isStopMessage = true;
+            message.isMessage = true;
         }
 
         public void Reset()
         {
-            throw new NotImplementedException();
+            if (!built)
+            {
+                Debug.LogError("Trying to stop not built timeline. Use Build() method to end the creation process first.");
+                return;
+            }
+            
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.isResetMessage = true;
+            message.isMessage = true;
         }
 
         public bool IsFinished()

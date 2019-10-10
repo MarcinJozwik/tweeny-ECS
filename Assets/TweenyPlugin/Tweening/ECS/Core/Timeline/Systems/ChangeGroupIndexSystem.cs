@@ -23,6 +23,8 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 				TweenyEntity entity = entities[i];
 
 				entity.timeline.ActiveGroupIndex++;
+				entity.isPlayGroup = true;
+				entity.isGroupFinish = false;
 			}
 		}
 	}
