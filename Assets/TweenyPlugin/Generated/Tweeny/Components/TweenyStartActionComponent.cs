@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public StartActionComponent startAction { get { return (StartActionComponent)GetComponent(TweenyComponentsLookup.StartAction); } }
+    public TweenyPlugin.Tweening.ECS.Core.Start.Components.StartActionComponent startAction { get { return (TweenyPlugin.Tweening.ECS.Core.Start.Components.StartActionComponent)GetComponent(TweenyComponentsLookup.StartAction); } }
     public bool hasStartAction { get { return HasComponent(TweenyComponentsLookup.StartAction); } }
 
     public void AddStartAction(System.Action newOnStart) {
         var index = TweenyComponentsLookup.StartAction;
-        var component = (StartActionComponent)CreateComponent(index, typeof(StartActionComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.StartActionComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.StartActionComponent));
         component.OnStart = newOnStart;
         AddComponent(index, component);
     }
 
     public void ReplaceStartAction(System.Action newOnStart) {
         var index = TweenyComponentsLookup.StartAction;
-        var component = (StartActionComponent)CreateComponent(index, typeof(StartActionComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.StartActionComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.StartActionComponent));
         component.OnStart = newOnStart;
         ReplaceComponent(index, component);
     }

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly StartedComponent startedComponent = new StartedComponent();
+    static readonly TweenyPlugin.Tweening.ECS.Core.Start.Components.StartedComponent startedComponent = new TweenyPlugin.Tweening.ECS.Core.Start.Components.StartedComponent();
 
     public bool isStarted {
         get { return HasComponent(TweenyComponentsLookup.Started); }

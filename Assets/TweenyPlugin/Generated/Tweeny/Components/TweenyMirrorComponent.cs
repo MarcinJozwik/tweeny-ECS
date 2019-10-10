@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly MirrorComponent mirrorComponent = new MirrorComponent();
+    static readonly TweenyPlugin.Tweening.ECS.Core.Start.Components.MirrorComponent mirrorComponent = new TweenyPlugin.Tweening.ECS.Core.Start.Components.MirrorComponent();
 
     public bool isMirror {
         get { return HasComponent(TweenyComponentsLookup.Mirror); }

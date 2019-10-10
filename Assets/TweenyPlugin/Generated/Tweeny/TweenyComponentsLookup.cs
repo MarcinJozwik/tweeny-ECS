@@ -8,28 +8,28 @@
 //------------------------------------------------------------------------------
 public static class TweenyComponentsLookup {
 
-    public const int Delay = 0;
-    public const int Finishing = 1;
-    public const int GroupFinish = 2;
-    public const int Loop = 3;
-    public const int Message = 4;
-    public const int Mirror = 5;
-    public const int PlayMessage = 6;
-    public const int Progress = 7;
-    public const int ReceiverId = 8;
-    public const int ResetMessage = 9;
-    public const int Reverse = 10;
-    public const int StartAction = 11;
-    public const int Started = 12;
-    public const int Starting = 13;
-    public const int StopMessage = 14;
-    public const int Timeline = 15;
-    public const int CompleteAction = 16;
-    public const int CompleteLoopAction = 17;
-    public const int Ease = 18;
-    public const int Finished = 19;
-    public const int Timer = 20;
-    public const int Tweening = 21;
+    public const int Message = 0;
+    public const int PlayMessage = 1;
+    public const int ReceiverId = 2;
+    public const int ResetMessage = 3;
+    public const int StopMessage = 4;
+    public const int CompleteAction = 5;
+    public const int CompleteLoopAction = 6;
+    public const int Finished = 7;
+    public const int Finishing = 8;
+    public const int Loop = 9;
+    public const int Delay = 10;
+    public const int Ease = 11;
+    public const int Mirror = 12;
+    public const int Progress = 13;
+    public const int Reverse = 14;
+    public const int StartAction = 15;
+    public const int Started = 16;
+    public const int Starting = 17;
+    public const int Timer = 18;
+    public const int Tweening = 19;
+    public const int GroupFinish = 20;
+    public const int Timeline = 21;
     public const int Id = 22;
     public const int Fade = 23;
     public const int Material = 24;
@@ -40,28 +40,28 @@ public static class TweenyComponentsLookup {
     public const int TotalComponents = 28;
 
     public static readonly string[] componentNames = {
-        "Delay",
-        "Finishing",
-        "GroupFinish",
-        "Loop",
         "Message",
-        "Mirror",
         "PlayMessage",
-        "Progress",
         "ReceiverId",
         "ResetMessage",
+        "StopMessage",
+        "CompleteAction",
+        "CompleteLoopAction",
+        "Finished",
+        "Finishing",
+        "Loop",
+        "Delay",
+        "Ease",
+        "Mirror",
+        "Progress",
         "Reverse",
         "StartAction",
         "Started",
         "Starting",
-        "StopMessage",
-        "Timeline",
-        "CompleteAction",
-        "CompleteLoopAction",
-        "Ease",
-        "Finished",
         "Timer",
         "Tweening",
+        "GroupFinish",
+        "Timeline",
         "Id",
         "Fade",
         "Material",
@@ -71,28 +71,28 @@ public static class TweenyComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(DelayComponent),
-        typeof(FinishingComponent),
-        typeof(GroupFinishComponent),
-        typeof(LoopComponent),
         typeof(MessageComponent),
-        typeof(MirrorComponent),
         typeof(PlayMessageComponent),
-        typeof(ProgressComponent),
         typeof(ReceiverIdComponent),
         typeof(ResetMessageComponent),
-        typeof(ReverseComponent),
-        typeof(StartActionComponent),
-        typeof(StartedComponent),
-        typeof(StartingComponent),
         typeof(StopMessageComponent),
-        typeof(TimelineComponent),
-        typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent),
-        typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteLoopActionComponent),
-        typeof(TweenyPlugin.Tweening.ECS.Core.Components.EaseComponent),
-        typeof(TweenyPlugin.Tweening.ECS.Core.Components.FinishedComponent),
-        typeof(TweenyPlugin.Tweening.ECS.Core.Components.TimerComponent),
-        typeof(TweenyPlugin.Tweening.ECS.Core.Components.TweeningComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteActionComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteLoopActionComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.FinishedComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.FinishingComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.LoopComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.DelayComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.EaseComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.MirrorComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.ProgressComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.ReverseComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.StartActionComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.StartedComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.StartingComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.TimerComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.TweeningComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Timeline.Components.GroupFinishComponent),
+        typeof(TweenyPlugin.Tweening.ECS.Core.Timeline.Components.TimelineComponent),
         typeof(TweenyPlugin.Tweening.ECS.Index.Components.IdComponent),
         typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.FadeComponent),
         typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.MaterialComponent),

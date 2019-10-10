@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public TweenyPlugin.Tweening.ECS.Core.Components.CompleteLoopActionComponent completeLoopAction { get { return (TweenyPlugin.Tweening.ECS.Core.Components.CompleteLoopActionComponent)GetComponent(TweenyComponentsLookup.CompleteLoopAction); } }
+    public TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteLoopActionComponent completeLoopAction { get { return (TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteLoopActionComponent)GetComponent(TweenyComponentsLookup.CompleteLoopAction); } }
     public bool hasCompleteLoopAction { get { return HasComponent(TweenyComponentsLookup.CompleteLoopAction); } }
 
     public void AddCompleteLoopAction(System.Action newOnLoopComplete) {
         var index = TweenyComponentsLookup.CompleteLoopAction;
-        var component = (TweenyPlugin.Tweening.ECS.Core.Components.CompleteLoopActionComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteLoopActionComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteLoopActionComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteLoopActionComponent));
         component.OnLoopComplete = newOnLoopComplete;
         AddComponent(index, component);
     }
 
     public void ReplaceCompleteLoopAction(System.Action newOnLoopComplete) {
         var index = TweenyComponentsLookup.CompleteLoopAction;
-        var component = (TweenyPlugin.Tweening.ECS.Core.Components.CompleteLoopActionComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteLoopActionComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteLoopActionComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteLoopActionComponent));
         component.OnLoopComplete = newOnLoopComplete;
         ReplaceComponent(index, component);
     }

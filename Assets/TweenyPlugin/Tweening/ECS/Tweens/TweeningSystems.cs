@@ -1,4 +1,4 @@
-using TweenyPlugin.Tweening.ECS.Core.Systems;
+using TweenyPlugin.Tweening.ECS.Core.Finish.Systems;
 using TweenyPlugin.Tweening.ECS.Tweens.Systems;
 
 namespace TweenyPlugin.Tweening.ECS.Tweens

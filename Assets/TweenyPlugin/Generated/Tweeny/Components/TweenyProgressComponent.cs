@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public ProgressComponent progress { get { return (ProgressComponent)GetComponent(TweenyComponentsLookup.Progress); } }
+    public TweenyPlugin.Tweening.ECS.Core.Start.Components.ProgressComponent progress { get { return (TweenyPlugin.Tweening.ECS.Core.Start.Components.ProgressComponent)GetComponent(TweenyComponentsLookup.Progress); } }
     public bool hasProgress { get { return HasComponent(TweenyComponentsLookup.Progress); } }
 
     public void AddProgress(float newValue) {
         var index = TweenyComponentsLookup.Progress;
-        var component = (ProgressComponent)CreateComponent(index, typeof(ProgressComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.ProgressComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.ProgressComponent));
         component.Value = newValue;
         AddComponent(index, component);
     }
 
     public void ReplaceProgress(float newValue) {
         var index = TweenyComponentsLookup.Progress;
-        var component = (ProgressComponent)CreateComponent(index, typeof(ProgressComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.ProgressComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.ProgressComponent));
         component.Value = newValue;
         ReplaceComponent(index, component);
     }

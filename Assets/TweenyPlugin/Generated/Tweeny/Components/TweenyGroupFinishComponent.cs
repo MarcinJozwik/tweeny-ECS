@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly GroupFinishComponent groupFinishComponent = new GroupFinishComponent();
+    static readonly TweenyPlugin.Tweening.ECS.Core.Timeline.Components.GroupFinishComponent groupFinishComponent = new TweenyPlugin.Tweening.ECS.Core.Timeline.Components.GroupFinishComponent();
 
     public bool isGroupFinish {
         get { return HasComponent(TweenyComponentsLookup.GroupFinish); }

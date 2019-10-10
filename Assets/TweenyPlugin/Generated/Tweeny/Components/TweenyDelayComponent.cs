@@ -8,12 +8,12 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public DelayComponent delay { get { return (DelayComponent)GetComponent(TweenyComponentsLookup.Delay); } }
+    public TweenyPlugin.Tweening.ECS.Core.Start.Components.DelayComponent delay { get { return (TweenyPlugin.Tweening.ECS.Core.Start.Components.DelayComponent)GetComponent(TweenyComponentsLookup.Delay); } }
     public bool hasDelay { get { return HasComponent(TweenyComponentsLookup.Delay); } }
 
     public void AddDelay(float newDelay, float newTimer) {
         var index = TweenyComponentsLookup.Delay;
-        var component = (DelayComponent)CreateComponent(index, typeof(DelayComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.DelayComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.DelayComponent));
         component.Delay = newDelay;
         component.Timer = newTimer;
         AddComponent(index, component);
@@ -21,7 +21,7 @@ public partial class TweenyEntity {
 
     public void ReplaceDelay(float newDelay, float newTimer) {
         var index = TweenyComponentsLookup.Delay;
-        var component = (DelayComponent)CreateComponent(index, typeof(DelayComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.DelayComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.DelayComponent));
         component.Delay = newDelay;
         component.Timer = newTimer;
         ReplaceComponent(index, component);

@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly ReverseComponent reverseComponent = new ReverseComponent();
+    static readonly TweenyPlugin.Tweening.ECS.Core.Start.Components.ReverseComponent reverseComponent = new TweenyPlugin.Tweening.ECS.Core.Start.Components.ReverseComponent();
 
     public bool isReverse {
         get { return HasComponent(TweenyComponentsLookup.Reverse); }

@@ -8,12 +8,12 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public TweenyPlugin.Tweening.ECS.Core.Components.TimerComponent timer { get { return (TweenyPlugin.Tweening.ECS.Core.Components.TimerComponent)GetComponent(TweenyComponentsLookup.Timer); } }
+    public TweenyPlugin.Tweening.ECS.Core.Start.Components.TimerComponent timer { get { return (TweenyPlugin.Tweening.ECS.Core.Start.Components.TimerComponent)GetComponent(TweenyComponentsLookup.Timer); } }
     public bool hasTimer { get { return HasComponent(TweenyComponentsLookup.Timer); } }
 
     public void AddTimer(float newCurrent, float newDuration) {
         var index = TweenyComponentsLookup.Timer;
-        var component = (TweenyPlugin.Tweening.ECS.Core.Components.TimerComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Components.TimerComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.TimerComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.TimerComponent));
         component.Current = newCurrent;
         component.Duration = newDuration;
         AddComponent(index, component);
@@ -21,7 +21,7 @@ public partial class TweenyEntity {
 
     public void ReplaceTimer(float newCurrent, float newDuration) {
         var index = TweenyComponentsLookup.Timer;
-        var component = (TweenyPlugin.Tweening.ECS.Core.Components.TimerComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Components.TimerComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.TimerComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.TimerComponent));
         component.Current = newCurrent;
         component.Duration = newDuration;
         ReplaceComponent(index, component);

@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent completeAction { get { return (TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent)GetComponent(TweenyComponentsLookup.CompleteAction); } }
+    public TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteActionComponent completeAction { get { return (TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteActionComponent)GetComponent(TweenyComponentsLookup.CompleteAction); } }
     public bool hasCompleteAction { get { return HasComponent(TweenyComponentsLookup.CompleteAction); } }
 
     public void AddCompleteAction(System.Action newOnComplete) {
         var index = TweenyComponentsLookup.CompleteAction;
-        var component = (TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteActionComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteActionComponent));
         component.OnComplete = newOnComplete;
         AddComponent(index, component);
     }
 
     public void ReplaceCompleteAction(System.Action newOnComplete) {
         var index = TweenyComponentsLookup.CompleteAction;
-        var component = (TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Components.CompleteActionComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteActionComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteActionComponent));
         component.OnComplete = newOnComplete;
         ReplaceComponent(index, component);
     }

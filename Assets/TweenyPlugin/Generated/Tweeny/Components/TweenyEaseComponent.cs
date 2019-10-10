@@ -8,12 +8,12 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public TweenyPlugin.Tweening.ECS.Core.Components.EaseComponent ease { get { return (TweenyPlugin.Tweening.ECS.Core.Components.EaseComponent)GetComponent(TweenyComponentsLookup.Ease); } }
+    public TweenyPlugin.Tweening.ECS.Core.Start.Components.EaseComponent ease { get { return (TweenyPlugin.Tweening.ECS.Core.Start.Components.EaseComponent)GetComponent(TweenyComponentsLookup.Ease); } }
     public bool hasEase { get { return HasComponent(TweenyComponentsLookup.Ease); } }
 
     public void AddEase(TweenyPlugin.Easing.Definitions.Ease newType, float newValue) {
         var index = TweenyComponentsLookup.Ease;
-        var component = (TweenyPlugin.Tweening.ECS.Core.Components.EaseComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Components.EaseComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.EaseComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.EaseComponent));
         component.Type = newType;
         component.Value = newValue;
         AddComponent(index, component);
@@ -21,7 +21,7 @@ public partial class TweenyEntity {
 
     public void ReplaceEase(TweenyPlugin.Easing.Definitions.Ease newType, float newValue) {
         var index = TweenyComponentsLookup.Ease;
-        var component = (TweenyPlugin.Tweening.ECS.Core.Components.EaseComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Components.EaseComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.EaseComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.EaseComponent));
         component.Type = newType;
         component.Value = newValue;
         ReplaceComponent(index, component);

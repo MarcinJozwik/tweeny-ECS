@@ -8,12 +8,12 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public TimelineComponent timeline { get { return (TimelineComponent)GetComponent(TweenyComponentsLookup.Timeline); } }
+    public TweenyPlugin.Tweening.ECS.Core.Timeline.Components.TimelineComponent timeline { get { return (TweenyPlugin.Tweening.ECS.Core.Timeline.Components.TimelineComponent)GetComponent(TweenyComponentsLookup.Timeline); } }
     public bool hasTimeline { get { return HasComponent(TweenyComponentsLookup.Timeline); } }
 
     public void AddTimeline(int newActiveGroupIndex, System.Collections.Generic.List<int[]> newGroups) {
         var index = TweenyComponentsLookup.Timeline;
-        var component = (TimelineComponent)CreateComponent(index, typeof(TimelineComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Timeline.Components.TimelineComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Timeline.Components.TimelineComponent));
         component.ActiveGroupIndex = newActiveGroupIndex;
         component.Groups = newGroups;
         AddComponent(index, component);
@@ -21,7 +21,7 @@ public partial class TweenyEntity {
 
     public void ReplaceTimeline(int newActiveGroupIndex, System.Collections.Generic.List<int[]> newGroups) {
         var index = TweenyComponentsLookup.Timeline;
-        var component = (TimelineComponent)CreateComponent(index, typeof(TimelineComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Timeline.Components.TimelineComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Timeline.Components.TimelineComponent));
         component.ActiveGroupIndex = newActiveGroupIndex;
         component.Groups = newGroups;
         ReplaceComponent(index, component);

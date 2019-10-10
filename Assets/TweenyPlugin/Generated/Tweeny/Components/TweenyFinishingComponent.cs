@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly FinishingComponent finishingComponent = new FinishingComponent();
+    static readonly TweenyPlugin.Tweening.ECS.Core.Finish.Components.FinishingComponent finishingComponent = new TweenyPlugin.Tweening.ECS.Core.Finish.Components.FinishingComponent();
 
     public bool isFinishing {
         get { return HasComponent(TweenyComponentsLookup.Finishing); }
