@@ -22,7 +22,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Start.Systems
 			for (int i = 0; i < count; i++)
 			{
 				TweenyEntity entity = entities[i];
-				entity.betweenLoops.Timer = Mathf.MoveTowards(entity.betweenLoops.Timer, entity.loop.DelayBetweenLoops, Time.deltaTime);
+				entity.betweenLoops.Timer = Mathf.MoveTowards(entity.betweenLoops.Timer, entity.loop.DelayBetweenLoops, contexts.tweeny.timeService.Instance.GetDeltaTime());
 
 				if (entity.betweenLoops.Timer >= entity.loop.DelayBetweenLoops)
 				{

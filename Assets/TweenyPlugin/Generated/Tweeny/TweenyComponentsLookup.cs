@@ -35,13 +35,14 @@ public static class TweenyComponentsLookup {
     public const int GroupFinish = 24;
     public const int Timeline = 25;
     public const int Id = 26;
-    public const int Fade = 27;
-    public const int Material = 28;
-    public const int Move = 29;
-    public const int Scale = 30;
-    public const int Transform = 31;
+    public const int TimeService = 27;
+    public const int Fade = 28;
+    public const int Material = 29;
+    public const int Move = 30;
+    public const int Scale = 31;
+    public const int Transform = 32;
 
-    public const int TotalComponents = 32;
+    public const int TotalComponents = 33;
 
     public static readonly string[] componentNames = {
         "BetweenLoops",
@@ -71,6 +72,7 @@ public static class TweenyComponentsLookup {
         "GroupFinish",
         "Timeline",
         "Id",
+        "TimeService",
         "Fade",
         "Material",
         "Move",
@@ -106,6 +108,7 @@ public static class TweenyComponentsLookup {
         typeof(TweenyPlugin.Tweening.ECS.Core.Timeline.Components.GroupFinishComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Timeline.Components.TimelineComponent),
         typeof(TweenyPlugin.Tweening.ECS.Index.Components.IdComponent),
+        typeof(TweenyPlugin.Tweening.ECS.TimeService.TimeServiceComponent),
         typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.FadeComponent),
         typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.MaterialComponent),
         typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.MoveComponent),

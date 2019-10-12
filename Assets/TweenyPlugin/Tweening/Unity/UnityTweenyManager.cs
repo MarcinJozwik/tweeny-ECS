@@ -11,6 +11,7 @@ namespace TweenyPlugin.Tweening.Unity
         {
             tweenyManager = new TweenyManager();
             tweenyManager.Init();
+            tweenyManager.InitServices(new UnityTimeService());
         }
         
         private void Update()
