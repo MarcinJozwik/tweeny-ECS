@@ -72,8 +72,13 @@ namespace Unity
                 .OnLoopComplete((() => Print("Complete Loop fade")))
                 .Reverse());
             
+            Timeline timeline2 = new Timeline();
+            timeline2.AddDelay(1f);
+            timeline2.AddGroup(move);
+            timeline2.Build();
+            
             timeline = new Timeline();
-            timeline.AddGroup(scale, move);
+            timeline.AddGroup(scale, timeline2);
             timeline.AddDelay(2f,new TweenSet()
                 .OnStart((() => Print("Start Delay")))
                 .OnComplete((() => Print("Complete Delay")))
@@ -81,6 +86,13 @@ namespace Unity
             timeline.AddGroup(fade);
             timeline.Build();
             
+            Timeline timeline3 = timeline;
+            
+            timeline = new Timeline();
+            timeline.AddDelay(2f);
+            timeline.AddGroup(timeline3);
+            timeline.Build();
+
 //            Debug.Log($"Timeline duration:{timeline.GetTotalDuration()}s");
         }
 

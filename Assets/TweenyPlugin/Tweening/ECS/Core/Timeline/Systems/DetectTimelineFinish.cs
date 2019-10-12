@@ -1,6 +1,6 @@
 ﻿using Entitas;
 
-namespace TweenyPlugin.Tweening.ECS.Core.Finish.Systems
+namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 {
 	public class DetectTimelineFinish : IExecuteSystem  
 	{
@@ -26,6 +26,12 @@ namespace TweenyPlugin.Tweening.ECS.Core.Finish.Systems
 				{
 					entity.isFinishing = true;
 				}
+				else
+				{
+					entity.isPlayGroup = true;
+				}
+				
+				entity.isGroupFinish = false;
 			}
 		
 		}

@@ -29,7 +29,7 @@ namespace TweenyPlugin.Tweening.Link
         #endregion
         #region Build
 
-        public void AddGroup(params Tween[] tweens)
+        public void AddGroup(params ITweenable[] tweens)
         {
             if (Validate())
             {
@@ -37,7 +37,7 @@ namespace TweenyPlugin.Tweening.Link
             }
         }
         
-        public void InsertGroup(int index, params Tween[] tweens)
+        public void InsertGroup(int index, params ITweenable[] tweens)
         {
             if (Validate())
             {
@@ -72,7 +72,7 @@ namespace TweenyPlugin.Tweening.Link
             return !built;
         }
 
-        private int[] GetIds(Tween[] tweens)
+        private int[] GetIds(ITweenable[] tweens)
         {
             int [] ids = new int[tweens.Length];
             for (var i = 0; i < tweens.Length; i++)
@@ -141,6 +141,11 @@ namespace TweenyPlugin.Tweening.Link
         public float GetTotalDuration()
         {
             throw new NotImplementedException();
+        }
+
+        public int GetId()
+        {
+            return id;
         }
 
         #endregion

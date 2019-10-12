@@ -36,7 +36,9 @@ namespace Unity
                 int count = EntitasObjects.Length;
                 for (var i = 0; i < count; i++)
                 {
+                    EntitasObjects[i].Stop();
                     EntitasObjects[i].Reset();
+                    isPlaying = false;
                 }
             }
         }

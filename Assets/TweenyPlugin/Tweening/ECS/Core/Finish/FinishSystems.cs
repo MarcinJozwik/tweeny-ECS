@@ -6,7 +6,6 @@ namespace TweenyPlugin.Tweening.ECS.Core.Finish
     {
         public ClosingSystems(Contexts contexts) : base("Closing Systems")
         {
-            this.Add(new DetectTimelineFinish(contexts));
             this.Add(new CountTimeSystem(contexts));
             this.Add(new DoCompleteLoopActionSystem(contexts));
             this.Add(new SetLoopSystem(contexts));

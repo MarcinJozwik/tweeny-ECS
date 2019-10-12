@@ -8,5 +8,7 @@
         bool IsFinished();
         bool IsPlaying();
         float GetTotalDuration();
+
+        int GetId();
     }
 }
