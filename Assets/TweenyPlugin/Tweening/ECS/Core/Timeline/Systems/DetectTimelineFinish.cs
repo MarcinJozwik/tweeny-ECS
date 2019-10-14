@@ -22,7 +22,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 			{
 				TweenyEntity entity = entities[i];
 			
-				if (entity.timeline.ActiveGroupIndex >= entity.timeline.Groups.Count)
+				if (entity.timeline.Index >= entity.timeline.Groups.Count)
 				{
 					entity.isFinishing = true;
 				}
@@ -30,10 +30,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 				{
 					entity.isPlayGroup = true;
 				}
-				
-				entity.isGroupFinish = false;
 			}
-		
 		}
 	}
 }

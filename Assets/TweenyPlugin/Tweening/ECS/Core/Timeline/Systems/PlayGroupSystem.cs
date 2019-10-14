@@ -22,11 +22,10 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 			{
 				TweenyEntity entity = entities[i];
 						
-				int index = entity.timeline.ActiveGroupIndex;
-				if (index < entity.timeline.Groups.Count)
+				int[] group = entity.timeline.CurrentGroup;
+			
+				if (group != null)
 				{
-					int[] group = entity.timeline.Groups[index];
-
 					for (var j = 0; j < @group.Length; j++)
 					{
 						TweenyEntity tweenEntity = this.contexts.tweeny.GetEntityWithId(@group[j]);

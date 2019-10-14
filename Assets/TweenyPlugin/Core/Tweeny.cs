@@ -71,7 +71,7 @@ namespace TweenyPlugin.Core
         public static int BuildTimeline(List<int[]> groups, TweenSet set)
         {
             TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
-            entity.AddTimeline(0, groups);
+            entity.AddTimeline(0, groups[0], groups);
             
             if (set != null)
             {

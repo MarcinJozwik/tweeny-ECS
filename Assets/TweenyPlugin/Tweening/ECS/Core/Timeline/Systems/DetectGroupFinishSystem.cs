@@ -21,14 +21,13 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 			for (int i = 0; i < count; i++)
 			{
 				TweenyEntity entity = entities[i];
-				int index = entity.timeline.ActiveGroupIndex;
+				int[] group = entity.timeline.CurrentGroup;
 			
-				if (index >= entity.timeline.Groups.Count || index < 0)
+				if (group == null)
 				{
 					continue;
 				}
-			
-				int[] group = entity.timeline.Groups[index];
+				
 				bool allFinished = true;
 			
 				for (var j = 0; j < group.Length; j++)

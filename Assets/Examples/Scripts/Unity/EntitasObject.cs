@@ -57,34 +57,37 @@ namespace Unity
                 .OnStart((() => Print("Start Move")))
                 .OnComplete((() => Print("Complete Move")))
                 .OnLoopComplete((() => Print("Complete Loop Move")))
-                .SetLoops(2, LoopType.PingPong, .5f));
-//                .Reverse());
+//                .SetLoops(2, LoopType.PingPong, .5f)
+//                .Reverse()
+            );
 
             scale = transform.TScale(startScale, endScale, duration, ease, new TweenSet()
                 .OnStart((() => Print("Start scale")))
                 .OnComplete((() => Print("Complete scale")))
-                .OnLoopComplete((() => Print("Complete Loop scale"))));
+                .OnLoopComplete((() => Print("Complete Loop scale")))
+            );
             
             fade = material.TFade(startAlpha, endAlpha, duration, ease,
             new TweenSet()
                 .OnStart((() => Print("Start fade")))
                 .OnComplete((() => Print("Complete fade")))
                 .OnLoopComplete((() => Print("Complete Loop fade")))
-                .Reverse());
-            
-            Timeline timeline2 = new Timeline();
-            timeline2.AddDelay(1f);
-            timeline2.AddGroup(move);
-            timeline2.Build();
+                .Reverse()
+            );
             
             timeline = new Timeline();
-            timeline.AddGroup(scale, timeline2);
+            timeline.AddGroup(scale, move);
             timeline.AddDelay(2f,new TweenSet()
                 .OnStart((() => Print("Start Delay")))
                 .OnComplete((() => Print("Complete Delay")))
                 .OnLoopComplete((() => Print("Complete Loop Delay"))));
             timeline.AddGroup(fade);
-            timeline.Build(new TweenSet().SetDelay(4f));
+            timeline.Build(new TweenSet()
+                .SetDelay(.1f)
+                .OnStart((() => Print("Start Timeline")))
+                .OnComplete((() => Print("Complete Timeline")))
+                .Reverse()
+            );
 
 //            Debug.Log($"Timeline duration:{timeline.GetTotalDuration()}s");
         }
