@@ -10,7 +10,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 		public GoToGroupSystem(Contexts contexts) 
 		{
 			this.contexts = contexts;
-			this.timelineGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Timeline, TweenyMatcher.GoToGroup, TweenyMatcher.Tweening));
+			this.timelineGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Timeline, TweenyMatcher.GoToMessage, TweenyMatcher.Tweening));
 		}
 
 		public void Execute()
@@ -29,10 +29,9 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 					for (var j = 0; j < @group.Length; j++)
 					{
 						TweenyEntity tweenEntity = this.contexts.tweeny.GetEntityWithId(@group[j]);
-						tweenEntity.AddGoToMessage(entity.goToGroup.Step);
+						tweenEntity.AddGoToMessage(entity.goToMessage.Step);
+						tweenEntity.isDelayedMessage = true;
 					}
-
-					entity.RemoveGoToGroup();
 				}
 			}
 		}

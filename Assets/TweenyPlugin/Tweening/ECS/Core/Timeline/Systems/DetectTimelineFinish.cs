@@ -28,7 +28,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 				}
 				else
 				{
-					entity.isPlayGroup = true;
+					entity.isPlayMessage = true;
 				}
 			}
 		}

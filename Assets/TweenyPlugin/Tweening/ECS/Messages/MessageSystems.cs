@@ -1,5 +1,4 @@
-﻿using TweenyPlugin.Tweening.ECS.Core.Timeline.Systems;
-using TweenyPlugin.Tweening.ECS.Messages.Systems;
+﻿using TweenyPlugin.Tweening.ECS.Messages.Systems;
 
 namespace TweenyPlugin.Tweening.ECS.Messages
 {
@@ -14,6 +13,12 @@ namespace TweenyPlugin.Tweening.ECS.Messages
             this.Add(new StopSystem(contexts));
             this.Add(new ResetSystem(contexts));
             this.Add(new GoToSystem(contexts));
+            
+            this.Add(new CleanupPlaySystem(contexts));
+            this.Add(new CleanupStopSystem(contexts));
+            this.Add(new CleanupResetSystem(contexts));
+            this.Add(new CleanupGoToSystem(contexts));
+            this.Add(new CleanupDelayedMessageSystem(contexts));
         }
     }
 }

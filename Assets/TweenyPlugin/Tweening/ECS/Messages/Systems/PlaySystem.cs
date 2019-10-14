@@ -26,14 +26,6 @@ public class PlaySystem : IExecuteSystem
 			{
 				entity.isStarting = true;
 			}
-
-			if (entity.hasTimeline)
-			{
-				entity.isPlayGroup = true;
-			}
-
-			entity.isPlayMessage = false;
 		}
-		
 	}
 }

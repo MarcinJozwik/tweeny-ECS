@@ -10,7 +10,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 		public PlayGroupSystem(Contexts contexts) 
 		{
 			this.contexts = contexts;
-			this.timelineGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Timeline, TweenyMatcher.PlayGroup, TweenyMatcher.Tweening));
+			this.timelineGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Timeline, TweenyMatcher.PlayMessage, TweenyMatcher.Tweening));
 		}
 
 		public void Execute()
@@ -30,9 +30,8 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 					{
 						TweenyEntity tweenEntity = this.contexts.tweeny.GetEntityWithId(@group[j]);
 						tweenEntity.isPlayMessage = true;
+						tweenEntity.isDelayedMessage = true;
 					}
-
-					entity.isPlayGroup = false;
 				}
 			}
 		}

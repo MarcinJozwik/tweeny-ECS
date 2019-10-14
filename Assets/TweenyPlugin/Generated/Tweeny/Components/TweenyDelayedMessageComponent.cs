@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly PlayGroupComponent playGroupComponent = new PlayGroupComponent();
+    static readonly DelayedMessageComponent delayedMessageComponent = new DelayedMessageComponent();
 
-    public bool isPlayGroup {
-        get { return HasComponent(TweenyComponentsLookup.PlayGroup); }
+    public bool isDelayedMessage {
+        get { return HasComponent(TweenyComponentsLookup.DelayedMessage); }
         set {
-            if (value != isPlayGroup) {
-                var index = TweenyComponentsLookup.PlayGroup;
+            if (value != isDelayedMessage) {
+                var index = TweenyComponentsLookup.DelayedMessage;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : playGroupComponent;
+                            : delayedMessageComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class TweenyEntity {
 //------------------------------------------------------------------------------
 public sealed partial class TweenyMatcher {
 
-    static Entitas.IMatcher<TweenyEntity> _matcherPlayGroup;
+    static Entitas.IMatcher<TweenyEntity> _matcherDelayedMessage;
 
-    public static Entitas.IMatcher<TweenyEntity> PlayGroup {
+    public static Entitas.IMatcher<TweenyEntity> DelayedMessage {
         get {
-            if (_matcherPlayGroup == null) {
-                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.PlayGroup);
+            if (_matcherDelayedMessage == null) {
+                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.DelayedMessage);
                 matcher.componentNames = TweenyComponentsLookup.componentNames;
-                _matcherPlayGroup = matcher;
+                _matcherDelayedMessage = matcher;
             }
 
-            return _matcherPlayGroup;
+            return _matcherDelayedMessage;
         }
     }
 }

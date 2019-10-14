@@ -1,7 +1,7 @@
 ﻿using Entitas;
 using TweenyPlugin.Tweening.ECS.Utilities;
 
-public class ResetSystem : IExecuteSystem  
+public class ResetSystem : IExecuteSystem 
 {
     private readonly Contexts contexts;
     private readonly IGroup<TweenyEntity> resetGroup;
@@ -50,13 +50,6 @@ public class ResetSystem : IExecuteSystem
                 
                 entity.loop.Count = entity.loop.BaseAmount;
             }
-            
-            if (entity.hasTimeline)
-            {
-                entity.isResetGroup = true;
-            }
-
-            entity.isResetMessage = false;
         }
     }
 }

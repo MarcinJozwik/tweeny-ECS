@@ -9,6 +9,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Start
             this.Add(new HandleDelaySystem(contexts));
             this.Add(new HandleBetweenLoopDelaySystem(contexts));
             this.Add(new DoStartActionSystem(contexts));
+            this.Add(new StartTimelineSystem(contexts));
             this.Add(new StartTweenSystem(contexts));
             this.Add(new TickTimerSystem(contexts));
             this.Add(new GetProgressSystem(contexts));

@@ -1,17 +1,17 @@
 ﻿using Entitas;
 
-public class GoToSystem : IExecuteSystem 
+public class CleanupGoToSystem : ICleanupSystem 
 {
     private readonly Contexts contexts;
     private readonly IGroup<TweenyEntity> goToGroup;
 
-    public GoToSystem(Contexts contexts) 
+    public CleanupGoToSystem(Contexts contexts) 
     {
         this.contexts = contexts;
-        this.goToGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.GoToMessage));
+        this.goToGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.GoToMessage).NoneOf(TweenyMatcher.DelayedMessage));
     }
 
-    public void Execute()
+    public void Cleanup()
     {
         TweenyEntity[] entities = this.goToGroup.GetEntities();
         int count = entities.Length;
@@ -19,11 +19,7 @@ public class GoToSystem : IExecuteSystem
         for (int i = 0; i < count; i++)
         {
             TweenyEntity entity = entities[i];
-
-            if (entity.hasTimer)
-            {
-                entity.timer.Current = entity.goToMessage.Step;
-            }
+            entity.RemoveGoToMessage();
         }
     }
 }
