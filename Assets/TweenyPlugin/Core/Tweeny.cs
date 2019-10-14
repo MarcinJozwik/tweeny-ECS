@@ -47,6 +47,23 @@ namespace TweenyPlugin.Core
             return GetTween(entity);
         }
 
+        public static Tween TCameraSize(Camera camera, float startSize, float endSize,
+            float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddCamera(camera);
+            entity.AddCameraSize(startSize, endSize);
+            return GetTween(entity);
+        }
+        
+        public static Tween TCameraFieldOfView(Camera camera, float startFov, float endFov, float duration, Ease ease, TweenSet set)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddCamera(camera);
+            entity.AddCameraFieldOfView(startFov, endFov);
+            return GetTween(entity);
+        }
+
         public static Tween TBase(float duration, Ease ease, TweenSet set = null)
         {
             TweenyEntity entity = CreateBase(duration, ease, set);

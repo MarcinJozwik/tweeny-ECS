@@ -23,5 +23,17 @@ namespace TweenyPlugin.Core
         {
             return Tweeny.TFade(material, startAlpha, endAlpha, duration, ease, tweenSet);
         }
+
+        public static Tween TCameraSize(this Camera camera, float startSize, float endSize,
+            float duration, Ease ease, TweenSet set = null)
+        {
+            return Tweeny.TCameraSize(camera, startSize, endSize, duration, ease, set);
+        }
+        
+        public static Tween TCameraFieldOfView(this Camera camera, float startFov, float endFov,
+            float duration, Ease ease, TweenSet set = null)
+        {
+            return Tweeny.TCameraFieldOfView(camera, startFov, endFov, duration, ease, set);
+        }
     }
 }
