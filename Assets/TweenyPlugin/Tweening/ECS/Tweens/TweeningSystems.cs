@@ -1,4 +1,3 @@
-using TweenyPlugin.Tweening.ECS.Core.Finish.Systems;
 using TweenyPlugin.Tweening.ECS.Tweens.Systems;
 
 namespace TweenyPlugin.Tweening.ECS.Tweens
@@ -11,7 +10,6 @@ namespace TweenyPlugin.Tweening.ECS.Tweens
             this.Add(new MoveSystem(contexts));
             this.Add(new ScaleSystem(contexts));
             this.Add(new FadeSystem(contexts));
-            this.Add(new CountTimeSystem(contexts));
         }
     }
 }
