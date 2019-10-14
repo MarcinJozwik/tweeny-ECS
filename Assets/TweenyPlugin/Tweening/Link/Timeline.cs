@@ -54,11 +54,9 @@ namespace TweenyPlugin.Tweening.Link
             }
         }
 
-        public void Build()
+        public void Build(TweenSet set = null)
         {
-            TweenyEntity entity = context.CreateEntity();
-            entity.AddTimeline(0, groups);
-            id = entity.id.Value;
+            id = Tweeny.BuildTimeline(groups, set);
             built = true;
         }
 

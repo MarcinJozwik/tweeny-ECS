@@ -84,14 +84,7 @@ namespace Unity
                 .OnComplete((() => Print("Complete Delay")))
                 .OnLoopComplete((() => Print("Complete Loop Delay"))));
             timeline.AddGroup(fade);
-            timeline.Build();
-            
-            Timeline timeline3 = timeline;
-            
-            timeline = new Timeline();
-            timeline.AddDelay(2f);
-            timeline.AddGroup(timeline3);
-            timeline.Build();
+            timeline.Build(new TweenSet().SetDelay(4f));
 
 //            Debug.Log($"Timeline duration:{timeline.GetTotalDuration()}s");
         }

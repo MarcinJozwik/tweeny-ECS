@@ -1,4 +1,5 @@
-﻿using TweenyPlugin.Easing.Definitions;
+﻿using System.Collections.Generic;
+using TweenyPlugin.Easing.Definitions;
 using TweenyPlugin.Tweening.Link;
 using UnityEngine;
 
@@ -65,6 +66,19 @@ namespace TweenyPlugin.Core
             }
             
             return entity;
+        }
+        
+        public static int BuildTimeline(List<int[]> groups, TweenSet set)
+        {
+            TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
+            entity.AddTimeline(0, groups);
+            
+            if (set != null)
+            {
+                ApplySet(entity, set);
+            }
+            
+            return entity.id.Value;
         }
 
         private static void ApplySet(TweenyEntity entity, TweenSet set)

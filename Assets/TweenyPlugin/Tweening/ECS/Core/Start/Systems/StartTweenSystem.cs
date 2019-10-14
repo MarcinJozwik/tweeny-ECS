@@ -10,7 +10,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Start.Systems
 		public StartTweenSystem(Contexts contexts) 
 		{
 			this.contexts = contexts;
-			this.startingGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.Starting);
+			this.startingGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Starting, TweenyMatcher.Tweening));
 		}
 
 		public void Execute()
