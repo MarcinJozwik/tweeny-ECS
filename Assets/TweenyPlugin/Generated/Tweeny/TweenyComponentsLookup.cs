@@ -9,45 +9,43 @@
 public static class TweenyComponentsLookup {
 
     public const int BetweenLoops = 0;
-    public const int CurrentGroup = 1;
-    public const int Message = 2;
-    public const int PlayGroup = 3;
-    public const int PlayMessage = 4;
-    public const int ReceiverId = 5;
-    public const int ResetGroup = 6;
-    public const int ResetMessage = 7;
-    public const int StopGroup = 8;
-    public const int StopMessage = 9;
-    public const int CompleteAction = 10;
-    public const int CompleteLoopAction = 11;
-    public const int Finished = 12;
-    public const int Finishing = 13;
-    public const int Loop = 14;
-    public const int Delay = 15;
-    public const int Ease = 16;
-    public const int Mirror = 17;
-    public const int Progress = 18;
-    public const int Reverse = 19;
-    public const int StartAction = 20;
-    public const int Started = 21;
-    public const int Starting = 22;
-    public const int Timer = 23;
-    public const int Tweening = 24;
-    public const int GroupFinish = 25;
-    public const int Timeline = 26;
-    public const int Id = 27;
-    public const int TimeService = 28;
-    public const int Fade = 29;
-    public const int Material = 30;
-    public const int Move = 31;
-    public const int Scale = 32;
-    public const int Transform = 33;
+    public const int Message = 1;
+    public const int PlayGroup = 2;
+    public const int PlayMessage = 3;
+    public const int ReceiverId = 4;
+    public const int ResetGroup = 5;
+    public const int ResetMessage = 6;
+    public const int StopGroup = 7;
+    public const int StopMessage = 8;
+    public const int CompleteAction = 9;
+    public const int CompleteLoopAction = 10;
+    public const int Finished = 11;
+    public const int Finishing = 12;
+    public const int Loop = 13;
+    public const int Delay = 14;
+    public const int Ease = 15;
+    public const int Mirror = 16;
+    public const int Progress = 17;
+    public const int Reverse = 18;
+    public const int StartAction = 19;
+    public const int Started = 20;
+    public const int Starting = 21;
+    public const int Timer = 22;
+    public const int Tweening = 23;
+    public const int GroupFinish = 24;
+    public const int Timeline = 25;
+    public const int Id = 26;
+    public const int TimeService = 27;
+    public const int Fade = 28;
+    public const int Material = 29;
+    public const int Move = 30;
+    public const int Scale = 31;
+    public const int Transform = 32;
 
-    public const int TotalComponents = 34;
+    public const int TotalComponents = 33;
 
     public static readonly string[] componentNames = {
         "BetweenLoops",
-        "CurrentGroup",
         "Message",
         "PlayGroup",
         "PlayMessage",
@@ -84,7 +82,6 @@ public static class TweenyComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(BetweenLoopsComponent),
-        typeof(CurrentGroupComponent),
         typeof(MessageComponent),
         typeof(PlayGroupComponent),
         typeof(PlayMessageComponent),
