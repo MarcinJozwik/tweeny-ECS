@@ -1,5 +1,5 @@
 ﻿using Entitas;
-using TweenyPlugin.Tweening.ECS.Utilities;
+using TweenyPlugin.Utilities;
 
 public class ResetSystem : IExecuteSystem 
 {

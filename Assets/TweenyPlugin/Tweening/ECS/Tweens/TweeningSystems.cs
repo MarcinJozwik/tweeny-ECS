@@ -11,8 +11,13 @@ namespace TweenyPlugin.Tweening.ECS.Tweens
             this.Add(new ScaleSystem(contexts));
             this.Add(new FadeSystem(contexts));
             
-            this.Add(new HandleCameraSizeSystem(contexts));
-            this.Add(new HandleCameraFieldOfViewSystem(contexts));
+            this.Add(new TweenCameraSizeSystem(contexts));
+            this.Add(new TweenCameraFieldOfViewSystem(contexts));
+            
+            this.Add(new TweenFloatSystem(contexts));
+            this.Add(new TweenDoubleSystem(contexts));
+            this.Add(new TweenVector2System(contexts));
+            this.Add(new TweenVector3System(contexts));
         }
     }
 }

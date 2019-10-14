@@ -1,5 +1,5 @@
 ﻿using System;
-using TweenyPlugin.Tweening.ECS.Utilities;
+using TweenyPlugin.Utilities;
 
 namespace TweenyPlugin.Tweening.Link
 {

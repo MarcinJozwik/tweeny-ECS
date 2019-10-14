@@ -1,11 +1,11 @@
 ﻿using Entitas;
 
-public class HandleCameraSizeSystem : IExecuteSystem  
+public class TweenCameraSizeSystem : IExecuteSystem  
 {
 	private readonly Contexts contexts;
     private readonly IGroup<TweenyEntity> cameraGroup;
 
-    public HandleCameraSizeSystem(Contexts contexts) 
+    public TweenCameraSizeSystem(Contexts contexts) 
     {
         this.contexts = contexts;
         this.cameraGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Camera, TweenyMatcher.CameraSize, TweenyMatcher.Ease));

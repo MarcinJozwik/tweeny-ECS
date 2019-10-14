@@ -14,7 +14,7 @@ namespace Unity
         {
 //            tween = Camera.TCameraSize(0, 14.5f, 1f, EaseMode.SmoothStart3);
 
-            tween = Camera.TCameraFieldOfView(1, 60, 3f, EaseMode.SmoothStop5);
+            tween = Camera.TCameraFieldOfView(1, 60, 1f, EaseMode.SmoothStop5);
             tween.Play();
         }
     }

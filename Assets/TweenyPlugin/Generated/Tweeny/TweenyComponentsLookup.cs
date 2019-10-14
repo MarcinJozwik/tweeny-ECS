@@ -13,38 +13,42 @@ public static class TweenyComponentsLookup {
     public const int CameraFieldOfView = 2;
     public const int CameraSize = 3;
     public const int DelayedMessage = 4;
-    public const int GoToMessage = 5;
-    public const int Message = 6;
-    public const int PlayMessage = 7;
-    public const int ReceiverId = 8;
-    public const int ResetMessage = 9;
-    public const int StopMessage = 10;
-    public const int CompleteAction = 11;
-    public const int CompleteLoopAction = 12;
-    public const int Finished = 13;
-    public const int Finishing = 14;
-    public const int Loop = 15;
-    public const int Delay = 16;
-    public const int Ease = 17;
-    public const int Mirror = 18;
-    public const int Progress = 19;
-    public const int Reverse = 20;
-    public const int StartAction = 21;
-    public const int Started = 22;
-    public const int Starting = 23;
-    public const int Timer = 24;
-    public const int Tweening = 25;
-    public const int GroupFinish = 26;
-    public const int Timeline = 27;
-    public const int Id = 28;
-    public const int TimeService = 29;
-    public const int Fade = 30;
-    public const int Material = 31;
-    public const int Move = 32;
-    public const int Scale = 33;
-    public const int Transform = 34;
+    public const int Double = 5;
+    public const int Float = 6;
+    public const int GoToMessage = 7;
+    public const int Message = 8;
+    public const int PlayMessage = 9;
+    public const int ReceiverId = 10;
+    public const int ResetMessage = 11;
+    public const int StopMessage = 12;
+    public const int CompleteAction = 13;
+    public const int CompleteLoopAction = 14;
+    public const int Finished = 15;
+    public const int Finishing = 16;
+    public const int Loop = 17;
+    public const int Delay = 18;
+    public const int Ease = 19;
+    public const int Mirror = 20;
+    public const int Progress = 21;
+    public const int Reverse = 22;
+    public const int StartAction = 23;
+    public const int Started = 24;
+    public const int Starting = 25;
+    public const int Timer = 26;
+    public const int Tweening = 27;
+    public const int GroupFinish = 28;
+    public const int Timeline = 29;
+    public const int Id = 30;
+    public const int TimeService = 31;
+    public const int Fade = 32;
+    public const int Material = 33;
+    public const int Move = 34;
+    public const int Scale = 35;
+    public const int Transform = 36;
+    public const int Vector2 = 37;
+    public const int Vector3 = 38;
 
-    public const int TotalComponents = 35;
+    public const int TotalComponents = 39;
 
     public static readonly string[] componentNames = {
         "BetweenLoops",
@@ -52,6 +56,8 @@ public static class TweenyComponentsLookup {
         "CameraFieldOfView",
         "CameraSize",
         "DelayedMessage",
+        "Double",
+        "Float",
         "GoToMessage",
         "Message",
         "PlayMessage",
@@ -81,7 +87,9 @@ public static class TweenyComponentsLookup {
         "Material",
         "Move",
         "Scale",
-        "Transform"
+        "Transform",
+        "Vector2",
+        "Vector3"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -90,6 +98,8 @@ public static class TweenyComponentsLookup {
         typeof(CameraFieldOfViewComponent),
         typeof(CameraSizeComponent),
         typeof(DelayedMessageComponent),
+        typeof(DoubleComponent),
+        typeof(FloatComponent),
         typeof(GoToMessageComponent),
         typeof(MessageComponent),
         typeof(PlayMessageComponent),
@@ -119,6 +129,8 @@ public static class TweenyComponentsLookup {
         typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.MaterialComponent),
         typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.MoveComponent),
         typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.ScaleComponent),
-        typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.TransformComponent)
+        typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.TransformComponent),
+        typeof(Vector2Component),
+        typeof(Vector3Component)
     };
 }

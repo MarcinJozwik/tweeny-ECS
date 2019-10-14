@@ -1,11 +1,18 @@
 ﻿using TweenyPlugin.Easing.Definitions;
 using TweenyPlugin.Tweening.Link;
+using TweenyPlugin.Utilities;
 using UnityEngine;
 
 namespace TweenyPlugin.Core
 {
     public partial class Tweeny
     {
+        public static Tween TBase(float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            return GetTween(entity);
+        }
+        
         public static float GetValue(float time, float min, float max, Ease ease)
         {
             time = time / (max - min);
@@ -54,7 +61,7 @@ namespace TweenyPlugin.Core
             return GetTween(entity);
         }
         
-        public static Tween TCameraFieldOfView(Camera camera, float startFov, float endFov, float duration, Ease ease, TweenSet set)
+        public static Tween TCameraFieldOfView(Camera camera, float startFov, float endFov, float duration, Ease ease, TweenSet set = null)
         {
             TweenyEntity entity = CreateBase(duration, ease, set);
             entity.AddCamera(camera);
@@ -62,9 +69,31 @@ namespace TweenyPlugin.Core
             return GetTween(entity);
         }
 
-        public static Tween TBase(float duration, Ease ease, TweenSet set = null)
+        public static Tween TFloat(TweenyFloat tweenyFloat, float startValue, float endValue, float duration, Ease ease, TweenSet set = null)
         {
             TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddFloat(tweenyFloat, startValue, endValue);
+            return GetTween(entity);
+        }
+
+        public static Tween TDouble(TweenyDouble tweenyDouble, double startValue, double endValue, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddDouble(tweenyDouble, startValue, endValue);
+            return GetTween(entity);
+        }
+
+        public static Tween TVector2(TweenyVector2 tweenyVector2, Vector2 startValue, Vector2 endValue, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddVector2(tweenyVector2, startValue, endValue);
+            return GetTween(entity);
+        }
+
+        public static Tween TVector3(TweenyVector3 tweenyVector3, Vector3 startValue, Vector3 endValue, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddVector3(tweenyVector3, startValue, endValue);
             return GetTween(entity);
         }
     }

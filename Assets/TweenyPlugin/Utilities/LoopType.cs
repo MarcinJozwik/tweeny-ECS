@@ -1,4 +1,4 @@
-﻿namespace TweenyPlugin.Tweening.ECS.Utilities
+﻿namespace TweenyPlugin.Utilities
 {
     public enum LoopType
     {
