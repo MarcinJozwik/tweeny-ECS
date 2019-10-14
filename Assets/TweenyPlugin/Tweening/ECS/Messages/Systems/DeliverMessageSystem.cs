@@ -42,6 +42,22 @@ public class DeliverMessageSystem : IExecuteSystem
 		    
 		    #region Reset
 
+		    if (message.hasGoToMessage)
+		    {
+			    if (receiver.hasGoToMessage)
+			    {
+				    receiver.goToMessage.Step = message.goToMessage.Step;
+			    }
+			    else
+			    {
+				    receiver.AddGoToMessage(message.goToMessage.Step);
+			    }
+		    }
+
+		    #endregion
+		    
+		    #region Reset
+
 		    if (message.isResetMessage)
 		    {
 			    receiver.isResetMessage = true;

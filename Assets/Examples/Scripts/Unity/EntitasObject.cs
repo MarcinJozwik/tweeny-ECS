@@ -86,7 +86,7 @@ namespace Unity
                 .SetDelay(.1f)
                 .OnStart((() => Print("Start Timeline")))
                 .OnComplete((() => Print("Complete Timeline")))
-                .Reverse()
+//                .Reverse()
             );
 
 //            Debug.Log($"Timeline duration:{timeline.GetTotalDuration()}s");
@@ -112,7 +112,7 @@ namespace Unity
             Debug.Log("Tween completed");
         }
 
-        public void Tween()
+        public void Play()
         {
             timeline.Play();
         }
@@ -125,6 +125,11 @@ namespace Unity
         public void Reset()
         {
             timeline.Reset();
+        }
+
+        public void GoTo(float step)
+        {
+            timeline.GoTo(step);
         }
     }
 }

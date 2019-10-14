@@ -126,6 +126,14 @@ namespace TweenyPlugin.Tweening.Link
             message.isMessage = true;
         }
 
+        public void GoTo(float step)
+        {
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.AddGoToMessage(step);
+            message.isMessage = true;
+        }
+
         public bool IsFinished()
         {
             throw new NotImplementedException();

@@ -5,6 +5,7 @@
         void Play();
         void Stop();
         void Reset();
+        void GoTo(float step); 
         bool IsFinished();
         bool IsPlaying();
         float GetTotalDuration();

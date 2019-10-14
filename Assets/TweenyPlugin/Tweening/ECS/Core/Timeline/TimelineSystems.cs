@@ -15,6 +15,7 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline
             this.Add(new PlayGroupSystem(contexts));
             this.Add(new StopGroupSystem(contexts));
             this.Add(new ResetGroupSystem(contexts));
+            this.Add(new GoToGroupSystem(contexts));
         }
     }
 }

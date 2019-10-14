@@ -27,12 +27,24 @@
 
         public bool IsFinished()
         {
-            return !context.HasEntity(context.GetEntityWithId(id));
+            var entity = context.GetEntityWithId(id);
+            if (entity != null)
+            {
+                return entity.isFinished;
+            }
+
+            return true;
         }
 
         public bool IsPlaying()
         {
-            return playing && !IsFinished();
+            var entity = context.GetEntityWithId(id);
+            if (entity != null)
+            {
+                return entity.isTweening && !IsFinished();
+            }
+
+            return false;
         }
 
         public void Play()
@@ -63,6 +75,14 @@
             message.isMessage = true;
 
             playing = false;
+        }
+
+        public void GoTo(float step)
+        {
+            TweenyEntity message = context.CreateEntity();
+            message.AddReceiverId(id);
+            message.AddGoToMessage(step);
+            message.isMessage = true;
         }
 
         public void Reset()

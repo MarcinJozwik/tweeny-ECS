@@ -13,6 +13,7 @@ namespace TweenyPlugin.Tweening.ECS.Messages
             this.Add(new PlaySystem(contexts));
             this.Add(new StopSystem(contexts));
             this.Add(new ResetSystem(contexts));
+            this.Add(new GoToSystem(contexts));
         }
     }
 }
