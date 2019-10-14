@@ -15,6 +15,7 @@ namespace TweenyPlugin.Tweening.Link
         private readonly Context<TweenyEntity> context;
 
         private int id;
+        private float duration;
         private bool built = false;
 
         #endregion
@@ -56,7 +57,9 @@ namespace TweenyPlugin.Tweening.Link
 
         public void Build(TweenSet set = null)
         {
-            id = Tweeny.BuildTimeline(groups, set);
+            Tuple<int, float> values = Tweeny.BuildTimeline(groups, set);
+            id = values.Item1;
+            duration = values.Item2;
             built = true;
         }
 
@@ -146,7 +149,7 @@ namespace TweenyPlugin.Tweening.Link
 
         public float GetTotalDuration()
         {
-            throw new NotImplementedException();
+            return duration;
         }
 
         public int GetId()

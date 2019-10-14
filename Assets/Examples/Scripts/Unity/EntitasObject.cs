@@ -89,7 +89,7 @@ namespace Unity
 //                .Reverse()
             );
 
-//            Debug.Log($"Timeline duration:{timeline.GetTotalDuration()}s");
+            Debug.Log($"Timeline duration:{timeline.GetTotalDuration()}s");
         }
 
         private void Print(string message)

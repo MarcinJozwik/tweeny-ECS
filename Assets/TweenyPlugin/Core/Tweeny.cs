@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TweenyPlugin.Easing.Definitions;
 using TweenyPlugin.Tweening.Link;
 using UnityEngine;
@@ -68,7 +69,7 @@ namespace TweenyPlugin.Core
             return entity;
         }
         
-        public static int BuildTimeline(List<int[]> groups, TweenSet set)
+        public static Tuple<int, float> BuildTimeline(List<int[]> groups, TweenSet set)
         {
             TweenyEntity entity = Contexts.sharedInstance.tweeny.CreateEntity();
             entity.AddTimeline(0, groups[0], groups);
@@ -78,7 +79,7 @@ namespace TweenyPlugin.Core
                 ApplySet(entity, set);
             }
             
-            return entity.id.Value;
+            return new Tuple<int, float>(entity.id.Value, CountTimelineDuration(entity));
         }
 
         private static void ApplySet(TweenyEntity entity, TweenSet set)
@@ -112,11 +113,39 @@ namespace TweenyPlugin.Core
             entity.isMirror = set.IsMirrored;
         }
 
+        private static float CountTimelineDuration(TweenyEntity timeline)
+        {
+            float totalDuration = 0;
+            float maxGroupDuration = 0;
+
+            int totalCount = timeline.timeline.Groups.Count;
+            
+            for (int i = 0; i < totalCount; i++)
+            {
+                int[] group = timeline.timeline.Groups[i];
+                int groupCount = group.Length;
+                for (int j = 0; j < groupCount; j++)
+                {
+                    TweenyEntity tween = Contexts.sharedInstance.tweeny.GetEntityWithId(group[j]);
+                    float duration = CountDuration(tween);
+                    if (duration > maxGroupDuration)
+                    {
+                        maxGroupDuration = duration;
+                    }
+                }
+
+                totalDuration += maxGroupDuration;
+                maxGroupDuration = 0;
+            }
+            Debug.Log($"Count: {totalCount}, duration {totalDuration}");
+            return totalDuration;
+        }
+
         private static float CountDuration(TweenyEntity entity)
         {
             float duration = entity.timer.Duration;
             float initialDelay = entity.hasDelay ? entity.delay.Delay : 0f;
-            int loops = entity.hasLoop ? entity.loop.BaseAmount : 0;
+            int loops = entity.hasLoop ? entity.loop.BaseAmount : 1;
             float delayBetweenLoops = entity.hasLoop ? entity.loop.DelayBetweenLoops : 0f;
             
             return initialDelay + (duration * loops) + (delayBetweenLoops * (loops - 1));
