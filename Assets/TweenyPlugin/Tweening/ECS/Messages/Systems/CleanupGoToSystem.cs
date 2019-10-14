@@ -20,6 +20,11 @@ public class CleanupGoToSystem : ICleanupSystem
         {
             TweenyEntity entity = entities[i];
             entity.RemoveGoToMessage();
+
+            if (!entity.hasTimeline)
+            {
+                entity.isTweening = false;
+            }
         }
     }
 }

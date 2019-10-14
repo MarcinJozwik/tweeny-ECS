@@ -20,6 +20,7 @@ public class CleanupResetSystem : ICleanupSystem
         {
             TweenyEntity entity = entities[i];
             entity.isResetMessage = false;
+            entity.isTweening = false;
         }
     }
 }

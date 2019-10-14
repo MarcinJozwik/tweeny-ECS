@@ -29,7 +29,16 @@ namespace TweenyPlugin.Tweening.ECS.Core.Timeline.Systems
 					for (var j = 0; j < @group.Length; j++)
 					{
 						TweenyEntity tweenEntity = this.contexts.tweeny.GetEntityWithId(@group[j]);
-						tweenEntity.AddGoToMessage(entity.goToMessage.Step);
+						
+						if (tweenEntity.hasGoToMessage)
+						{
+							tweenEntity.ReplaceGoToMessage(entity.goToMessage.Step);
+						}
+						else
+						{
+							tweenEntity.AddGoToMessage(entity.goToMessage.Step);
+						}
+						
 						tweenEntity.isDelayedMessage = true;
 					}
 				}

@@ -22,7 +22,8 @@ public class GoToSystem : IExecuteSystem
 
             if (entity.hasTimer)
             {
-                entity.timer.Current = entity.goToMessage.Step;
+                entity.isTweening = true;
+                entity.timer.Current = entity.goToMessage.Step * entity.timer.Duration;
             }
         }
     }

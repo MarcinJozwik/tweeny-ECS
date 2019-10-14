@@ -12,7 +12,9 @@ namespace TweenyPlugin.Tweening.ECS.Core.Start.Systems
         {
             this.contexts = contexts;
             this.timerGroup =
-                this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Timer));
+                this.contexts.tweeny.GetGroup(TweenyMatcher
+                    .AllOf(TweenyMatcher.Tweening, TweenyMatcher.Timer)
+                    .NoneOf(TweenyMatcher.ResetMessage, TweenyMatcher.GoToMessage));
         }
 
         public void Execute()
