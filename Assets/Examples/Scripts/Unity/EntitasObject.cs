@@ -1,3 +1,4 @@
+using System;
 using TweenyPlugin.Core;
 using TweenyPlugin.Easing.Definitions;
 using TweenyPlugin.Tweening.ECS.Utilities;
@@ -91,6 +92,12 @@ namespace Unity
 
             Debug.Log($"Timeline duration:{timeline.GetTotalDuration()}s");
         }
+
+//        private void Update()
+//        {
+//            Debug.Log($"Timeline is Playing:{timeline.IsPlaying()}");
+//            Debug.Log($"Timeline is Finished:{timeline.IsFinished()}");
+//        }
 
         private void Print(string message)
         {

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Entitas;
 using TweenyPlugin.Core;
 using TweenyPlugin.Easing.Definitions;
 using UnityEngine;
@@ -12,7 +11,7 @@ namespace TweenyPlugin.Tweening.Link
         #region Fields
 
         private readonly List<int[]> groups = new List<int[]>();
-        private readonly Context<TweenyEntity> context;
+        private readonly TweenyContext context;
 
         private int id;
         private float duration;
@@ -139,12 +138,24 @@ namespace TweenyPlugin.Tweening.Link
 
         public bool IsFinished()
         {
-            throw new NotImplementedException();
+            var entity = context.GetEntityWithId(id);
+            if (entity != null)
+            {
+                return entity.isFinished;
+            }
+
+            return true;
         }
 
         public bool IsPlaying()
         {
-            throw new NotImplementedException();
+            var entity = context.GetEntityWithId(id);
+            if (entity != null)
+            {
+                return entity.isTweening && !IsFinished();
+            }
+
+            return false;
         }
 
         public float GetTotalDuration()
