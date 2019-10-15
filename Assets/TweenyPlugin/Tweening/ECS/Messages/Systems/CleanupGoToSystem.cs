@@ -1,29 +1,32 @@
 ﻿using Entitas;
 
-public class CleanupGoToSystem : ICleanupSystem 
+namespace TweenyPlugin.Tweening.ECS.Messages.Systems
 {
-    private readonly Contexts contexts;
-    private readonly IGroup<TweenyEntity> goToGroup;
-
-    public CleanupGoToSystem(Contexts contexts) 
+    public class CleanupGoToSystem : ICleanupSystem 
     {
-        this.contexts = contexts;
-        this.goToGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.GoToMessage).NoneOf(TweenyMatcher.DelayedMessage));
-    }
+        private readonly Contexts contexts;
+        private readonly IGroup<TweenyEntity> goToGroup;
 
-    public void Cleanup()
-    {
-        TweenyEntity[] entities = this.goToGroup.GetEntities();
-        int count = entities.Length;
-		
-        for (int i = 0; i < count; i++)
+        public CleanupGoToSystem(Contexts contexts) 
         {
-            TweenyEntity entity = entities[i];
-            entity.RemoveGoToMessage();
+            this.contexts = contexts;
+            this.goToGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.GoToMessage).NoneOf(TweenyMatcher.DelayedMessage));
+        }
 
-            if (!entity.hasTimeline)
+        public void Cleanup()
+        {
+            TweenyEntity[] entities = this.goToGroup.GetEntities();
+            int count = entities.Length;
+		
+            for (int i = 0; i < count; i++)
             {
-                entity.isTweening = false;
+                TweenyEntity entity = entities[i];
+                entity.RemoveGoToMessage();
+
+                if (!entity.hasTimeline)
+                {
+                    entity.isTweening = false;
+                }
             }
         }
     }

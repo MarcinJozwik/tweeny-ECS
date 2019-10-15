@@ -8,22 +8,22 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public DoubleComponent @double { get { return (DoubleComponent)GetComponent(TweenyComponentsLookup.Double); } }
+    public TweenyPlugin.Tweening.ECS.Tweens.Components.DoubleComponent @double { get { return (TweenyPlugin.Tweening.ECS.Tweens.Components.DoubleComponent)GetComponent(TweenyComponentsLookup.Double); } }
     public bool hasDouble { get { return HasComponent(TweenyComponentsLookup.Double); } }
 
-    public void AddDouble(TweenyPlugin.Utilities.TweenyDouble newValue, double newStartValue, double newEndValue) {
+    public void AddDouble(double newCurrentValue, double newStartValue, double newEndValue) {
         var index = TweenyComponentsLookup.Double;
-        var component = (DoubleComponent)CreateComponent(index, typeof(DoubleComponent));
-        component.Value = newValue;
+        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.DoubleComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.DoubleComponent));
+        component.CurrentValue = newCurrentValue;
         component.StartValue = newStartValue;
         component.EndValue = newEndValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceDouble(TweenyPlugin.Utilities.TweenyDouble newValue, double newStartValue, double newEndValue) {
+    public void ReplaceDouble(double newCurrentValue, double newStartValue, double newEndValue) {
         var index = TweenyComponentsLookup.Double;
-        var component = (DoubleComponent)CreateComponent(index, typeof(DoubleComponent));
-        component.Value = newValue;
+        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.DoubleComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.DoubleComponent));
+        component.CurrentValue = newCurrentValue;
         component.StartValue = newStartValue;
         component.EndValue = newEndValue;
         ReplaceComponent(index, component);

@@ -1,7 +1,10 @@
 ﻿using Entitas;
 
-[Tweeny]
-public class ReceiverIdComponent : IComponent
+namespace TweenyPlugin.Tweening.ECS.Messages.Components
 {
-    public int Id;
+    [Tweeny]
+    public class ReceiverIdComponent : IComponent
+    {
+        public int Id;
+    }
 }

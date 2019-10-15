@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly DelayedMessageComponent delayedMessageComponent = new DelayedMessageComponent();
+    static readonly TweenyPlugin.Tweening.ECS.Messages.Components.DelayedMessageComponent delayedMessageComponent = new TweenyPlugin.Tweening.ECS.Messages.Components.DelayedMessageComponent();
 
     public bool isDelayedMessage {
         get { return HasComponent(TweenyComponentsLookup.DelayedMessage); }

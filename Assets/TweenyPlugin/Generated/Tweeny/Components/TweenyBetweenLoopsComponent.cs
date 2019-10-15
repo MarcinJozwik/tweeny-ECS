@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public BetweenLoopsComponent betweenLoops { get { return (BetweenLoopsComponent)GetComponent(TweenyComponentsLookup.BetweenLoops); } }
+    public TweenyPlugin.Tweening.ECS.Core.Start.Components.BetweenLoopsComponent betweenLoops { get { return (TweenyPlugin.Tweening.ECS.Core.Start.Components.BetweenLoopsComponent)GetComponent(TweenyComponentsLookup.BetweenLoops); } }
     public bool hasBetweenLoops { get { return HasComponent(TweenyComponentsLookup.BetweenLoops); } }
 
     public void AddBetweenLoops(float newTimer) {
         var index = TweenyComponentsLookup.BetweenLoops;
-        var component = (BetweenLoopsComponent)CreateComponent(index, typeof(BetweenLoopsComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.BetweenLoopsComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.BetweenLoopsComponent));
         component.Timer = newTimer;
         AddComponent(index, component);
     }
 
     public void ReplaceBetweenLoops(float newTimer) {
         var index = TweenyComponentsLookup.BetweenLoops;
-        var component = (BetweenLoopsComponent)CreateComponent(index, typeof(BetweenLoopsComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Core.Start.Components.BetweenLoopsComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Core.Start.Components.BetweenLoopsComponent));
         component.Timer = newTimer;
         ReplaceComponent(index, component);
     }

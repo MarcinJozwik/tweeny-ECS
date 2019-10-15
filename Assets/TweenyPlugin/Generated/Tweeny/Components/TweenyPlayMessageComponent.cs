@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly PlayMessageComponent playMessageComponent = new PlayMessageComponent();
+    static readonly TweenyPlugin.Tweening.ECS.Messages.Components.PlayMessageComponent playMessageComponent = new TweenyPlugin.Tweening.ECS.Messages.Components.PlayMessageComponent();
 
     public bool isPlayMessage {
         get { return HasComponent(TweenyComponentsLookup.PlayMessage); }

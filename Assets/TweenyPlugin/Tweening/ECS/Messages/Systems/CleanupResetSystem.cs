@@ -1,26 +1,29 @@
 ﻿using Entitas;
 
-public class CleanupResetSystem : ICleanupSystem 
+namespace TweenyPlugin.Tweening.ECS.Messages.Systems
 {
-    private readonly Contexts contexts;
-    private readonly IGroup<TweenyEntity> resetGroup;
-
-    public CleanupResetSystem(Contexts contexts) 
+    public class CleanupResetSystem : ICleanupSystem 
     {
-        this.contexts = contexts;
-        this.resetGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.ResetMessage).NoneOf(TweenyMatcher.DelayedMessage));
-    }
+        private readonly Contexts contexts;
+        private readonly IGroup<TweenyEntity> resetGroup;
 
-    public void Cleanup()
-    {
-        TweenyEntity[] entities = this.resetGroup.GetEntities();
-        int count = entities.Length;
-		
-        for (int i = 0; i < count; i++)
+        public CleanupResetSystem(Contexts contexts) 
         {
-            TweenyEntity entity = entities[i];
-            entity.isResetMessage = false;
-            entity.isTweening = false;
+            this.contexts = contexts;
+            this.resetGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.ResetMessage).NoneOf(TweenyMatcher.DelayedMessage));
+        }
+
+        public void Cleanup()
+        {
+            TweenyEntity[] entities = this.resetGroup.GetEntities();
+            int count = entities.Length;
+		
+            for (int i = 0; i < count; i++)
+            {
+                TweenyEntity entity = entities[i];
+                entity.isResetMessage = false;
+                entity.isTweening = false;
+            }
         }
     }
 }

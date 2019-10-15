@@ -8,29 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public TweenyPlugin.Tweening.ECS.Tweens.Components.MoveComponent move { get { return (TweenyPlugin.Tweening.ECS.Tweens.Components.MoveComponent)GetComponent(TweenyComponentsLookup.Move); } }
-    public bool hasMove { get { return HasComponent(TweenyComponentsLookup.Move); } }
+    static readonly TweenyPlugin.Tweening.ECS.Sync.Components.MoveComponent moveComponent = new TweenyPlugin.Tweening.ECS.Sync.Components.MoveComponent();
 
-    public void AddMove(UnityEngine.Vector3 newStartPosition, UnityEngine.Vector3 newDirection, float newDistance) {
-        var index = TweenyComponentsLookup.Move;
-        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.MoveComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.MoveComponent));
-        component.StartPosition = newStartPosition;
-        component.Direction = newDirection;
-        component.Distance = newDistance;
-        AddComponent(index, component);
-    }
+    public bool isMove {
+        get { return HasComponent(TweenyComponentsLookup.Move); }
+        set {
+            if (value != isMove) {
+                var index = TweenyComponentsLookup.Move;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : moveComponent;
 
-    public void ReplaceMove(UnityEngine.Vector3 newStartPosition, UnityEngine.Vector3 newDirection, float newDistance) {
-        var index = TweenyComponentsLookup.Move;
-        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.MoveComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.MoveComponent));
-        component.StartPosition = newStartPosition;
-        component.Direction = newDirection;
-        component.Distance = newDistance;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveMove() {
-        RemoveComponent(TweenyComponentsLookup.Move);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

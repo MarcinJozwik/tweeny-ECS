@@ -8,27 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public CameraFieldOfViewComponent cameraFieldOfView { get { return (CameraFieldOfViewComponent)GetComponent(TweenyComponentsLookup.CameraFieldOfView); } }
-    public bool hasCameraFieldOfView { get { return HasComponent(TweenyComponentsLookup.CameraFieldOfView); } }
+    static readonly TweenyPlugin.Tweening.ECS.Sync.Components.CameraFieldOfViewComponent cameraFieldOfViewComponent = new TweenyPlugin.Tweening.ECS.Sync.Components.CameraFieldOfViewComponent();
 
-    public void AddCameraFieldOfView(float newStartFov, float newEndFov) {
-        var index = TweenyComponentsLookup.CameraFieldOfView;
-        var component = (CameraFieldOfViewComponent)CreateComponent(index, typeof(CameraFieldOfViewComponent));
-        component.StartFov = newStartFov;
-        component.EndFov = newEndFov;
-        AddComponent(index, component);
-    }
+    public bool isCameraFieldOfView {
+        get { return HasComponent(TweenyComponentsLookup.CameraFieldOfView); }
+        set {
+            if (value != isCameraFieldOfView) {
+                var index = TweenyComponentsLookup.CameraFieldOfView;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : cameraFieldOfViewComponent;
 
-    public void ReplaceCameraFieldOfView(float newStartFov, float newEndFov) {
-        var index = TweenyComponentsLookup.CameraFieldOfView;
-        var component = (CameraFieldOfViewComponent)CreateComponent(index, typeof(CameraFieldOfViewComponent));
-        component.StartFov = newStartFov;
-        component.EndFov = newEndFov;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveCameraFieldOfView() {
-        RemoveComponent(TweenyComponentsLookup.CameraFieldOfView);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

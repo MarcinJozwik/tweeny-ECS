@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public TweenyPlugin.Tweening.ECS.Tweens.Components.MaterialComponent material { get { return (TweenyPlugin.Tweening.ECS.Tweens.Components.MaterialComponent)GetComponent(TweenyComponentsLookup.Material); } }
+    public TweenyPlugin.Tweening.ECS.Unity.Components.MaterialComponent material { get { return (TweenyPlugin.Tweening.ECS.Unity.Components.MaterialComponent)GetComponent(TweenyComponentsLookup.Material); } }
     public bool hasMaterial { get { return HasComponent(TweenyComponentsLookup.Material); } }
 
     public void AddMaterial(UnityEngine.Material newMaterial) {
         var index = TweenyComponentsLookup.Material;
-        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.MaterialComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.MaterialComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Unity.Components.MaterialComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Unity.Components.MaterialComponent));
         component.Material = newMaterial;
         AddComponent(index, component);
     }
 
     public void ReplaceMaterial(UnityEngine.Material newMaterial) {
         var index = TweenyComponentsLookup.Material;
-        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.MaterialComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.MaterialComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Unity.Components.MaterialComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Unity.Components.MaterialComponent));
         component.Material = newMaterial;
         ReplaceComponent(index, component);
     }

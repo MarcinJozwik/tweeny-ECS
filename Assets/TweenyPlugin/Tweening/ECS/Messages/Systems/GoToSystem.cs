@@ -1,29 +1,32 @@
 ﻿using Entitas;
 
-public class GoToSystem : IExecuteSystem 
+namespace TweenyPlugin.Tweening.ECS.Messages.Systems
 {
-    private readonly Contexts contexts;
-    private readonly IGroup<TweenyEntity> goToGroup;
-
-    public GoToSystem(Contexts contexts) 
+    public class GoToSystem : IExecuteSystem 
     {
-        this.contexts = contexts;
-        this.goToGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.GoToMessage));
-    }
+        private readonly Contexts contexts;
+        private readonly IGroup<TweenyEntity> goToGroup;
 
-    public void Execute()
-    {
-        TweenyEntity[] entities = this.goToGroup.GetEntities();
-        int count = entities.Length;
-		
-        for (int i = 0; i < count; i++)
+        public GoToSystem(Contexts contexts) 
         {
-            TweenyEntity entity = entities[i];
+            this.contexts = contexts;
+            this.goToGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.GoToMessage));
+        }
 
-            if (entity.hasTimer)
+        public void Execute()
+        {
+            TweenyEntity[] entities = this.goToGroup.GetEntities();
+            int count = entities.Length;
+		
+            for (int i = 0; i < count; i++)
             {
-                entity.isTweening = true;
-                entity.timer.Current = entity.goToMessage.Step * entity.timer.Duration;
+                TweenyEntity entity = entities[i];
+
+                if (entity.hasTimer)
+                {
+                    entity.isTweening = true;
+                    entity.timer.Current = entity.goToMessage.Step * entity.timer.Duration;
+                }
             }
         }
     }

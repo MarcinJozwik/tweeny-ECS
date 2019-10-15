@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public ReceiverIdComponent receiverId { get { return (ReceiverIdComponent)GetComponent(TweenyComponentsLookup.ReceiverId); } }
+    public TweenyPlugin.Tweening.ECS.Messages.Components.ReceiverIdComponent receiverId { get { return (TweenyPlugin.Tweening.ECS.Messages.Components.ReceiverIdComponent)GetComponent(TweenyComponentsLookup.ReceiverId); } }
     public bool hasReceiverId { get { return HasComponent(TweenyComponentsLookup.ReceiverId); } }
 
     public void AddReceiverId(int newId) {
         var index = TweenyComponentsLookup.ReceiverId;
-        var component = (ReceiverIdComponent)CreateComponent(index, typeof(ReceiverIdComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Messages.Components.ReceiverIdComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Messages.Components.ReceiverIdComponent));
         component.Id = newId;
         AddComponent(index, component);
     }
 
     public void ReplaceReceiverId(int newId) {
         var index = TweenyComponentsLookup.ReceiverId;
-        var component = (ReceiverIdComponent)CreateComponent(index, typeof(ReceiverIdComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Messages.Components.ReceiverIdComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Messages.Components.ReceiverIdComponent));
         component.Id = newId;
         ReplaceComponent(index, component);
     }

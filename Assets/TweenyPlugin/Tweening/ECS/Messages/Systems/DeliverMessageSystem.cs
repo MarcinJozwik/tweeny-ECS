@@ -1,69 +1,71 @@
 ﻿using Entitas;
-using UnityEngine;
 
-public class DeliverMessageSystem : IExecuteSystem  
+namespace TweenyPlugin.Tweening.ECS.Messages.Systems
 {
-	private readonly Contexts contexts;
-    private readonly IGroup<TweenyEntity> messageGroup;
-
-    public DeliverMessageSystem(Contexts contexts) 
-    {
-        this.contexts = contexts;
-        this.messageGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Message, TweenyMatcher.ReceiverId));
-    }
-
-	public void Execute()
+	public class DeliverMessageSystem : IExecuteSystem  
 	{
-		TweenyEntity[] entities = this.messageGroup.GetEntities();
-		int count = entities.Length;
-		
-		for (int i = 0; i < count; i++)
+		private readonly Contexts contexts;
+		private readonly IGroup<TweenyEntity> messageGroup;
+
+		public DeliverMessageSystem(Contexts contexts) 
 		{
-		    TweenyEntity message = entities[i];
-		    TweenyEntity receiver = this.contexts.tweeny.GetEntityWithId(message.receiverId.Id);
+			this.contexts = contexts;
+			this.messageGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Message, TweenyMatcher.ReceiverId));
+		}
 
-		    #region Play
+		public void Execute()
+		{
+			TweenyEntity[] entities = this.messageGroup.GetEntities();
+			int count = entities.Length;
+		
+			for (int i = 0; i < count; i++)
+			{
+				TweenyEntity message = entities[i];
+				TweenyEntity receiver = this.contexts.tweeny.GetEntityWithId(message.receiverId.Id);
 
-		    if (message.isPlayMessage)
-		    {
-			    receiver.isPlayMessage = true;
-		    }
+				#region Play
 
-		    #endregion
+				if (message.isPlayMessage)
+				{
+					receiver.isPlayMessage = true;
+				}
 
-		    #region Stop
+				#endregion
 
-		    if (message.isStopMessage)
-		    {
-			    receiver.isStopMessage = true;
-		    }
+				#region Stop
 
-		    #endregion
+				if (message.isStopMessage)
+				{
+					receiver.isStopMessage = true;
+				}
+
+				#endregion
 		    
-		    #region Reset
+				#region Reset
 
-		    if (message.hasGoToMessage)
-		    {
-			    if (receiver.hasGoToMessage)
-			    {
-				    receiver.goToMessage.Step = message.goToMessage.Step;
-			    }
-			    else
-			    {
-				    receiver.AddGoToMessage(message.goToMessage.Step);
-			    }
-		    }
+				if (message.hasGoToMessage)
+				{
+					if (receiver.hasGoToMessage)
+					{
+						receiver.goToMessage.Step = message.goToMessage.Step;
+					}
+					else
+					{
+						receiver.AddGoToMessage(message.goToMessage.Step);
+					}
+				}
 
-		    #endregion
+				#endregion
 		    
-		    #region Reset
+				#region Reset
 
-		    if (message.isResetMessage)
-		    {
-			    receiver.isResetMessage = true;
-		    }
+				if (message.isResetMessage)
+				{
+					receiver.isResetMessage = true;
+				}
 
-		    #endregion
+				#endregion
+			}
 		}
 	}
 }

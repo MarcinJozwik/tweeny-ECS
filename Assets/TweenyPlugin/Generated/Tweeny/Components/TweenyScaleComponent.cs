@@ -8,27 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public TweenyPlugin.Tweening.ECS.Tweens.Components.ScaleComponent scale { get { return (TweenyPlugin.Tweening.ECS.Tweens.Components.ScaleComponent)GetComponent(TweenyComponentsLookup.Scale); } }
-    public bool hasScale { get { return HasComponent(TweenyComponentsLookup.Scale); } }
+    static readonly TweenyPlugin.Tweening.ECS.Sync.Components.ScaleComponent scaleComponent = new TweenyPlugin.Tweening.ECS.Sync.Components.ScaleComponent();
 
-    public void AddScale(UnityEngine.Vector3 newStartScale, UnityEngine.Vector3 newDistance) {
-        var index = TweenyComponentsLookup.Scale;
-        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.ScaleComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.ScaleComponent));
-        component.StartScale = newStartScale;
-        component.Distance = newDistance;
-        AddComponent(index, component);
-    }
+    public bool isScale {
+        get { return HasComponent(TweenyComponentsLookup.Scale); }
+        set {
+            if (value != isScale) {
+                var index = TweenyComponentsLookup.Scale;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : scaleComponent;
 
-    public void ReplaceScale(UnityEngine.Vector3 newStartScale, UnityEngine.Vector3 newDistance) {
-        var index = TweenyComponentsLookup.Scale;
-        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.ScaleComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.ScaleComponent));
-        component.StartScale = newStartScale;
-        component.Distance = newDistance;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveScale() {
-        RemoveComponent(TweenyComponentsLookup.Scale);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

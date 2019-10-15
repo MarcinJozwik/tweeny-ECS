@@ -8,22 +8,22 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public FloatComponent @float { get { return (FloatComponent)GetComponent(TweenyComponentsLookup.Float); } }
+    public TweenyPlugin.Tweening.ECS.Tweens.Components.FloatComponent @float { get { return (TweenyPlugin.Tweening.ECS.Tweens.Components.FloatComponent)GetComponent(TweenyComponentsLookup.Float); } }
     public bool hasFloat { get { return HasComponent(TweenyComponentsLookup.Float); } }
 
-    public void AddFloat(TweenyPlugin.Utilities.TweenyFloat newValue, float newStartValue, float newEndValue) {
+    public void AddFloat(float newCurrentValue, float newStartValue, float newEndValue) {
         var index = TweenyComponentsLookup.Float;
-        var component = (FloatComponent)CreateComponent(index, typeof(FloatComponent));
-        component.Value = newValue;
+        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.FloatComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.FloatComponent));
+        component.CurrentValue = newCurrentValue;
         component.StartValue = newStartValue;
         component.EndValue = newEndValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceFloat(TweenyPlugin.Utilities.TweenyFloat newValue, float newStartValue, float newEndValue) {
+    public void ReplaceFloat(float newCurrentValue, float newStartValue, float newEndValue) {
         var index = TweenyComponentsLookup.Float;
-        var component = (FloatComponent)CreateComponent(index, typeof(FloatComponent));
-        component.Value = newValue;
+        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.FloatComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.FloatComponent));
+        component.CurrentValue = newCurrentValue;
         component.StartValue = newStartValue;
         component.EndValue = newEndValue;
         ReplaceComponent(index, component);

@@ -8,27 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public CameraSizeComponent cameraSize { get { return (CameraSizeComponent)GetComponent(TweenyComponentsLookup.CameraSize); } }
-    public bool hasCameraSize { get { return HasComponent(TweenyComponentsLookup.CameraSize); } }
+    static readonly TweenyPlugin.Tweening.ECS.Sync.Components.CameraSizeComponent cameraSizeComponent = new TweenyPlugin.Tweening.ECS.Sync.Components.CameraSizeComponent();
 
-    public void AddCameraSize(float newStartSize, float newEndSize) {
-        var index = TweenyComponentsLookup.CameraSize;
-        var component = (CameraSizeComponent)CreateComponent(index, typeof(CameraSizeComponent));
-        component.StartSize = newStartSize;
-        component.EndSize = newEndSize;
-        AddComponent(index, component);
-    }
+    public bool isCameraSize {
+        get { return HasComponent(TweenyComponentsLookup.CameraSize); }
+        set {
+            if (value != isCameraSize) {
+                var index = TweenyComponentsLookup.CameraSize;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : cameraSizeComponent;
 
-    public void ReplaceCameraSize(float newStartSize, float newEndSize) {
-        var index = TweenyComponentsLookup.CameraSize;
-        var component = (CameraSizeComponent)CreateComponent(index, typeof(CameraSizeComponent));
-        component.StartSize = newStartSize;
-        component.EndSize = newEndSize;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveCameraSize() {
-        RemoveComponent(TweenyComponentsLookup.CameraSize);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

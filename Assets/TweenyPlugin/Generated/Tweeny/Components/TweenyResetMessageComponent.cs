@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly ResetMessageComponent resetMessageComponent = new ResetMessageComponent();
+    static readonly TweenyPlugin.Tweening.ECS.Messages.Components.ResetMessageComponent resetMessageComponent = new TweenyPlugin.Tweening.ECS.Messages.Components.ResetMessageComponent();
 
     public bool isResetMessage {
         get { return HasComponent(TweenyComponentsLookup.ResetMessage); }

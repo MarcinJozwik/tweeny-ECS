@@ -2,6 +2,7 @@
 using TweenyPlugin.Tweening.ECS.Core.Start;
 using TweenyPlugin.Tweening.ECS.Core.Timeline;
 using TweenyPlugin.Tweening.ECS.Messages;
+using TweenyPlugin.Tweening.ECS.Sync;
 using TweenyPlugin.Tweening.ECS.Tweens;
 
 namespace TweenyPlugin.Tweening.ECS
@@ -13,6 +14,7 @@ namespace TweenyPlugin.Tweening.ECS
             this.Add(new MessageSystems(contexts));
             this.Add(new OpeningSystems(contexts));
             this.Add(new TweeningSystems(contexts));
+            this.Add(new SyncSystems(contexts));
             this.Add(new ClosingSystems(contexts));
             this.Add(new TimelineSystems(contexts));
         }

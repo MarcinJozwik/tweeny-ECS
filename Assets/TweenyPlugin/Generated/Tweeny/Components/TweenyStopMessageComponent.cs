@@ -8,7 +8,7 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly StopMessageComponent stopMessageComponent = new StopMessageComponent();
+    static readonly TweenyPlugin.Tweening.ECS.Messages.Components.StopMessageComponent stopMessageComponent = new TweenyPlugin.Tweening.ECS.Messages.Components.StopMessageComponent();
 
     public bool isStopMessage {
         get { return HasComponent(TweenyComponentsLookup.StopMessage); }

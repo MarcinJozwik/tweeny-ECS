@@ -1,25 +1,28 @@
 ﻿using Entitas;
 
-public class TweenFloatSystem : IExecuteSystem  
+namespace TweenyPlugin.Tweening.ECS.Tweens.Systems
 {
-	private readonly Contexts contexts;
-    private readonly IGroup<TweenyEntity> floatGroup;
-
-    public TweenFloatSystem(Contexts contexts) 
-    {
-        this.contexts = contexts;
-        this.floatGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Float, TweenyMatcher.Ease));
-    }
-
-	public void Execute()
+	public class TweenFloatSystem : IExecuteSystem  
 	{
-		TweenyEntity[] entities = this.floatGroup.GetEntities();
-		int count = entities.Length;
+		private readonly Contexts contexts;
+		private readonly IGroup<TweenyEntity> floatGroup;
 
-		for (int i = 0; i < count; i++)
+		public TweenFloatSystem(Contexts contexts) 
 		{
-			TweenyEntity entity = entities[i];
-			entity.@float.Value.Value = entity.@float.StartValue + entity.ease.Value * (entity.@float.EndValue - entity.@float.StartValue);
+			this.contexts = contexts;
+			this.floatGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Float, TweenyMatcher.Ease));
+		}
+
+		public void Execute()
+		{
+			TweenyEntity[] entities = this.floatGroup.GetEntities();
+			int count = entities.Length;
+
+			for (int i = 0; i < count; i++)
+			{
+				TweenyEntity entity = entities[i];
+				entity.@float.CurrentValue = entity.@float.StartValue + entity.ease.Value * (entity.@float.EndValue - entity.@float.StartValue);
+			}
 		}
 	}
 }

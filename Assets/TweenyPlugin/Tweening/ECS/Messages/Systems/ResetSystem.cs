@@ -1,54 +1,57 @@
 ﻿using Entitas;
 using TweenyPlugin.Utilities;
 
-public class ResetSystem : IExecuteSystem 
+namespace TweenyPlugin.Tweening.ECS.Messages.Systems
 {
-    private readonly Contexts contexts;
-    private readonly IGroup<TweenyEntity> resetGroup;
-
-    public ResetSystem(Contexts contexts) 
+    public class ResetSystem : IExecuteSystem 
     {
-        this.contexts = contexts;
-        this.resetGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.ResetMessage));
-    }
+        private readonly Contexts contexts;
+        private readonly IGroup<TweenyEntity> resetGroup;
 
-    public void Execute()
-    {
-        TweenyEntity[] entities = this.resetGroup.GetEntities();
-        int count = entities.Length;
-		
-        for (int i = 0; i < count; i++)
+        public ResetSystem(Contexts contexts) 
         {
-            TweenyEntity entity = entities[i];
+            this.contexts = contexts;
+            this.resetGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.ResetMessage));
+        }
 
-            if (entity.hasTimer)
+        public void Execute()
+        {
+            TweenyEntity[] entities = this.resetGroup.GetEntities();
+            int count = entities.Length;
+		
+            for (int i = 0; i < count; i++)
             {
-                entity.timer.Current = 0;
-            }
+                TweenyEntity entity = entities[i];
 
-            if (entity.hasLoop && entity.loop.BaseAmount != -1)
-            {
-                bool oddDifference = (entity.loop.BaseAmount - entity.loop.Count) % 2 == 1;
+                if (entity.hasTimer)
+                {
+                    entity.timer.Current = 0;
+                }
 
-                if (oddDifference)
+                if (entity.hasLoop && entity.loop.BaseAmount != -1)
                 {
-                    if (entity.loop.Type == LoopType.PingPong)
+                    bool oddDifference = (entity.loop.BaseAmount - entity.loop.Count) % 2 == 1;
+
+                    if (oddDifference)
                     {
-                        entity.isMirror = !entity.isMirror;
+                        if (entity.loop.Type == LoopType.PingPong)
+                        {
+                            entity.isMirror = !entity.isMirror;
+                        }
+                        else if (entity.loop.Type == LoopType.Reverse)
+                        {
+                            entity.isReverse = !entity.isReverse;
+                        }
                     }
-                    else if (entity.loop.Type == LoopType.Reverse)
+                
+                    if (entity.hasBetweenLoops)
                     {
-                        entity.isReverse = !entity.isReverse;
+                        entity.RemoveBetweenLoops();
+                        entity.isTweening = true;
                     }
-                }
                 
-                if (entity.hasBetweenLoops)
-                {
-                    entity.RemoveBetweenLoops();
-                    entity.isTweening = true;
+                    entity.loop.Count = entity.loop.BaseAmount;
                 }
-                
-                entity.loop.Count = entity.loop.BaseAmount;
             }
         }
     }

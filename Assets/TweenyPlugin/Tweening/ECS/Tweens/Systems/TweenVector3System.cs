@@ -1,25 +1,28 @@
 ﻿using Entitas;
 
-public class TweenVector3System : IExecuteSystem  
+namespace TweenyPlugin.Tweening.ECS.Tweens.Systems
 {
-	private readonly Contexts contexts;
-    private readonly IGroup<TweenyEntity> vector3Group;
-
-    public TweenVector3System(Contexts contexts) 
-    {
-        this.contexts = contexts;
-        this.vector3Group = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Vector3, TweenyMatcher.Ease));
-    }
-
-	public void Execute()
+	public class TweenVector3System : IExecuteSystem  
 	{
-		TweenyEntity[] entities = this.vector3Group.GetEntities();
-		int count = entities.Length;
+		private readonly Contexts contexts;
+		private readonly IGroup<TweenyEntity> vector3Group;
 
-		for (int i = 0; i < count; i++)
+		public TweenVector3System(Contexts contexts) 
 		{
-			TweenyEntity entity = entities[i];
-			entity.vector3.Value.Value = entity.vector3.StartValue + entity.ease.Value * (entity.vector3.EndValue - entity.vector3.StartValue);
+			this.contexts = contexts;
+			this.vector3Group = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Vector3, TweenyMatcher.Ease));
+		}
+
+		public void Execute()
+		{
+			TweenyEntity[] entities = this.vector3Group.GetEntities();
+			int count = entities.Length;
+
+			for (int i = 0; i < count; i++)
+			{
+				TweenyEntity entity = entities[i];
+				entity.vector3.CurrentValue = entity.vector3.StartValue + entity.ease.Value * (entity.vector3.EndValue - entity.vector3.StartValue);
+			}
 		}
 	}
 }

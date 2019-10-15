@@ -1,25 +1,28 @@
 ﻿using Entitas;
 
-public class CleanupStopSystem : ICleanupSystem  
+namespace TweenyPlugin.Tweening.ECS.Messages.Systems
 {
-	private readonly Contexts contexts;
-    private readonly IGroup<TweenyEntity> stopGroup;
-
-    public CleanupStopSystem(Contexts contexts) 
-    {
-        this.contexts = contexts;
-        this.stopGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.StopMessage).NoneOf(TweenyMatcher.DelayedMessage));
-    }
-
-	public void Cleanup()
+	public class CleanupStopSystem : ICleanupSystem  
 	{
-		TweenyEntity[] entities = this.stopGroup.GetEntities();
-		int count = entities.Length;
-		
-		for (int i = 0; i < count; i++)
+		private readonly Contexts contexts;
+		private readonly IGroup<TweenyEntity> stopGroup;
+
+		public CleanupStopSystem(Contexts contexts) 
 		{
-			TweenyEntity entity = entities[i];
-			entity.isStopMessage = false;
+			this.contexts = contexts;
+			this.stopGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.StopMessage).NoneOf(TweenyMatcher.DelayedMessage));
+		}
+
+		public void Cleanup()
+		{
+			TweenyEntity[] entities = this.stopGroup.GetEntities();
+			int count = entities.Length;
+		
+			for (int i = 0; i < count; i++)
+			{
+				TweenyEntity entity = entities[i];
+				entity.isStopMessage = false;
+			}
 		}
 	}
 }

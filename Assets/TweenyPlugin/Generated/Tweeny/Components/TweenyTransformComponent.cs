@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public TweenyPlugin.Tweening.ECS.Tweens.Components.TransformComponent transform { get { return (TweenyPlugin.Tweening.ECS.Tweens.Components.TransformComponent)GetComponent(TweenyComponentsLookup.Transform); } }
+    public TweenyPlugin.Tweening.ECS.Unity.Components.TransformComponent transform { get { return (TweenyPlugin.Tweening.ECS.Unity.Components.TransformComponent)GetComponent(TweenyComponentsLookup.Transform); } }
     public bool hasTransform { get { return HasComponent(TweenyComponentsLookup.Transform); } }
 
     public void AddTransform(UnityEngine.Transform newTransform) {
         var index = TweenyComponentsLookup.Transform;
-        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.TransformComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.TransformComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Unity.Components.TransformComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Unity.Components.TransformComponent));
         component.Transform = newTransform;
         AddComponent(index, component);
     }
 
     public void ReplaceTransform(UnityEngine.Transform newTransform) {
         var index = TweenyComponentsLookup.Transform;
-        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.TransformComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.TransformComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Unity.Components.TransformComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Unity.Components.TransformComponent));
         component.Transform = newTransform;
         ReplaceComponent(index, component);
     }

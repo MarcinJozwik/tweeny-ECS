@@ -1,7 +1,10 @@
 ﻿using Entitas;
 
-[Tweeny]
-public class ResetMessageComponent : IComponent
+namespace TweenyPlugin.Tweening.ECS.Messages.Components
 {
+    [Tweeny]
+    public class ResetMessageComponent : IComponent
+    {
 
+    }
 }

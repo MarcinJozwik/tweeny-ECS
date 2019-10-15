@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public CameraComponent camera { get { return (CameraComponent)GetComponent(TweenyComponentsLookup.Camera); } }
+    public TweenyPlugin.Tweening.ECS.Unity.Components.CameraComponent camera { get { return (TweenyPlugin.Tweening.ECS.Unity.Components.CameraComponent)GetComponent(TweenyComponentsLookup.Camera); } }
     public bool hasCamera { get { return HasComponent(TweenyComponentsLookup.Camera); } }
 
     public void AddCamera(UnityEngine.Camera newCamera) {
         var index = TweenyComponentsLookup.Camera;
-        var component = (CameraComponent)CreateComponent(index, typeof(CameraComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Unity.Components.CameraComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Unity.Components.CameraComponent));
         component.Camera = newCamera;
         AddComponent(index, component);
     }
 
     public void ReplaceCamera(UnityEngine.Camera newCamera) {
         var index = TweenyComponentsLookup.Camera;
-        var component = (CameraComponent)CreateComponent(index, typeof(CameraComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Unity.Components.CameraComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Unity.Components.CameraComponent));
         component.Camera = newCamera;
         ReplaceComponent(index, component);
     }

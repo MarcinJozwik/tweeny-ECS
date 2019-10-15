@@ -8,19 +8,19 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public GoToMessageComponent goToMessage { get { return (GoToMessageComponent)GetComponent(TweenyComponentsLookup.GoToMessage); } }
+    public TweenyPlugin.Tweening.ECS.Messages.Components.GoToMessageComponent goToMessage { get { return (TweenyPlugin.Tweening.ECS.Messages.Components.GoToMessageComponent)GetComponent(TweenyComponentsLookup.GoToMessage); } }
     public bool hasGoToMessage { get { return HasComponent(TweenyComponentsLookup.GoToMessage); } }
 
     public void AddGoToMessage(float newStep) {
         var index = TweenyComponentsLookup.GoToMessage;
-        var component = (GoToMessageComponent)CreateComponent(index, typeof(GoToMessageComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Messages.Components.GoToMessageComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Messages.Components.GoToMessageComponent));
         component.Step = newStep;
         AddComponent(index, component);
     }
 
     public void ReplaceGoToMessage(float newStep) {
         var index = TweenyComponentsLookup.GoToMessage;
-        var component = (GoToMessageComponent)CreateComponent(index, typeof(GoToMessageComponent));
+        var component = (TweenyPlugin.Tweening.ECS.Messages.Components.GoToMessageComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Messages.Components.GoToMessageComponent));
         component.Step = newStep;
         ReplaceComponent(index, component);
     }

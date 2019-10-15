@@ -8,27 +8,25 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public TweenyPlugin.Tweening.ECS.Tweens.Components.FadeComponent fade { get { return (TweenyPlugin.Tweening.ECS.Tweens.Components.FadeComponent)GetComponent(TweenyComponentsLookup.Fade); } }
-    public bool hasFade { get { return HasComponent(TweenyComponentsLookup.Fade); } }
+    static readonly TweenyPlugin.Tweening.ECS.Sync.Components.FadeComponent fadeComponent = new TweenyPlugin.Tweening.ECS.Sync.Components.FadeComponent();
 
-    public void AddFade(float newStartAlpha, float newEndAlpha) {
-        var index = TweenyComponentsLookup.Fade;
-        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.FadeComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.FadeComponent));
-        component.StartAlpha = newStartAlpha;
-        component.EndAlpha = newEndAlpha;
-        AddComponent(index, component);
-    }
+    public bool isFade {
+        get { return HasComponent(TweenyComponentsLookup.Fade); }
+        set {
+            if (value != isFade) {
+                var index = TweenyComponentsLookup.Fade;
+                if (value) {
+                    var componentPool = GetComponentPool(index);
+                    var component = componentPool.Count > 0
+                            ? componentPool.Pop()
+                            : fadeComponent;
 
-    public void ReplaceFade(float newStartAlpha, float newEndAlpha) {
-        var index = TweenyComponentsLookup.Fade;
-        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.FadeComponent)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.FadeComponent));
-        component.StartAlpha = newStartAlpha;
-        component.EndAlpha = newEndAlpha;
-        ReplaceComponent(index, component);
-    }
-
-    public void RemoveFade() {
-        RemoveComponent(TweenyComponentsLookup.Fade);
+                    AddComponent(index, component);
+                } else {
+                    RemoveComponent(index);
+                }
+            }
+        }
     }
 }
 

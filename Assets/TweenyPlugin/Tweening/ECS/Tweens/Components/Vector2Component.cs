@@ -1,11 +1,13 @@
 ﻿using Entitas;
-using TweenyPlugin.Utilities;
 using UnityEngine;
 
-[Tweeny]
-public class Vector2Component : IComponent
+namespace TweenyPlugin.Tweening.ECS.Tweens.Components
 {
-    public TweenyVector2 Value;
-    public Vector2 StartValue;
-    public Vector2 EndValue;
+    [Tweeny]
+    public class Vector2Component : IComponent
+    {
+        public Vector2 CurrentValue;
+        public Vector2 StartValue;
+        public Vector2 EndValue;
+    }
 }

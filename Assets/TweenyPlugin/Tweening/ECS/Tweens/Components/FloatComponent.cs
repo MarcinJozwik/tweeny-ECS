@@ -1,10 +1,12 @@
 ﻿using Entitas;
-using TweenyPlugin.Utilities;
 
-[Tweeny]
-public class FloatComponent : IComponent
+namespace TweenyPlugin.Tweening.ECS.Tweens.Components
 {
-    public TweenyFloat Value;
-    public float StartValue;
-    public float EndValue;
+    [Tweeny]
+    public class FloatComponent : IComponent
+    {
+        public float CurrentValue;
+        public float StartValue;
+        public float EndValue;
+    }
 }

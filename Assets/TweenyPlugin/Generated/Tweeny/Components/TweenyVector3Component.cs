@@ -8,22 +8,22 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    public Vector3Component vector3 { get { return (Vector3Component)GetComponent(TweenyComponentsLookup.Vector3); } }
+    public TweenyPlugin.Tweening.ECS.Tweens.Components.Vector3Component vector3 { get { return (TweenyPlugin.Tweening.ECS.Tweens.Components.Vector3Component)GetComponent(TweenyComponentsLookup.Vector3); } }
     public bool hasVector3 { get { return HasComponent(TweenyComponentsLookup.Vector3); } }
 
-    public void AddVector3(TweenyPlugin.Utilities.TweenyVector3 newValue, UnityEngine.Vector3 newStartValue, UnityEngine.Vector3 newEndValue) {
+    public void AddVector3(UnityEngine.Vector3 newCurrentValue, UnityEngine.Vector3 newStartValue, UnityEngine.Vector3 newEndValue) {
         var index = TweenyComponentsLookup.Vector3;
-        var component = (Vector3Component)CreateComponent(index, typeof(Vector3Component));
-        component.Value = newValue;
+        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.Vector3Component)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.Vector3Component));
+        component.CurrentValue = newCurrentValue;
         component.StartValue = newStartValue;
         component.EndValue = newEndValue;
         AddComponent(index, component);
     }
 
-    public void ReplaceVector3(TweenyPlugin.Utilities.TweenyVector3 newValue, UnityEngine.Vector3 newStartValue, UnityEngine.Vector3 newEndValue) {
+    public void ReplaceVector3(UnityEngine.Vector3 newCurrentValue, UnityEngine.Vector3 newStartValue, UnityEngine.Vector3 newEndValue) {
         var index = TweenyComponentsLookup.Vector3;
-        var component = (Vector3Component)CreateComponent(index, typeof(Vector3Component));
-        component.Value = newValue;
+        var component = (TweenyPlugin.Tweening.ECS.Tweens.Components.Vector3Component)CreateComponent(index, typeof(TweenyPlugin.Tweening.ECS.Tweens.Components.Vector3Component));
+        component.CurrentValue = newCurrentValue;
         component.StartValue = newStartValue;
         component.EndValue = newEndValue;
         ReplaceComponent(index, component);

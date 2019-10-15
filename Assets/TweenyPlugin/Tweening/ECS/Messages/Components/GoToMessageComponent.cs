@@ -1,7 +1,10 @@
 ﻿using Entitas;
 
-[Tweeny]
-public class GoToMessageComponent : IComponent
+namespace TweenyPlugin.Tweening.ECS.Messages.Components
 {
-    public float Step;
+    [Tweeny]
+    public class GoToMessageComponent : IComponent
+    {
+        public float Step;
+    }
 }

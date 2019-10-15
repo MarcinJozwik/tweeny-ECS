@@ -1,30 +1,33 @@
 ﻿using Entitas;
 
-public class PlaySystem : IExecuteSystem  
+namespace TweenyPlugin.Tweening.ECS.Messages.Systems
 {
-	private readonly Contexts contexts;
-    private readonly IGroup<TweenyEntity> playGroup;
-
-    public PlaySystem(Contexts contexts) 
-    {
-        this.contexts = contexts;
-        this.playGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.PlayMessage).NoneOf(TweenyMatcher.Finished));
-    }
-
-	public void Execute()
+	public class PlaySystem : IExecuteSystem  
 	{
-		TweenyEntity[] entities = this.playGroup.GetEntities();
-		int count = entities.Length;
-		
-		for (int i = 0; i < count; i++)
+		private readonly Contexts contexts;
+		private readonly IGroup<TweenyEntity> playGroup;
+
+		public PlaySystem(Contexts contexts) 
 		{
-			TweenyEntity entity = entities[i];
-			
-			entity.isTweening = true;
-			
-			if (!entity.isStarted)
+			this.contexts = contexts;
+			this.playGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.PlayMessage).NoneOf(TweenyMatcher.Finished));
+		}
+
+		public void Execute()
+		{
+			TweenyEntity[] entities = this.playGroup.GetEntities();
+			int count = entities.Length;
+		
+			for (int i = 0; i < count; i++)
 			{
-				entity.isStarting = true;
+				TweenyEntity entity = entities[i];
+			
+				entity.isTweening = true;
+			
+				if (!entity.isStarted)
+				{
+					entity.isStarting = true;
+				}
 			}
 		}
 	}

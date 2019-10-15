@@ -1,7 +1,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace TweenyPlugin.Tweening.ECS.Tweens.Components
+namespace TweenyPlugin.Tweening.ECS.Unity.Components
 {
     [Tweeny]
     public class MaterialComponent : IComponent

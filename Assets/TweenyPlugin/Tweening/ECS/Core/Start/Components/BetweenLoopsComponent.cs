@@ -1,7 +1,10 @@
 ﻿using Entitas;
 
-[Tweeny]
-public class BetweenLoopsComponent : IComponent
+namespace TweenyPlugin.Tweening.ECS.Core.Start.Components
 {
-    public float Timer;
+    [Tweeny]
+    public class BetweenLoopsComponent : IComponent
+    {
+        public float Timer;
+    }
 }
