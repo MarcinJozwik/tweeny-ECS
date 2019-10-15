@@ -20,6 +20,9 @@ namespace Unity
         private Material material;
         private float startAlpha;
         private float endAlpha;
+        
+        private Color startColor;
+        private Color endColor;
 
         private Vector3 startScale;
         private Vector3 endScale;
@@ -27,6 +30,7 @@ namespace Unity
         private Tween move;
         private Tween scale;
         private Tween fade;
+        private Tween color;
 
         private Timeline timeline;
         
@@ -47,6 +51,10 @@ namespace Unity
             //T Scale
             startScale = transform.localScale;
             endScale = startScale * 2f;
+            
+            //T Color
+            startColor = Color.yellow;
+            endColor = Color.magenta;
             
             PrepareTween();
         }
@@ -74,9 +82,11 @@ namespace Unity
                 .OnLoopComplete((() => Print("Complete Loop fade")))
                 .Reverse()
             );
+
+            color = material.TColor(startColor, endColor, duration, ease);
             
             timeline = new Timeline();
-            timeline.AddGroup(scale, move);
+            timeline.AddGroup(scale, move, color);
             timeline.AddDelay(2f,new TweenSet()
                 .OnStart((() => Print("Start Delay")))
                 .OnComplete((() => Print("Complete Delay")))

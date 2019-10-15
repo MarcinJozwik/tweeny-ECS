@@ -45,7 +45,7 @@ namespace TweenyPlugin.Core
             return GetTween(entity);
         }
 
-        public static Tween TFade(Material material, float startAlpha, float endAlpha, float duration, Ease ease, TweenSet set = null)
+        public static Tween TMaterialFade(Material material, float startAlpha, float endAlpha, float duration, Ease ease, TweenSet set = null)
         {
             TweenyEntity entity = CreateBase(duration, ease, set);
             entity.AddMaterial(material);
@@ -70,6 +70,14 @@ namespace TweenyPlugin.Core
             entity.AddCamera(camera);
             entity.AddFloat(0, startFov, endFov);
             entity.isCameraFieldOfView = true;
+            return GetTween(entity);
+        }
+
+        public static Tween TMaterialColor(Material material, Color startColor, Color endColor, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddMaterial(material);
+            entity.AddColor(Color.white, startColor, endColor);
             return GetTween(entity);
         }
 
@@ -102,6 +110,58 @@ namespace TweenyPlugin.Core
             TweenyEntity entity = CreateBase(duration, ease, set);
             entity.AddTweenyVector3(tweenyVector3);
             entity.AddVector3(Vector3.zero, startValue, endValue);
+            return GetTween(entity);
+        }
+        
+        public static Tween TColor(TweenyColor tweenyColor, Color startValue, Color endValue, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddTweenyColor(tweenyColor);
+            entity.AddColor(Color.white, startValue, endValue);
+            return GetTween(entity);
+        }
+        
+        public static Tween TLightColor(Light light, Color startColor, Color endColor, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddLight(light);
+            entity.AddColor(Color.white, startColor, endColor);
+            return GetTween(entity);
+        }
+        
+        public static Tween TLightIntensity(Light light, float startIntensity, float endIntensity, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddLight(light);
+            entity.AddFloat(0, startIntensity, endIntensity);
+            entity.isLightIntensity = true;
+            return GetTween(entity);
+        }
+        
+        public static Tween TLightRange(Light light, float startRange, float endRange, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddLight(light);
+            entity.AddFloat(0, startRange, endRange);
+            entity.isLightRange = true;
+            return GetTween(entity);
+        }
+        
+        public static Tween TLightSpotAngle(Light light, float startAngle, float endAngle, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddLight(light);
+            entity.AddFloat(0, startAngle, endAngle);
+            entity.isLightSpotAngle = true;
+            return GetTween(entity);
+        }
+        
+        public static Tween TLightFade(Light light, float startAlpha, float endAlpha, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddLight(light);
+            entity.AddFloat(0, startAlpha, endAlpha);
+            entity.isFade = true;
             return GetTween(entity);
         }
     }

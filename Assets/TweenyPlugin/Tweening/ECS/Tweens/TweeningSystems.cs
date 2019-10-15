@@ -11,6 +11,7 @@ namespace TweenyPlugin.Tweening.ECS.Tweens
             this.Add(new TweenDoubleSystem(contexts));
             this.Add(new TweenVector2System(contexts));
             this.Add(new TweenVector3System(contexts));
+            this.Add(new TweenColorSystem(contexts));
         }
     }
 }

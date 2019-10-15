@@ -8,53 +8,65 @@
 //------------------------------------------------------------------------------
 public static class TweenyComponentsLookup {
 
-    public const int CompleteAction = 0;
-    public const int CompleteLoopAction = 1;
-    public const int Finished = 2;
-    public const int Finishing = 3;
-    public const int Loop = 4;
-    public const int BetweenLoops = 5;
-    public const int Delay = 6;
-    public const int Ease = 7;
-    public const int Mirror = 8;
-    public const int Progress = 9;
-    public const int Reverse = 10;
-    public const int StartAction = 11;
-    public const int Started = 12;
-    public const int Starting = 13;
-    public const int Timer = 14;
-    public const int Tweening = 15;
-    public const int GroupFinish = 16;
-    public const int Timeline = 17;
-    public const int Id = 18;
-    public const int DelayedMessage = 19;
-    public const int GoToMessage = 20;
-    public const int Message = 21;
-    public const int PlayMessage = 22;
-    public const int ReceiverId = 23;
-    public const int ResetMessage = 24;
-    public const int StopMessage = 25;
-    public const int CameraFieldOfView = 26;
-    public const int CameraSize = 27;
-    public const int Fade = 28;
-    public const int Move = 29;
-    public const int Scale = 30;
-    public const int TimeService = 31;
-    public const int Double = 32;
-    public const int Float = 33;
-    public const int Vector2 = 34;
-    public const int Vector3 = 35;
-    public const int Camera = 36;
-    public const int Material = 37;
-    public const int Transform = 38;
-    public const int TweenyDouble = 39;
-    public const int TweenyFloat = 40;
-    public const int TweenyVector2 = 41;
-    public const int TweenyVector3 = 42;
+    public const int Color = 0;
+    public const int Light = 1;
+    public const int LightIntensity = 2;
+    public const int LightRange = 3;
+    public const int LightSpotAngle = 4;
+    public const int TweenyColor = 5;
+    public const int CompleteAction = 6;
+    public const int CompleteLoopAction = 7;
+    public const int Finished = 8;
+    public const int Finishing = 9;
+    public const int Loop = 10;
+    public const int BetweenLoops = 11;
+    public const int Delay = 12;
+    public const int Ease = 13;
+    public const int Mirror = 14;
+    public const int Progress = 15;
+    public const int Reverse = 16;
+    public const int StartAction = 17;
+    public const int Started = 18;
+    public const int Starting = 19;
+    public const int Timer = 20;
+    public const int Tweening = 21;
+    public const int GroupFinish = 22;
+    public const int Timeline = 23;
+    public const int Id = 24;
+    public const int DelayedMessage = 25;
+    public const int GoToMessage = 26;
+    public const int Message = 27;
+    public const int PlayMessage = 28;
+    public const int ReceiverId = 29;
+    public const int ResetMessage = 30;
+    public const int StopMessage = 31;
+    public const int CameraFieldOfView = 32;
+    public const int CameraSize = 33;
+    public const int Fade = 34;
+    public const int Move = 35;
+    public const int Scale = 36;
+    public const int TimeService = 37;
+    public const int Double = 38;
+    public const int Float = 39;
+    public const int Vector2 = 40;
+    public const int Vector3 = 41;
+    public const int Camera = 42;
+    public const int Material = 43;
+    public const int Transform = 44;
+    public const int TweenyDouble = 45;
+    public const int TweenyFloat = 46;
+    public const int TweenyVector2 = 47;
+    public const int TweenyVector3 = 48;
 
-    public const int TotalComponents = 43;
+    public const int TotalComponents = 49;
 
     public static readonly string[] componentNames = {
+        "Color",
+        "Light",
+        "LightIntensity",
+        "LightRange",
+        "LightSpotAngle",
+        "TweenyColor",
         "CompleteAction",
         "CompleteLoopAction",
         "Finished",
@@ -101,6 +113,12 @@ public static class TweenyComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(ColorComponent),
+        typeof(LightComponent),
+        typeof(LightIntensityComponent),
+        typeof(LightRangeComponent),
+        typeof(LightSpotAngleComponent),
+        typeof(TweenyColorComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteActionComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteLoopActionComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.FinishedComponent),

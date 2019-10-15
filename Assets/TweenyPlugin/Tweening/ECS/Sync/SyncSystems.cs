@@ -9,6 +9,7 @@ namespace TweenyPlugin.Tweening.ECS.Sync
         {
             this.Add(new SyncTransformPositionSystem(contexts));
             this.Add(new SyncTransformScaleSystem(contexts));
+            this.Add(new SyncMaterialColorSystem(contexts));
             this.Add(new SyncMaterialFadeSystem(contexts));
             
             this.Add(new SyncCameraOrthographicSizeSystem(contexts));
@@ -18,6 +19,13 @@ namespace TweenyPlugin.Tweening.ECS.Sync
             this.Add(new SyncTweenyDoubleSystem(contexts));
             this.Add(new SyncTweenyVector2System(contexts));
             this.Add(new SyncTweenyVector3System(contexts));
+            this.Add(new SyncTweenyColorSystem(contexts));
+            
+            this.Add(new SyncLightIntensitySystem(contexts));
+            this.Add(new SyncLightRangeSystem(contexts));
+            this.Add(new SyncLightSpotAngleSystem(contexts));
+            this.Add(new SyncLightColorSystem(contexts));
+            this.Add(new SyncLightFadeSystem(contexts));
         }
     }
 }
