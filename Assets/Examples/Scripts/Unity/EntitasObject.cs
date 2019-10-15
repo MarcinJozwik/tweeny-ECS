@@ -27,9 +27,13 @@ namespace Unity
         private Vector3 startScale;
         private Vector3 endScale;
 
+        private Quaternion startRotation;
+        private Quaternion endRotation;
+
         private Tween move;
         private Tween scale;
         private Tween fade;
+        private Tween rotate;
         private Tween color;
 
         private Timeline timeline;
@@ -50,11 +54,15 @@ namespace Unity
             
             //T Scale
             startScale = transform.localScale;
-            endScale = startScale * 2f;
+            endScale = startScale * 1.8f;
             
             //T Color
             startColor = Color.yellow;
             endColor = Color.magenta;
+            
+            //T Rotate
+            startRotation = transform.rotation;
+            endRotation = Quaternion.Euler(90, 90, 180);
             
             PrepareTween();
         }
@@ -68,6 +76,8 @@ namespace Unity
 //                .SetLoops(2, LoopType.PingPong, .5f)
 //                .Reverse()
             );
+            
+            rotate = transform.TRotate(startRotation, endRotation, duration, ease);
 
             scale = transform.TScale(startScale, endScale, duration, ease, new TweenSet()
                 .OnStart((() => Print("Start scale")))
@@ -85,8 +95,9 @@ namespace Unity
 
             color = material.TColor(startColor, endColor, duration, ease);
             
+            
             timeline = new Timeline();
-            timeline.AddGroup(scale, move, color);
+            timeline.AddGroup(scale, move, color, rotate);
             timeline.AddDelay(2f,new TweenSet()
                 .OnStart((() => Print("Start Delay")))
                 .OnComplete((() => Print("Complete Delay")))

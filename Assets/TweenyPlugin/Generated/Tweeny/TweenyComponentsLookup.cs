@@ -13,52 +13,55 @@ public static class TweenyComponentsLookup {
     public const int LightIntensity = 2;
     public const int LightRange = 3;
     public const int LightSpotAngle = 4;
-    public const int TweenyColor = 5;
-    public const int CompleteAction = 6;
-    public const int CompleteLoopAction = 7;
-    public const int Finished = 8;
-    public const int Finishing = 9;
-    public const int Loop = 10;
-    public const int BetweenLoops = 11;
-    public const int Delay = 12;
-    public const int Ease = 13;
-    public const int Mirror = 14;
-    public const int Progress = 15;
-    public const int Reverse = 16;
-    public const int StartAction = 17;
-    public const int Started = 18;
-    public const int Starting = 19;
-    public const int Timer = 20;
-    public const int Tweening = 21;
-    public const int GroupFinish = 22;
-    public const int Timeline = 23;
-    public const int Id = 24;
-    public const int DelayedMessage = 25;
-    public const int GoToMessage = 26;
-    public const int Message = 27;
-    public const int PlayMessage = 28;
-    public const int ReceiverId = 29;
-    public const int ResetMessage = 30;
-    public const int StopMessage = 31;
-    public const int CameraFieldOfView = 32;
-    public const int CameraSize = 33;
-    public const int Fade = 34;
-    public const int Move = 35;
-    public const int Scale = 36;
-    public const int TimeService = 37;
-    public const int Double = 38;
-    public const int Float = 39;
-    public const int Vector2 = 40;
-    public const int Vector3 = 41;
-    public const int Camera = 42;
-    public const int Material = 43;
-    public const int Transform = 44;
-    public const int TweenyDouble = 45;
-    public const int TweenyFloat = 46;
-    public const int TweenyVector2 = 47;
-    public const int TweenyVector3 = 48;
+    public const int Quaternion = 5;
+    public const int Rotate = 6;
+    public const int TweenyColor = 7;
+    public const int CompleteAction = 8;
+    public const int CompleteLoopAction = 9;
+    public const int Finished = 10;
+    public const int Finishing = 11;
+    public const int Loop = 12;
+    public const int BetweenLoops = 13;
+    public const int Delay = 14;
+    public const int Ease = 15;
+    public const int Mirror = 16;
+    public const int Progress = 17;
+    public const int Reverse = 18;
+    public const int StartAction = 19;
+    public const int Started = 20;
+    public const int Starting = 21;
+    public const int Timer = 22;
+    public const int Tweening = 23;
+    public const int GroupFinish = 24;
+    public const int Timeline = 25;
+    public const int Id = 26;
+    public const int DelayedMessage = 27;
+    public const int GoToMessage = 28;
+    public const int Message = 29;
+    public const int PlayMessage = 30;
+    public const int ReceiverId = 31;
+    public const int ResetMessage = 32;
+    public const int StopMessage = 33;
+    public const int CameraFieldOfView = 34;
+    public const int CameraSize = 35;
+    public const int Fade = 36;
+    public const int Move = 37;
+    public const int Scale = 38;
+    public const int TimeService = 39;
+    public const int Double = 40;
+    public const int Float = 41;
+    public const int Vector2 = 42;
+    public const int Vector3 = 43;
+    public const int Camera = 44;
+    public const int Material = 45;
+    public const int Transform = 46;
+    public const int TweenyDouble = 47;
+    public const int TweenyFloat = 48;
+    public const int TweenyVector2 = 49;
+    public const int TweenyVector3 = 50;
+    public const int TweenyQuaternion = 51;
 
-    public const int TotalComponents = 49;
+    public const int TotalComponents = 52;
 
     public static readonly string[] componentNames = {
         "Color",
@@ -66,6 +69,8 @@ public static class TweenyComponentsLookup {
         "LightIntensity",
         "LightRange",
         "LightSpotAngle",
+        "Quaternion",
+        "Rotate",
         "TweenyColor",
         "CompleteAction",
         "CompleteLoopAction",
@@ -109,7 +114,8 @@ public static class TweenyComponentsLookup {
         "TweenyDouble",
         "TweenyFloat",
         "TweenyVector2",
-        "TweenyVector3"
+        "TweenyVector3",
+        "TweenyQuaternion"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -118,6 +124,8 @@ public static class TweenyComponentsLookup {
         typeof(LightIntensityComponent),
         typeof(LightRangeComponent),
         typeof(LightSpotAngleComponent),
+        typeof(QuaternionComponent),
+        typeof(RotateComponent),
         typeof(TweenyColorComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteActionComponent),
         typeof(TweenyPlugin.Tweening.ECS.Core.Finish.Components.CompleteLoopActionComponent),
@@ -161,6 +169,7 @@ public static class TweenyComponentsLookup {
         typeof(TweenyPlugin.Tweening.ECS.Wrappers.Components.TweenyDoubleComponent),
         typeof(TweenyPlugin.Tweening.ECS.Wrappers.Components.TweenyFloatComponent),
         typeof(TweenyPlugin.Tweening.ECS.Wrappers.Components.TweenyVector2Component),
-        typeof(TweenyPlugin.Tweening.ECS.Wrappers.Components.TweenyVector3Component)
+        typeof(TweenyPlugin.Tweening.ECS.Wrappers.Components.TweenyVector3Component),
+        typeof(TweenyQuaternionComponent)
     };
 }

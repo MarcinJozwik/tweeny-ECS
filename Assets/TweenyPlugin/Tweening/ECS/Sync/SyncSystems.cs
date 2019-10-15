@@ -8,6 +8,7 @@ namespace TweenyPlugin.Tweening.ECS.Sync
             : base("Sync Systems")
         {
             this.Add(new SyncTransformPositionSystem(contexts));
+            this.Add(new SyncTransformRotationSystem(contexts));
             this.Add(new SyncTransformScaleSystem(contexts));
             this.Add(new SyncMaterialColorSystem(contexts));
             this.Add(new SyncMaterialFadeSystem(contexts));
@@ -20,6 +21,7 @@ namespace TweenyPlugin.Tweening.ECS.Sync
             this.Add(new SyncTweenyVector2System(contexts));
             this.Add(new SyncTweenyVector3System(contexts));
             this.Add(new SyncTweenyColorSystem(contexts));
+            this.Add(new SyncTweenyQuaternionSystem(contexts));
             
             this.Add(new SyncLightIntensitySystem(contexts));
             this.Add(new SyncLightRangeSystem(contexts));

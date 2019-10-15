@@ -25,7 +25,7 @@ namespace TweenyPlugin.Core
             return min + (value * (max - min));
         }
 
-        public static Tween TMove(Transform transform, Vector3 startPosition,
+        public static Tween TTransformMove(Transform transform, Vector3 startPosition,
             Vector3 endPosition, float duration, Ease ease, TweenSet set = null)
         {
             TweenyEntity entity = CreateBase(duration, ease, set);
@@ -35,7 +35,24 @@ namespace TweenyPlugin.Core
             return GetTween(entity);
         }
         
-        public static Tween TScale(Transform transform, Vector3 startScale, Vector3 endScale,
+        public static Tween TTransformRotate(Transform transform, Quaternion startRotation,
+            Quaternion endRotation, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddTransform(transform);
+            entity.AddQuaternion(Quaternion.identity, startRotation, endRotation);
+            entity.isRotate = true;
+            return GetTween(entity);
+        }
+        
+        public static Tween TTransformRotate(Transform transform, Vector3 startRotation,
+            Vector3 endRotation, float duration, Ease ease, TweenSet set = null)
+        {
+            return TTransformRotate(transform, Quaternion.Euler(startRotation),
+                Quaternion.Euler(endRotation), duration, ease, set);
+        }
+        
+        public static Tween TTransformScale(Transform transform, Vector3 startScale, Vector3 endScale,
             float duration, Ease ease, TweenSet set = null)
         {
             TweenyEntity entity = CreateBase(duration, ease, set);

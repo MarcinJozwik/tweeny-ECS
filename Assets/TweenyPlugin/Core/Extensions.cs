@@ -10,13 +10,25 @@ namespace TweenyPlugin.Core
         public static Tween TMove(this Transform transform, Vector3 startPosition,
             Vector3 endPosition, float duration, Ease ease, TweenSet set = null)
         {
-            return Tweeny.TMove(transform, startPosition, endPosition, duration, ease, set);
+            return Tweeny.TTransformMove(transform, startPosition, endPosition, duration, ease, set);
+        }
+
+        public static Tween TRotate(this Transform transform, Quaternion startRotation,
+            Quaternion endRotation, float duration, Ease ease, TweenSet set = null)
+        {
+            return Tweeny.TTransformRotate(transform, startRotation, endRotation, duration, ease, set);
+        }
+        
+        public static Tween TRotate(this Transform transform, Vector3 startRotation,
+            Vector3 endRotation, float duration, Ease ease, TweenSet set = null)
+        {
+            return Tweeny.TTransformRotate(transform, startRotation, endRotation, duration, ease, set);
         }
 
         public static Tween TScale(this Transform transform, Vector3 startScale, Vector3 endScale,
             float duration, Ease ease, TweenSet set = null)
         {
-            return Tweeny.TScale(transform, startScale, endScale, duration, ease, set);
+            return Tweeny.TTransformScale(transform, startScale, endScale, duration, ease, set);
         }
 
         public static Tween TFade(this Material material, float startAlpha, float endAlpha,
