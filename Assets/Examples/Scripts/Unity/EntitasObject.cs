@@ -76,7 +76,7 @@ namespace Unity
 //                .SetLoops(2, LoopType.PingPong, .5f)
 //                .Reverse()
             );
-            
+
             rotate = transform.TRotate(startRotation, endRotation, duration, ease);
 
             scale = transform.TScale(startScale, endScale, duration, ease, new TweenSet()

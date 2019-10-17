@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly TweenyPlugin.Tweening.ECS.Sync.Components.CameraSizeComponent cameraSizeComponent = new TweenyPlugin.Tweening.ECS.Sync.Components.CameraSizeComponent();
+    static readonly EndParameterComponent endParameterComponent = new EndParameterComponent();
 
-    public bool isCameraSize {
-        get { return HasComponent(TweenyComponentsLookup.CameraSize); }
+    public bool isEndParameter {
+        get { return HasComponent(TweenyComponentsLookup.EndParameter); }
         set {
-            if (value != isCameraSize) {
-                var index = TweenyComponentsLookup.CameraSize;
+            if (value != isEndParameter) {
+                var index = TweenyComponentsLookup.EndParameter;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : cameraSizeComponent;
+                            : endParameterComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class TweenyEntity {
 //------------------------------------------------------------------------------
 public sealed partial class TweenyMatcher {
 
-    static Entitas.IMatcher<TweenyEntity> _matcherCameraSize;
+    static Entitas.IMatcher<TweenyEntity> _matcherEndParameter;
 
-    public static Entitas.IMatcher<TweenyEntity> CameraSize {
+    public static Entitas.IMatcher<TweenyEntity> EndParameter {
         get {
-            if (_matcherCameraSize == null) {
-                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.CameraSize);
+            if (_matcherEndParameter == null) {
+                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.EndParameter);
                 matcher.componentNames = TweenyComponentsLookup.componentNames;
-                _matcherCameraSize = matcher;
+                _matcherEndParameter = matcher;
             }
 
-            return _matcherCameraSize;
+            return _matcherEndParameter;
         }
     }
 }

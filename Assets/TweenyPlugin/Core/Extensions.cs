@@ -115,6 +115,28 @@ namespace TweenyPlugin.Core
             return Tweeny.TLightColor(light, startColor, endColor, duration, ease, set); 
         }
 
+        public static Tween TStartWidth(this LineRenderer line, float startWidth,
+            float endWidth, float duration, Ease ease, TweenSet set = null)
+        {
+            return Tweeny.TLineRendererStartWidth(line, startWidth, endWidth, duration, ease, set);
+        }
+        
+        public static Tween TEndWidth(this LineRenderer line, float startWidth,
+            float endWidth, float duration, Ease ease, TweenSet set = null)
+        {
+            return Tweeny.TLineRendererEndWidth(line, startWidth, endWidth, duration, ease, set);
+        }
 
+        public static Tween TStartColor(this LineRenderer line, Color startColor,
+            Color endColor, float duration, Ease ease, TweenSet set = null)
+        {
+            return Tweeny.TLineRendererStartColor(line, startColor, endColor, duration, ease, set);
+        }
+        
+        public static Tween TEndColor(this LineRenderer line, Color startColor,
+            Color endColor, float duration, Ease ease, TweenSet set = null)
+        {
+            return Tweeny.TLineRendererEndColor(line, startColor, endColor, duration, ease, set);
+        }
     }
 }

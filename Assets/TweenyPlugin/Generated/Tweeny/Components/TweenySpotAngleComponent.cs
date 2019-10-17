@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly LightIntensityComponent lightIntensityComponent = new LightIntensityComponent();
+    static readonly SpotAngleComponent spotAngleComponent = new SpotAngleComponent();
 
-    public bool isLightIntensity {
-        get { return HasComponent(TweenyComponentsLookup.LightIntensity); }
+    public bool isSpotAngle {
+        get { return HasComponent(TweenyComponentsLookup.SpotAngle); }
         set {
-            if (value != isLightIntensity) {
-                var index = TweenyComponentsLookup.LightIntensity;
+            if (value != isSpotAngle) {
+                var index = TweenyComponentsLookup.SpotAngle;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : lightIntensityComponent;
+                            : spotAngleComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class TweenyEntity {
 //------------------------------------------------------------------------------
 public sealed partial class TweenyMatcher {
 
-    static Entitas.IMatcher<TweenyEntity> _matcherLightIntensity;
+    static Entitas.IMatcher<TweenyEntity> _matcherSpotAngle;
 
-    public static Entitas.IMatcher<TweenyEntity> LightIntensity {
+    public static Entitas.IMatcher<TweenyEntity> SpotAngle {
         get {
-            if (_matcherLightIntensity == null) {
-                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.LightIntensity);
+            if (_matcherSpotAngle == null) {
+                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.SpotAngle);
                 matcher.componentNames = TweenyComponentsLookup.componentNames;
-                _matcherLightIntensity = matcher;
+                _matcherSpotAngle = matcher;
             }
 
-            return _matcherLightIntensity;
+            return _matcherSpotAngle;
         }
     }
 }

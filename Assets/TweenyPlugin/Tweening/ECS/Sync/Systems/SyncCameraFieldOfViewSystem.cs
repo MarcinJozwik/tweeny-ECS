@@ -10,7 +10,7 @@ namespace TweenyPlugin.Tweening.ECS.Sync.Systems
 		public SyncCameraFieldOfViewSystem(Contexts contexts) 
 		{
 			this.contexts = contexts;
-			this.cameraGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Camera, TweenyMatcher.CameraFieldOfView, TweenyMatcher.Float));
+			this.cameraGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Camera, TweenyMatcher.FieldOfView, TweenyMatcher.Float));
 		}
 
 		public void Execute()

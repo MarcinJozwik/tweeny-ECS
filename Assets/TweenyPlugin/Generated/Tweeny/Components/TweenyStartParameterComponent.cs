@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly LightSpotAngleComponent lightSpotAngleComponent = new LightSpotAngleComponent();
+    static readonly StartParameterComponent startParameterComponent = new StartParameterComponent();
 
-    public bool isLightSpotAngle {
-        get { return HasComponent(TweenyComponentsLookup.LightSpotAngle); }
+    public bool isStartParameter {
+        get { return HasComponent(TweenyComponentsLookup.StartParameter); }
         set {
-            if (value != isLightSpotAngle) {
-                var index = TweenyComponentsLookup.LightSpotAngle;
+            if (value != isStartParameter) {
+                var index = TweenyComponentsLookup.StartParameter;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : lightSpotAngleComponent;
+                            : startParameterComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class TweenyEntity {
 //------------------------------------------------------------------------------
 public sealed partial class TweenyMatcher {
 
-    static Entitas.IMatcher<TweenyEntity> _matcherLightSpotAngle;
+    static Entitas.IMatcher<TweenyEntity> _matcherStartParameter;
 
-    public static Entitas.IMatcher<TweenyEntity> LightSpotAngle {
+    public static Entitas.IMatcher<TweenyEntity> StartParameter {
         get {
-            if (_matcherLightSpotAngle == null) {
-                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.LightSpotAngle);
+            if (_matcherStartParameter == null) {
+                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.StartParameter);
                 matcher.componentNames = TweenyComponentsLookup.componentNames;
-                _matcherLightSpotAngle = matcher;
+                _matcherStartParameter = matcher;
             }
 
-            return _matcherLightSpotAngle;
+            return _matcherStartParameter;
         }
     }
 }

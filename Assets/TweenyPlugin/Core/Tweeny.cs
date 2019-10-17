@@ -77,7 +77,7 @@ namespace TweenyPlugin.Core
             TweenyEntity entity = CreateBase(duration, ease, set);
             entity.AddCamera(camera);
             entity.AddFloat(0, startSize, endSize);
-            entity.isCameraSize = true;
+            entity.isSize = true;
             return GetTween(entity);
         }
         
@@ -86,7 +86,7 @@ namespace TweenyPlugin.Core
             TweenyEntity entity = CreateBase(duration, ease, set);
             entity.AddCamera(camera);
             entity.AddFloat(0, startFov, endFov);
-            entity.isCameraFieldOfView = true;
+            entity.isFieldOfView = true;
             return GetTween(entity);
         }
 
@@ -151,7 +151,7 @@ namespace TweenyPlugin.Core
             TweenyEntity entity = CreateBase(duration, ease, set);
             entity.AddLight(light);
             entity.AddFloat(0, startIntensity, endIntensity);
-            entity.isLightIntensity = true;
+            entity.isIntensity = true;
             return GetTween(entity);
         }
         
@@ -160,7 +160,7 @@ namespace TweenyPlugin.Core
             TweenyEntity entity = CreateBase(duration, ease, set);
             entity.AddLight(light);
             entity.AddFloat(0, startRange, endRange);
-            entity.isLightRange = true;
+            entity.isRange = true;
             return GetTween(entity);
         }
         
@@ -169,7 +169,7 @@ namespace TweenyPlugin.Core
             TweenyEntity entity = CreateBase(duration, ease, set);
             entity.AddLight(light);
             entity.AddFloat(0, startAngle, endAngle);
-            entity.isLightSpotAngle = true;
+            entity.isSpotAngle = true;
             return GetTween(entity);
         }
         
@@ -179,6 +179,44 @@ namespace TweenyPlugin.Core
             entity.AddLight(light);
             entity.AddFloat(0, startAlpha, endAlpha);
             entity.isFade = true;
+            return GetTween(entity);
+        }
+        
+        public static Tween TLineRendererStartWidth(LineRenderer line, float startWidth, float endWidth, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddLineRenderer(line);
+            entity.AddFloat(0, startWidth, endWidth);
+            entity.isWidth = true;
+            entity.isStartParameter = true;
+            return GetTween(entity);
+        }
+        
+        public static Tween TLineRendererEndWidth(LineRenderer line, float startWidth, float endWidth, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddLineRenderer(line);
+            entity.AddFloat(0, startWidth, endWidth);
+            entity.isWidth = true;
+            entity.isEndParameter = true;
+            return GetTween(entity);
+        }
+        
+        public static Tween TLineRendererStartColor(LineRenderer line, Color startColor, Color endColor, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddLineRenderer(line);
+            entity.AddColor(Color.white, startColor, endColor);
+            entity.isStartParameter = true;
+            return GetTween(entity);
+        }
+        
+        public static Tween TLineRendererEndColor(LineRenderer line, Color startColor, Color endColor, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddLineRenderer(line);
+            entity.AddColor(Color.white, startColor, endColor);
+            entity.isEndParameter = true;
             return GetTween(entity);
         }
     }

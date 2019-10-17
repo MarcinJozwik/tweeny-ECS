@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly TweenyPlugin.Tweening.ECS.Sync.Components.CameraFieldOfViewComponent cameraFieldOfViewComponent = new TweenyPlugin.Tweening.ECS.Sync.Components.CameraFieldOfViewComponent();
+    static readonly WidthComponent widthComponent = new WidthComponent();
 
-    public bool isCameraFieldOfView {
-        get { return HasComponent(TweenyComponentsLookup.CameraFieldOfView); }
+    public bool isWidth {
+        get { return HasComponent(TweenyComponentsLookup.Width); }
         set {
-            if (value != isCameraFieldOfView) {
-                var index = TweenyComponentsLookup.CameraFieldOfView;
+            if (value != isWidth) {
+                var index = TweenyComponentsLookup.Width;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : cameraFieldOfViewComponent;
+                            : widthComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class TweenyEntity {
 //------------------------------------------------------------------------------
 public sealed partial class TweenyMatcher {
 
-    static Entitas.IMatcher<TweenyEntity> _matcherCameraFieldOfView;
+    static Entitas.IMatcher<TweenyEntity> _matcherWidth;
 
-    public static Entitas.IMatcher<TweenyEntity> CameraFieldOfView {
+    public static Entitas.IMatcher<TweenyEntity> Width {
         get {
-            if (_matcherCameraFieldOfView == null) {
-                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.CameraFieldOfView);
+            if (_matcherWidth == null) {
+                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.Width);
                 matcher.componentNames = TweenyComponentsLookup.componentNames;
-                _matcherCameraFieldOfView = matcher;
+                _matcherWidth = matcher;
             }
 
-            return _matcherCameraFieldOfView;
+            return _matcherWidth;
         }
     }
 }

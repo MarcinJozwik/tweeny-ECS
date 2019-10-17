@@ -8,18 +8,18 @@
 //------------------------------------------------------------------------------
 public partial class TweenyEntity {
 
-    static readonly LightRangeComponent lightRangeComponent = new LightRangeComponent();
+    static readonly IntensityComponent intensityComponent = new IntensityComponent();
 
-    public bool isLightRange {
-        get { return HasComponent(TweenyComponentsLookup.LightRange); }
+    public bool isIntensity {
+        get { return HasComponent(TweenyComponentsLookup.Intensity); }
         set {
-            if (value != isLightRange) {
-                var index = TweenyComponentsLookup.LightRange;
+            if (value != isIntensity) {
+                var index = TweenyComponentsLookup.Intensity;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : lightRangeComponent;
+                            : intensityComponent;
 
                     AddComponent(index, component);
                 } else {
@@ -40,17 +40,17 @@ public partial class TweenyEntity {
 //------------------------------------------------------------------------------
 public sealed partial class TweenyMatcher {
 
-    static Entitas.IMatcher<TweenyEntity> _matcherLightRange;
+    static Entitas.IMatcher<TweenyEntity> _matcherIntensity;
 
-    public static Entitas.IMatcher<TweenyEntity> LightRange {
+    public static Entitas.IMatcher<TweenyEntity> Intensity {
         get {
-            if (_matcherLightRange == null) {
-                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.LightRange);
+            if (_matcherIntensity == null) {
+                var matcher = (Entitas.Matcher<TweenyEntity>)Entitas.Matcher<TweenyEntity>.AllOf(TweenyComponentsLookup.Intensity);
                 matcher.componentNames = TweenyComponentsLookup.componentNames;
-                _matcherLightRange = matcher;
+                _matcherIntensity = matcher;
             }
 
-            return _matcherLightRange;
+            return _matcherIntensity;
         }
     }
 }

@@ -28,6 +28,11 @@ namespace TweenyPlugin.Tweening.ECS.Sync
             this.Add(new SyncLightSpotAngleSystem(contexts));
             this.Add(new SyncLightColorSystem(contexts));
             this.Add(new SyncLightFadeSystem(contexts));
+            
+            this.Add(new SyncLineRendererStartColorSystem(contexts));
+            this.Add(new SyncLineRendererEndColorSystem(contexts));
+            this.Add(new SyncLineRendererStartWidthSystem(contexts));
+            this.Add(new SyncLineRendererEndWidthSystem(contexts));
         }
     }
 }

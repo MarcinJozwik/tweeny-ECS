@@ -3,7 +3,7 @@
 namespace TweenyPlugin.Tweening.ECS.Sync.Components
 {
     [Tweeny]
-    public class CameraSizeComponent : IComponent
+    public class SizeComponent : IComponent
     {
 
     }

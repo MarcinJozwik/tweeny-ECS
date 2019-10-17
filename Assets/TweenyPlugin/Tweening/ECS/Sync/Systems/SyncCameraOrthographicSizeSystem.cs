@@ -10,7 +10,7 @@ namespace TweenyPlugin.Tweening.ECS.Sync.Systems
 		public SyncCameraOrthographicSizeSystem(Contexts contexts) 
 		{
 			this.contexts = contexts;
-			this.cameraGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Camera, TweenyMatcher.CameraSize, TweenyMatcher.Float));
+			this.cameraGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Camera, TweenyMatcher.Size, TweenyMatcher.Float));
 		}
 
 		public void Execute()

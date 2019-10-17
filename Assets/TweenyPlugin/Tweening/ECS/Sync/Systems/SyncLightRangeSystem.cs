@@ -11,7 +11,7 @@ namespace TweenyPlugin.Tweening.ECS.Sync.Systems
 		{
 			this.contexts = contexts;
 			this.lightGroup = this.contexts.tweeny.GetGroup(TweenyMatcher.AllOf(TweenyMatcher.Tweening, TweenyMatcher.Light,
-				TweenyMatcher.LightRange, TweenyMatcher.Float));
+				TweenyMatcher.Range, TweenyMatcher.Float));
 		}
 
 		public void Execute()
