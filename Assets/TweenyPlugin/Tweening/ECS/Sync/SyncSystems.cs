@@ -13,6 +13,8 @@ namespace TweenyPlugin.Tweening.ECS.Sync
             this.Add(new SyncMaterialColorSystem(contexts));
             this.Add(new SyncMaterialFadeSystem(contexts));
             
+            this.Add(new SyncRectTransformPositionSystem(contexts));
+            
             this.Add(new SyncCameraOrthographicSizeSystem(contexts));
             this.Add(new SyncCameraFieldOfViewSystem(contexts));
             

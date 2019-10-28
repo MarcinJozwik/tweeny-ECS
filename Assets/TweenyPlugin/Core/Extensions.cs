@@ -31,6 +31,13 @@ namespace TweenyPlugin.Core
             return Tweeny.TTransformScale(transform, startScale, endScale, duration, ease, set);
         }
 
+        public static Tween TMove(this RectTransform rectTransform, Vector2 startPosition,
+            Vector2 endPosition, float duration, Ease ease, TweenSet set = null)
+        {
+            return Tweeny.TRectTransformMove(rectTransform, startPosition, endPosition, duration,
+                ease, set);
+        }
+
         public static Tween TFade(this Material material, float startAlpha, float endAlpha,
             float duration, Ease ease, TweenSet set = null)
         {

@@ -15,58 +15,59 @@ public static class TweenyComponentsLookup {
     public const int LineRenderer = 4;
     public const int Quaternion = 5;
     public const int Range = 6;
-    public const int Rotate = 7;
-    public const int SpotAngle = 8;
-    public const int StartParameter = 9;
-    public const int TrailRenderer = 10;
-    public const int TweenyColor = 11;
-    public const int CompleteAction = 12;
-    public const int CompleteLoopAction = 13;
-    public const int Finished = 14;
-    public const int Finishing = 15;
-    public const int Loop = 16;
-    public const int BetweenLoops = 17;
-    public const int Delay = 18;
-    public const int Ease = 19;
-    public const int Mirror = 20;
-    public const int Progress = 21;
-    public const int Reverse = 22;
-    public const int StartAction = 23;
-    public const int Started = 24;
-    public const int Starting = 25;
-    public const int Timer = 26;
-    public const int Tweening = 27;
-    public const int GroupFinish = 28;
-    public const int Timeline = 29;
-    public const int Id = 30;
-    public const int DelayedMessage = 31;
-    public const int GoToMessage = 32;
-    public const int Message = 33;
-    public const int PlayMessage = 34;
-    public const int ReceiverId = 35;
-    public const int ResetMessage = 36;
-    public const int StopMessage = 37;
-    public const int Fade = 38;
-    public const int FieldOfView = 39;
-    public const int Move = 40;
-    public const int Scale = 41;
-    public const int Size = 42;
-    public const int TimeService = 43;
-    public const int Double = 44;
-    public const int Float = 45;
-    public const int Vector2 = 46;
-    public const int Vector3 = 47;
-    public const int Camera = 48;
-    public const int Material = 49;
-    public const int Transform = 50;
-    public const int TweenyDouble = 51;
-    public const int TweenyFloat = 52;
-    public const int TweenyVector2 = 53;
-    public const int TweenyVector3 = 54;
-    public const int TweenyQuaternion = 55;
-    public const int Width = 56;
+    public const int RectTransform = 7;
+    public const int Rotate = 8;
+    public const int SpotAngle = 9;
+    public const int StartParameter = 10;
+    public const int TrailRenderer = 11;
+    public const int TweenyColor = 12;
+    public const int CompleteAction = 13;
+    public const int CompleteLoopAction = 14;
+    public const int Finished = 15;
+    public const int Finishing = 16;
+    public const int Loop = 17;
+    public const int BetweenLoops = 18;
+    public const int Delay = 19;
+    public const int Ease = 20;
+    public const int Mirror = 21;
+    public const int Progress = 22;
+    public const int Reverse = 23;
+    public const int StartAction = 24;
+    public const int Started = 25;
+    public const int Starting = 26;
+    public const int Timer = 27;
+    public const int Tweening = 28;
+    public const int GroupFinish = 29;
+    public const int Timeline = 30;
+    public const int Id = 31;
+    public const int DelayedMessage = 32;
+    public const int GoToMessage = 33;
+    public const int Message = 34;
+    public const int PlayMessage = 35;
+    public const int ReceiverId = 36;
+    public const int ResetMessage = 37;
+    public const int StopMessage = 38;
+    public const int Fade = 39;
+    public const int FieldOfView = 40;
+    public const int Move = 41;
+    public const int Scale = 42;
+    public const int Size = 43;
+    public const int TimeService = 44;
+    public const int Double = 45;
+    public const int Float = 46;
+    public const int Vector2 = 47;
+    public const int Vector3 = 48;
+    public const int Camera = 49;
+    public const int Material = 50;
+    public const int Transform = 51;
+    public const int TweenyDouble = 52;
+    public const int TweenyFloat = 53;
+    public const int TweenyVector2 = 54;
+    public const int TweenyVector3 = 55;
+    public const int TweenyQuaternion = 56;
+    public const int Width = 57;
 
-    public const int TotalComponents = 57;
+    public const int TotalComponents = 58;
 
     public static readonly string[] componentNames = {
         "Color",
@@ -76,6 +77,7 @@ public static class TweenyComponentsLookup {
         "LineRenderer",
         "Quaternion",
         "Range",
+        "RectTransform",
         "Rotate",
         "SpotAngle",
         "StartParameter",
@@ -136,6 +138,7 @@ public static class TweenyComponentsLookup {
         typeof(LineRendererComponent),
         typeof(QuaternionComponent),
         typeof(RangeComponent),
+        typeof(RectTransformComponent),
         typeof(RotateComponent),
         typeof(SpotAngleComponent),
         typeof(StartParameterComponent),

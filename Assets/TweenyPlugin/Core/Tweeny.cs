@@ -61,6 +61,16 @@ namespace TweenyPlugin.Core
             entity.isScale = true;
             return GetTween(entity);
         }
+        
+        public static Tween TRectTransformMove(RectTransform rectTransform, Vector2 startPosition,
+            Vector2 endPosition, float duration, Ease ease, TweenSet set = null)
+        {
+            TweenyEntity entity = CreateBase(duration, ease, set);
+            entity.AddRectTransform(rectTransform);
+            entity.AddVector2(Vector2.zero, startPosition, endPosition);
+            entity.isMove = true;
+            return GetTween(entity); 
+        }
 
         public static Tween TMaterialFade(Material material, float startAlpha, float endAlpha, float duration, Ease ease, TweenSet set = null)
         {
