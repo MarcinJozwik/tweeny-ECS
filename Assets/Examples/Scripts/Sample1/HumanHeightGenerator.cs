@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using TweenyPlugin;
 using TweenyPlugin.Core;
 using TweenyPlugin.Easing.Definitions;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Unity
 {
@@ -18,6 +19,7 @@ namespace Unity
         public float MaxHeight = 2f;
     }
     
+#if UNITY_EDITOR
     [CustomEditor(typeof(HumanHeightGenerator))]
     public class HumanHeightGeneratorEditor : Editor
     {
@@ -86,4 +88,5 @@ namespace Unity
             fieldNames = fields.Select(f => f.Name).ToArray();
         }
     }
+#endif
 }
