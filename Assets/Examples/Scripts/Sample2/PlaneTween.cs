@@ -7,8 +7,7 @@ public class PlaneTween : MonoBehaviour
 {
     void Start()
     {
-        Material material = GetComponent<Renderer>().material;
-        Tween color3 = material.TColor(material.color, Color.red, 20f, EaseMode.Linear);
+        Tween color3 = GetComponent<Renderer>().material.TColor(Color.red, 20f, EaseMode.Linear);
         color3.Play();
     }
 }
